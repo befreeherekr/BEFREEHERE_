@@ -121,3 +121,13 @@ blockquote{font-family:var(--kr);font-size:17px;line-height:1.9;color:var(--pape
   .example{padding:1.4rem 1.2rem;padding-top:3.4rem;}
   .tbl{font-size:12.5px;}
 }
+
+/* ── 읽기 쉬운 줄바꿈 (휴대폰 폭이 달라도 자연스럽게) ──
+   · 문단: 마지막 줄에 단어 하나만 남지 않도록, 줄 길이를 고르게
+   · 제목: 줄 길이를 비슷하게 나눔
+   · 이 기능이 없는 옛 휴대폰은 assets/readable.js가 대신 처리 */
+.page p,.page li,.lead,.note,blockquote,.example,.related a{text-wrap:pretty;}
+h1,h2,h3,.qa summary,.toc li{text-wrap:balance;}
+@media(max-width:768px){
+  .page p{margin-bottom:1.35rem;}
+}

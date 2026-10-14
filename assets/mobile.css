@@ -1,0 +1,93 @@
+/* ═══════════════════════════════════════════════════════════
+   휴대폰 전용 배치 (768px 이하에서만 적용 — 컴퓨터 화면은 그대로)
+   - 하단 고정 상담 바 / 카드 옆으로 넘기기
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── 공통 색 (어두운 페이지 기본, 생전추모식은 m-light) ── */
+  body {
+    --m-line: rgba(201,185,154,.26);
+    --m-line-strong: rgba(201,185,154,.5);
+    --m-text: #e8e2d9;
+    --m-accent: #c8a96e;
+    --m-bar-bg: rgba(14,13,11,.92);
+    --m-fill-text: #14110c;
+  }
+  body.m-light {
+    --m-line: rgba(181,97,58,.28);
+    --m-line-strong: rgba(181,97,58,.55);
+    --m-text: #1A1208;
+    --m-accent: #B5613A;
+    --m-bar-bg: rgba(242,234,216,.95);
+    --m-fill-text: #fff;
+  }
+
+  /* ── 1. 위쪽 '상담 문의' 버튼 숨김 → 아래 고정 바로 이동 ── */
+  body.m-has-bar .nav-cta { display: none !important; }
+  body.m-has-bar { padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
+
+  .m-bar {                      /* 사이트의 '상담 시작하기' 둥근 버튼과 같은 결로 */
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+    display: grid; grid-template-columns: 1fr 1.25fr; gap: 10px;
+    padding: 22px 18px calc(14px + env(safe-area-inset-bottom));
+    background: linear-gradient(to bottom, transparent 0%, var(--m-bar-bg) 38%);
+    transform: translateY(110%); transition: transform .35s ease;
+    pointer-events: none;
+  }
+  .m-bar.show { transform: none; }
+  .m-bar a, .m-bar button {
+    pointer-events: auto;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    height: 46px; border-radius: 100px;
+    font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 400;
+    letter-spacing: .12em; text-decoration: none; cursor: pointer;
+  }
+  .m-bar .m-call {
+    background: rgba(14,13,11,.55); color: var(--m-accent);
+    border: .5px solid var(--m-line-strong);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
+  body.m-light .m-bar .m-call { background: rgba(242,234,216,.6); }
+  .m-bar .m-ask {
+    background: var(--m-accent); color: var(--m-fill-text); border: none;
+  }
+  .m-bar svg { flex-shrink: 0; width: 13px; height: 13px; }
+
+  /* ── 2. 카드 옆으로 넘기기 ── */
+  .m-swipe {
+    display: flex !important; grid-template-columns: none !important;
+    gap: 12px !important; overflow-x: auto !important;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; background: transparent !important;
+    margin: 0 -1.6rem !important; padding: 4px 1.6rem 6px !important;
+    scroll-padding: 0 1.6rem;
+  }
+  .m-swipe::-webkit-scrollbar { display: none; }
+  .m-swipe > * {
+    flex: 0 0 84% !important; scroll-snap-align: start;
+    box-sizing: border-box; margin: 0 !important;
+    border: .5px solid var(--m-line) !important; border-radius: 10px;
+    padding: 2rem 1.6rem 1.8rem !important;
+  }
+  .m-dots { display: flex; justify-content: center; gap: 7px; margin-top: 18px; }
+  .m-dots i {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--m-line); transition: background .25s, width .25s;
+  }
+  .m-dots i.on { width: 18px; border-radius: 3px; background: var(--m-accent); }
+  /* 카드 안 큰 장식 숫자 줄이기 */
+  .m-swipe > * > div:first-of-type[style*="font-size:42px"],
+  .m-swipe > * > div[style*="font-size: 42px"] {
+    font-size: 26px !important; margin-bottom: 1rem !important;
+  }
+
+  /* ── 장례 절차 보기 · 부고 문자 예시: 좌우 반반 ── */
+  .proc-links { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px !important; }
+  .proc-links a { padding: 14px 8px !important; letter-spacing: .08em !important; }
+
+  /* ── 3. 읽기 쉬운 줄바꿈 · 정렬 다듬기 · 빈 공간 줄이기 ── */
+  p { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  #services > .rv:first-of-type p { text-align: left !important; max-width: none !important; }
+  #services > .rv:last-child { margin-top: 3.5rem !important; gap: 1.6rem !important; }
+}

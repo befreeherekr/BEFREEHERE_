@@ -1714,6 +1714,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
   .cur,.cur-ring{display:none !important;}
 }
 </style>
+<link rel="stylesheet" href="assets/mobile.css">
 </head>
 <body>
 
@@ -2143,22 +2144,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
       <p class="pstep-d">장례 이후에도 비프리히어는 곁에 있습니다. 행정 절차 마무리부터 가족의 마음을 살피는 일까지.</p>
     </div>
   </div>
-  <div class="rv" style="margin-top:4rem;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;">
-    <button id="funeralProcessBtn" style="
-      font-family:'Noto Sans KR',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-      padding:13px 28px;background:transparent;
-      border:.5px solid rgba(201,185,154,.28);border-radius:100px;
-      color:rgba(201,185,154,.7);cursor:pointer;transition:border-color .2s,color .2s;
-    "
-    onmouseover="this.style.borderColor='rgba(201,185,154,.7)';this.style.color='#c8a96e';"
-    onmouseout="this.style.borderColor='rgba(201,185,154,.28)';this.style.color='rgba(201,185,154,.7)';">
-      장례 절차 보기
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px;vertical-align:middle;">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </button>
-    <a href="funeral-guide.html" style="font-size:12px;letter-spacing:.06em;color:rgba(201,185,154,.7);border-bottom:.5px solid rgba(201,185,154,.3);padding-bottom:3px;">임종부터 화장까지, 장례 절차 전체 안내 →</a>
-    <a href="obituary-message.html" style="font-size:12px;letter-spacing:.06em;color:rgba(201,185,154,.7);border-bottom:.5px solid rgba(201,185,154,.3);padding-bottom:3px;">부고 문자 예시 →</a>
+  <div class="rv proc-links" style="margin-top:4rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+    <a href="funeral-guide.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Noto Sans KR',sans-serif;font-size:11px;letter-spacing:.14em;padding:13px 28px;border:.5px solid rgba(201,185,154,.28);border-radius:100px;color:rgba(201,185,154,.7);transition:border-color .2s,color .2s;white-space:nowrap;" onmouseover="this.style.borderColor='rgba(201,185,154,.7)';this.style.color='#c8a96e';" onmouseout="this.style.borderColor='rgba(201,185,154,.28)';this.style.color='rgba(201,185,154,.7)';">장례 절차 보기<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="obituary-message.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Noto Sans KR',sans-serif;font-size:11px;letter-spacing:.14em;padding:13px 28px;border:.5px solid rgba(201,185,154,.28);border-radius:100px;color:rgba(201,185,154,.7);transition:border-color .2s,color .2s;white-space:nowrap;" onmouseover="this.style.borderColor='rgba(201,185,154,.7)';this.style.color='#c8a96e';" onmouseout="this.style.borderColor='rgba(201,185,154,.28)';this.style.color='rgba(201,185,154,.7)';">부고 문자 예시<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
@@ -4171,5 +4159,6 @@ document.querySelectorAll('.btn-primary, .btn-secondary').forEach(function(btn) 
 
 
 
+<script src="assets/mobile.js" defer></script>
 </body>
 </html>
