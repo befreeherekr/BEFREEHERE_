@@ -42,7 +42,7 @@
   .m-dots i.on { width: 18px; border-radius: 3px; background: #B5613A; }
 
   /* ── 장례식 '비프리히어가 묻습니다' 소개 문장 정렬 ── */
-  #services > .rv:first-of-type p { text-align: left !important; max-width: none !important; }
+  .svc-intro { text-align: left !important; max-width: none !important; }
 
   /* ── 읽기 쉬운 줄바꿈 ── */
   p { text-wrap: pretty; }
