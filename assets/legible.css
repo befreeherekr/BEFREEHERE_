@@ -1,0 +1,16 @@
+/* 어두운 페이지(홈·장례식) 글씨 또렷하게 — 꼭 읽어야 하는 글자만 살짝 밝힘 */
+:root{
+  --sub:rgba(232,226,217,.72);
+  --mute:rgba(232,226,217,.56);
+}
+html body .stat-eyebrow{color:rgba(201,185,154,.62);}
+html body .stat-l{color:rgba(232,226,217,.56);font-size:11px;}
+
+html body .footer-tagline{color:rgba(232,226,217,.6);font-size:12px;}
+html body .footer-addr{color:rgba(232,226,217,.48);font-size:11.5px;}
+html body .footer-col-label{color:rgba(201,185,154,.6);font-size:10.5px;}
+html body .footer-links a,
+html body .footer-links span{color:rgba(232,226,217,.62);}
+html body .footer-links a:hover{color:var(--paper);}
+html body .footer-copy{color:rgba(232,226,217,.42);font-size:11px;}
+html body .footer-reg{color:rgba(232,226,217,.38);font-size:11px;}
