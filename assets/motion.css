@@ -31,15 +31,83 @@ html.lenis, html.lenis body{height:auto;}
 /* 스크롤 성능: 위쪽 메뉴 바의 흐림 효과 대신 짙은 바탕 */
 .nav.scrolled{-webkit-backdrop-filter:none !important;backdrop-filter:none !important;}
 
-/* 생전추모식 첫 화면 — 수채 번짐 (assets/living-wash.js) */
-.living-wash{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  /* 글씨 쪽(왼쪽 아래)과 화면 끝으로 갈수록 종이에 스며 사라지게 */
-  -webkit-mask-image:radial-gradient(ellipse 85% 95% at 82% 22%,#000 45%,transparent 100%);
-          mask-image:radial-gradient(ellipse 85% 95% at 82% 22%,#000 45%,transparent 100%);}
-.living-wash canvas{position:absolute;left:0;top:0;display:block;}
-/* 한지 결 — 물감이 종이에 스민 듯 보이게 */
-.living-wash::after{
-  content:'';position:absolute;inset:0;mix-blend-mode:multiply;opacity:.55;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .49 0 0 0 0 .40 0 0 0 0 .26 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
-  background-size:240px;
+/* 생전추모식 첫 화면 — 빛꽃 (assets/living-glow.js)
+ * 봉오리처럼 맺힌 빛이 꽃잎을 벌리며 피어났다가 빛가루로 흩어짐 */
+.living-glow{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.lb{position:absolute;transform:translate(-50%,-50%) rotate(var(--tilt));container-type:size;filter:blur(.35cqw);}
+.lb > *,.lb-arm{position:absolute;left:50%;top:50%;}
+.lb *{animation-duration:var(--dur);animation-delay:var(--delay);animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.33,.0,.2,1);}
+.lb-arm{width:0;height:0;}
+/* 꽃잎 — 아래 끝이 꽃 가운데에 붙은 길쭉한 빛 */
+.lb .lb-petal{
+  position:absolute;left:0;bottom:0;
+  border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+  background:radial-gradient(ellipse 50% 60% at 50% 72%,
+    rgba(255,252,240,.95) 0%,rgba(255,240,206,.7) 35%,rgba(248,214,160,.32) 68%,rgba(248,214,160,0) 100%);
+  transform-origin:50% 100%;
+  animation-name:lb-petal;opacity:0;
+}
+.lb-arm{transform-origin:0 0;}
+.lb .lb-petal{width:30cqw;height:50cqh;transform:translateX(-50%) scale(.1,.08);}
+/* 바깥 겹 꽃잎 — 더 크고 옅고, 한 박자 늦게 벌어짐 */
+.lb .lb-outer{
+  width:36cqw;height:56cqh;
+  background:radial-gradient(ellipse 50% 60% at 50% 74%,
+    rgba(255,246,224,.7) 0%,rgba(252,230,190,.42) 40%,rgba(246,208,156,.16) 72%,rgba(246,208,156,0) 100%);
+  animation-name:lb-petal-out;
+}
+@keyframes lb-petal-out{
+  0%,16%{opacity:0;transform:translateX(-50%) scale(.1,.08);}
+  32%{opacity:.5;transform:translateX(-50%) scale(.32,.28);}
+  60%{opacity:.85;transform:translateX(-50%) rotate(-5deg) scale(.98,1);}
+  80%{opacity:.45;transform:translateX(-50%) rotate(-9deg) scale(1.1,1.15);}
+  95%,100%{opacity:0;transform:translateX(-50%) rotate(-12deg) scale(1.22,1.28);}
+}
+@keyframes lb-petal{
+  0%,8%{opacity:0;transform:translateX(-50%) scale(.1,.08);}
+  22%{opacity:.75;transform:translateX(-50%) scale(.38,.32);}           /* 봉오리 */
+  50%{opacity:1;transform:translateX(-50%) rotate(6deg) scale(.95,1);}    /* 활짝 */
+  72%{opacity:.6;transform:translateX(-50%) rotate(10deg) scale(1.08,1.12);}
+  90%,100%{opacity:0;transform:translateX(-50%) rotate(14deg) scale(1.2,1.25);}
+}
+/* 가운데 봉오리 빛 */
+.lb .lb-core{
+  width:22cqw;height:22cqh;border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;
+  background:radial-gradient(closest-side,rgba(255,255,250,1) 0%,rgba(255,246,222,.85) 35%,rgba(252,226,180,.3) 70%,rgba(252,226,180,0) 100%);
+  animation-name:lb-core;
+}
+@keyframes lb-core{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.2);}
+  18%{opacity:1;transform:translate(-50%,-50%) scale(.85);}
+  45%{opacity:1;transform:translate(-50%,-50%) scale(1.15);}
+  80%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.5);}
+}
+/* 꽃 주위로 은은하게 번지는 빛 */
+.lb .lb-halo{
+  width:140cqw;height:140cqh;border-radius:50%;transform:translate(-50%,-50%) scale(.4);opacity:0;
+  background:radial-gradient(closest-side,rgba(255,236,196,.55) 0%,rgba(250,224,180,.22) 45%,rgba(250,224,180,0) 100%);
+  animation-name:lb-halo;
+}
+@keyframes lb-halo{
+  0%,10%{opacity:0;transform:translate(-50%,-50%) scale(.4);}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(.9);}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.1);}
+}
+/* 다 핀 뒤 흩어지는 빛가루 */
+.lb .lb-dust{
+  width:1.6cqw;height:1.6cqw;min-width:3px;min-height:3px;border-radius:50%;opacity:0;
+  background:radial-gradient(closest-side,rgba(255,250,235,1),rgba(232,190,120,.6) 55%,rgba(232,190,120,0));
+  box-shadow:0 0 6px rgba(214,170,100,.35);
+  transform:translate(-50%,0) translateY(-10cqh);
+  animation-name:lb-dust;
+}
+@keyframes lb-dust{
+  0%,48%{opacity:0;transform:translate(-50%,0) translateY(-12cqh);}
+  60%{opacity:.95;}
+  100%{opacity:0;transform:translate(-50%,0) translateY(calc(var(--d) * -1cqh));}
+}
+@media (prefers-reduced-motion:reduce){
+  .lb *{animation:none !important;}
+  .lb .lb-petal{opacity:.8;transform:translateX(-50%) scale(.95,1);}
+  .lb .lb-core,.lb .lb-halo{opacity:.8;transform:translate(-50%,-50%);}
 }
