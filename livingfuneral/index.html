@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!-- 생전추모식 첫 번째 주인공 모집 — 인스타 프로필 링크용. 장례 메뉴 없이 생전추모식만 -->
+<!-- 생전추모식 첫 주인공 모집 — 인스타 프로필 링크용. living.html을 바탕으로, 장례 메뉴 없이 생전추모식만 -->
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <title>내 인생의 엔딩 크레딧을 미리 보는 날 · 생전추모식 | 비프리히어</title>
-<meta name="description" content="살아 있을 때 여는 나의 장례식, 생전추모식. 소중한 사람 6명 이하를 초대해 고맙다는 말을 직접 듣는 1~2시간의 자리. 비프리히어가 첫 번째 주인공을 찾습니다."/>
+<meta name="description" content="살아있을 때 치르는 장례식, 생전추모식. 작은 한옥 방에서 소중한 사람 여섯 명과 함께, 끝까지 아껴 두었던 말을 직접 듣는 1~2시간. 비프리히어가 첫 번째 주인공을 찾습니다."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://befreeherekr.com/livingfuneral/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://befreeherekr.com/livingfuneral/"/>
 <meta property="og:title" content="내 인생의 엔딩 크레딧을 미리 보는 날 · 생전추모식"/>
-<meta property="og:description" content="장례식에서만 나오던 고맙다는 말을, 살아 있을 때 직접 듣는 자리. 비프리히어가 첫 번째 주인공을 찾습니다."/>
+<meta property="og:description" content="살아있을 때 치르는 장례식, 생전추모식. 비프리히어가 첫 번째 주인공을 찾습니다."/>
 <meta property="og:image" content="https://befreeherekr.com/og-image.JPG"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -23,11 +23,11 @@
 <meta name="theme-color" content="#ECEBE6"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&family=Gowun+Batang&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-body{font-family:'Noto Sans KR',sans-serif;background:#ECEBE6;color:#1B1A17;overflow-x:hidden;cursor:none;word-break:keep-all;overflow-wrap:break-word;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Noto Sans KR',sans-serif;background:#ECEBE6;color:#1B1A17;overflow-x:hidden;cursor:none;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:none;}
 
@@ -35,269 +35,200 @@ button{font-family:inherit;cursor:none;}
   --ink:#1B1A17;
   --cream:#ECEBE6;--sand:#E2E0D9;
   --gold:#7D5F2A;
-  --mute:rgba(27,26,23,.62);
-  --line:rgba(125,95,42,.14);
+  --mute:rgba(27,26,23,.55);
   --serif:'Cormorant Garamond',serif;
   --kr:'Gowun Batang',serif;
   --sans:'Noto Sans KR',sans-serif;
 }
 
-/* ── 커서 (assets/motion.js) ── */
-.cur{position:fixed;z-index:9999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:#7D5F2A;transform:translate(-50%,-50%);}
-.cur-ring{position:fixed;z-index:9998;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);}
-@media (max-width:768px),(hover:none) and (pointer:coarse){
-  .cur,.cur-ring{display:none!important;}
-  body,button{cursor:auto!important;}
-  input,select,textarea{font-size:16px!important;}
-}
+/* ── 커서 ── */
+.cur{position:fixed;z-index:9999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:#7D5F2A;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
+.cur-ring{position:fixed;z-index:9998;pointer-events:none;width:36px;height:36px;border-radius:50%;border:.5px solid rgba(125,95,42,.3);transform:translate(-50%,-50%);}
+@media(max-width:768px){.cur,.cur-ring{display:none!important;}body{cursor:auto!important;}}
+
+/* ── 스크롤바 ── */
 ::-webkit-scrollbar{width:1px;}
 ::-webkit-scrollbar-track{background:#ECEBE6;}
 ::-webkit-scrollbar-thumb{background:#7D5F2A;}
 
-/* ── 위쪽 바: 로고와 신청 버튼만 ── */
+/* ── NAV ── */
 .nav{
   position:fixed;inset:0 0 auto 0;z-index:500;
   display:flex;justify-content:space-between;align-items:center;
-  padding:1.7rem 4rem;transition:background .4s,padding .35s;
+  padding:1.7rem 4rem;
+  transition:background .4s,padding .35s;
 }
-.nav.scrolled{background:rgba(236,235,230,.97);padding:1.1rem 4rem;border-bottom:.5px solid var(--line);}
+.nav.scrolled{
+  background:rgba(236,235,230,.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  padding:1.1rem 4rem;
+  border-bottom:.5px solid rgba(125,95,42,.12);
+}
 .logo{display:flex;flex-direction:column;gap:3px;}
-.logo-kr{font-family:var(--kr);font-size:17px;letter-spacing:.12em;}
+.logo-kr{font-family:var(--kr);font-size:17px;font-weight:400;letter-spacing:.12em;color:#1B1A17;}
 .logo-en{font-family:var(--serif);font-size:9.5px;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:#7D5F2A;line-height:1;}
-.nav-cta{font-size:11px;letter-spacing:.1em;padding:9px 22px;border:.5px solid rgba(125,95,42,.3);border-radius:100px;background:transparent;color:#7D5F2A;transition:all .22s;}
+.nav-links{display:flex;gap:2.8rem;list-style:none;}
+.nav-links a{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(27,26,23,.45);transition:color .2s;}
+.nav-links a:hover{color:#1B1A17;}
+.nav-cta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:9px 22px;border:.5px solid rgba(125,95,42,.3);border-radius:100px;background:transparent;color:#7D5F2A;transition:all .22s;cursor:none;}
 .nav-cta:hover{background:rgba(125,95,42,.08);border-color:#7D5F2A;}
+@media(max-width:768px){
+  .nav,.nav.scrolled{padding-left:1.6rem;padding-right:1.6rem;}
+  .nav-links{display:none;}
+}
 
-/* ── 첫 화면 ── */
+/* ── HERO ── */
 .hero{
   position:relative;height:100vh;height:100svh;min-height:600px;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:0 4rem 5.5rem;overflow:hidden;
+  background:#ECEBE6;
 }
 .hero-eyebrow{
-  position:relative;z-index:2;display:flex;align-items:center;gap:14px;margin-bottom:2.2rem;
+  position:relative;z-index:2;
+  display:flex;align-items:center;gap:14px;margin-bottom:2.2rem;
   font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;
   opacity:0;animation:fadeUp .9s .3s forwards;
 }
 .hero-eyebrow::before{content:'';width:28px;height:.5px;background:#7D5F2A;}
 .hero-h1{
-  position:relative;z-index:2;font-family:var(--kr);
-  font-size:clamp(36px,5.8vw,74px);font-weight:700;line-height:1.16;letter-spacing:-.01em;
-  max-width:900px;margin-bottom:3rem;
+  position:relative;z-index:2;
+  font-family:var(--kr);
+  font-size:clamp(36px,5.8vw,74px);
+  font-weight:700;line-height:1.12;letter-spacing:-.01em;
+  max-width:860px;margin-bottom:3rem;
   opacity:0;animation:fadeUp 1s .5s forwards;
 }
-.hero-h1 em{font-style:normal;color:#B5613A;}
+.hero-h1 em{font-style:normal;font-family:var(--kr);color:#B5613A;}
 .hero-bottom{
-  position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;
+  position:relative;z-index:2;
+  display:flex;justify-content:space-between;align-items:flex-end;
   opacity:0;animation:fadeUp .9s .75s forwards;
 }
-.hero-sub{font-size:14px;line-height:2;color:var(--mute);max-width:420px;font-weight:300;}
+.hero-sub{font-size:14px;line-height:2;color:rgba(27,26,23,.58);max-width:400px;font-weight:300;}
 .hero-sub strong{color:#1B1A17;font-weight:400;}
-.hero-btns{display:flex;flex-direction:column;gap:14px;align-items:flex-start;min-width:240px;}
-.hero-note{font-size:11.5px;color:var(--mute);letter-spacing:.04em;}
+.hero-btns{display:flex;flex-direction:column;gap:20px;align-items:flex-start;flex-shrink:0;min-width:220px;}
 
-/* ── 밑줄 + 화살표 버튼 ── */
+/* ── 버튼 ── */
 .btn-primary{
-  font-size:11px;letter-spacing:.2em;padding:0 0 10px;background:transparent;border:none;
-  color:#7D5F2A;font-weight:300;position:relative;white-space:nowrap;
-  display:inline-flex;align-items:center;justify-content:space-between;width:100%;gap:16px;transition:color .3s;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  padding:0;padding-bottom:10px;background:transparent;border:none;
+  color:#7D5F2A;font-family:var(--sans);font-weight:300;
+  position:relative;white-space:nowrap;cursor:none;
+  display:inline-flex;align-items:center;justify-content:space-between;
+  width:100%;gap:16px;transition:color .3s;
 }
 .btn-primary::after{
-  content:'';position:absolute;bottom:0;left:0;width:100%;height:.5px;background:#7D5F2A;
-  transform:scaleX(.28);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);opacity:.6;
+  content:'';position:absolute;bottom:0;left:0;width:100%;height:.5px;
+  background:#7D5F2A;transform:scaleX(.28);transform-origin:left;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);opacity:.6;
 }
 .btn-primary:hover{color:#5E4520;}
 .btn-primary:hover::after{transform:scaleX(1);opacity:1;}
 
-/* ── 공통 구역 ── */
-.sec{padding:10rem 4rem;border-bottom:.5px solid var(--line);position:relative;}
-.sec-in{max-width:1080px;margin:0 auto;}
-.sec-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7D5F2A;margin-bottom:2.4rem;display:flex;align-items:center;gap:10px;}
+.btn-ghost{
+  font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  padding:13px 28px;background:transparent;
+  border:.5px solid rgba(27,26,23,.22);border-radius:100px;
+  color:#1B1A17;transition:border-color .2s,background .2s;
+  white-space:nowrap;cursor:none;
+}
+.btn-ghost:hover{border-color:rgba(27,26,23,.45);background:rgba(27,26,23,.04);}
+
+/* ── SEC LABEL ── */
+.sec-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.4rem;display:flex;align-items:center;gap:10px;}
 .sec-label::before{content:'';width:28px;height:.5px;background:#7D5F2A;}
-.sec-h2{font-family:var(--kr);font-size:clamp(30px,4.2vw,54px);font-weight:700;line-height:1.28;letter-spacing:-.02em;margin-bottom:2.6rem;}
-.sec-h2 .soft{color:rgba(27,26,23,.35);}
-.body-text{font-size:15px;line-height:2.1;color:var(--mute);font-weight:300;max-width:560px;}
-.body-text + .body-text{margin-top:1.4rem;}
-.body-text strong{color:#1B1A17;font-weight:400;}
 
-/* 그날의 순서 — 초대장 식순과 같은 결 */
-.order{background:#E2E0D9;}
-.order .sec-in{max-width:620px;text-align:center;}
-.order .sec-label{justify-content:center;}
-.order .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
-.order-title{font-family:var(--serif);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#7D5F2A;margin-bottom:.6rem;}
-.order-sub{font-family:var(--kr);font-size:15px;color:var(--mute);margin-bottom:3.6rem;}
-.order-list{list-style:none;}
-.order-list li{padding:1.15rem 0;}
-.order-list li + li::before{content:'';display:block;width:5px;height:5px;margin:0 auto 2.3rem;border:.5px solid #7D5F2A;transform:rotate(45deg);}
-.order-list b{display:block;font-family:var(--kr);font-size:19px;font-weight:400;color:#1B1A17;margin-bottom:.35rem;}
-.order-list small{font-size:12.5px;line-height:1.85;color:var(--mute);font-weight:300;letter-spacing:.02em;}
-.order-foot{margin-top:3.6rem;font-size:12.5px;line-height:1.9;color:var(--mute);}
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;}
+.rv.on{opacity:1;transform:none;}
 
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
 
-/* 한눈에 보기 */
-.glance{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin-top:4rem;border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);}
-.glance li{padding:1.8rem 1.2rem;}
-.glance li + li{border-left:.5px solid rgba(125,95,42,.18);}
-.glance span{display:block;font-size:11.5px;color:#7D5F2A;letter-spacing:.06em;margin-bottom:.6rem;}
-.glance b{font-family:var(--kr);font-size:20px;font-weight:400;}
-
-/* 이런 분께 추천해요 */
-.recommend{list-style:none;}
-.recommend li{font-family:var(--kr);font-size:18px;line-height:1.7;padding:1.4rem 0 1.4rem 2rem;border-top:.5px solid rgba(125,95,42,.22);position:relative;}
-.recommend li:last-child{border-bottom:.5px solid rgba(125,95,42,.22);}
-.recommend li::before{content:'';position:absolute;left:.3rem;top:2.35rem;width:5px;height:5px;border:.5px solid #7D5F2A;transform:rotate(45deg);}
-
-/* 준비할 것 */
-.prep{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
-.prep h3{font-family:var(--kr);font-size:19px;font-weight:400;padding-bottom:1rem;border-bottom:.5px solid rgba(125,95,42,.3);margin-bottom:1rem;}
-.prep h3.prep-us{margin-top:2.8rem;}
-.prep ul{list-style:none;}
-.prep li{font-size:14px;line-height:2.2;color:var(--mute);font-weight:300;}
-.prep li::before{content:'·';color:#7D5F2A;margin-right:.6rem;}
-
-/* 준비 과정 */
-.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2.4rem;margin-top:1rem;}
-.steps li{border-top:.5px solid rgba(125,95,42,.3);padding-top:1.6rem;}
-.steps i{font-family:var(--serif);font-style:normal;font-size:30px;font-weight:300;color:#7D5F2A;display:block;margin-bottom:.8rem;}
-.steps b{display:block;font-family:var(--kr);font-size:17px;font-weight:400;margin-bottom:.6rem;}
-.steps span{font-size:13px;line-height:1.95;color:var(--mute);font-weight:300;}
-
-/* 자주 묻는 질문 — 펼치지 않고 그대로 */
-.faq{list-style:none;}
-.faq li{padding:2rem 0;border-top:.5px solid rgba(125,95,42,.22);}
-.faq li:last-child{border-bottom:.5px solid rgba(125,95,42,.22);}
-.faq b{display:block;font-family:var(--kr);font-size:18px;font-weight:400;margin-bottom:.8rem;}
-.faq b::before{content:'Q.';font-family:var(--serif);color:#7D5F2A;margin-right:.6rem;}
-.faq span{display:block;font-size:14px;line-height:2;color:var(--mute);font-weight:300;padding-left:1.9rem;}
-
-/* 마지막 신청 */
-.closing{text-align:center;padding:12rem 4rem;}
-.closing .sec-label{justify-content:center;}
-.closing .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
-.closing .sec-h2{margin-bottom:1.8rem;}
-.closing .body-text{margin:0 auto 3.4rem;}
-.closing .btn-primary{width:auto;min-width:260px;}
-
-/* ── 아래쪽 ── */
-.footer{padding:3rem 4rem;background:#E2E0D9;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;}
-.footer-brand-kr{font-family:var(--kr);font-size:18px;letter-spacing:.1em;margin-bottom:3px;}
-.footer-brand-en{font-family:var(--serif);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.2rem;}
-.footer-tagline{font-size:12px;color:var(--mute);line-height:1.9;}
-.footer-links{display:flex;flex-direction:column;gap:8px;text-align:right;font-size:12.5px;color:var(--mute);}
-.footer-links a:hover{color:#1B1A17;}
-.footer-copy{font-size:11px;color:var(--mute);margin-top:.6rem;}
-
-/* ── 신청서 ── */
+/* ── MODAL ── */
 .modal-overlay{
-  position:fixed;inset:0;z-index:2000;background:rgba(27,26,23,.5);
-  display:flex;align-items:center;justify-content:center;padding:1.5rem;
-  opacity:0;pointer-events:none;transition:opacity .35s ease;
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(27,26,23,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .35s ease;
 }
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{
-  width:100%;max-width:560px;background:#ECEBE6;border-top:1.5px solid var(--gold);
+  width:100%;max-width:560px;background:#ECEBE6;
+  border:.5px solid rgba(200,169,110,.2);border-top:1.5px solid var(--gold);
   border-radius:4px;padding:3.5rem 3.5rem 3rem;position:relative;
-  transform:translateY(24px);transition:transform .38s ease;max-height:90svh;overflow-y:auto;
+  transform:translateY(24px);transition:transform .38s ease;
+  max-height:90svh;overflow-y:auto;
 }
-.modal-overlay.open .modal{transform:none;}
-.modal-close{position:absolute;top:1.6rem;right:1.8rem;width:32px;height:32px;background:transparent;border:none;display:flex;align-items:center;justify-content:center;color:rgba(27,26,23,.35);}
+@media(max-width:768px){
+  .modal{padding:2.4rem 1.4rem 2rem;border-radius:8px;}
+  .modal-title{font-size:18px;}
+}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-close{position:absolute;top:1.6rem;right:1.8rem;width:32px;height:32px;background:transparent;border:none;cursor:none;display:flex;align-items:center;justify-content:center;color:rgba(27,26,23,.3);transition:color .2s;}
 .modal-close:hover{color:#1B1A17;}
-.modal-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.4rem;display:flex;align-items:center;gap:10px;}
-.modal-eyebrow::before{content:'';width:16px;height:.5px;background:#7D5F2A;}
-.modal-title{font-family:var(--kr);font-size:22px;line-height:1.4;margin-bottom:1.8rem;}
-.price{border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);padding:1.4rem 0;margin-bottom:2.2rem;}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
-.price-row span{font-family:var(--kr);font-size:15px;}
-.price-row b{font-family:var(--serif);font-size:26px;font-weight:400;color:#7D5F2A;letter-spacing:.02em;}
-.price-row b small{font-family:var(--sans);font-size:12px;font-weight:300;margin-left:2px;}
-.price ul{list-style:none;margin-top:.8rem;}
-.price li{font-size:12.5px;line-height:1.9;color:var(--mute);font-weight:300;}
-.price li::before{content:'·';color:#7D5F2A;margin-right:.5rem;}
-.price li.gift{color:#7D5F2A;}
-.mfield{margin-bottom:1.5rem;}
-.mfield label{display:block;font-size:12px;color:rgba(27,26,23,.7);margin-bottom:.55rem;}
-.mfield label small{font-weight:300;color:rgba(27,26,23,.5);font-size:11.5px;}
+.modal-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.6rem;display:flex;align-items:center;gap:10px;}
+.modal-eyebrow::before{content:"";width:16px;height:.5px;background:#7D5F2A;}
+.modal-title{font-family:var(--kr);font-size:22px;font-weight:300;line-height:1.4;color:#1B1A17;margin-bottom:.6rem;}
+.modal-sub{font-size:12.5px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
+.mfield{margin-bottom:1.4rem;}
+.mfield label{display:block;font-size:11.5px;color:rgba(27,26,23,.65);margin-bottom:.55rem;font-weight:400;}
 .mfield input,.mfield textarea{width:100%;background:#E2E0D9;border:.5px solid rgba(125,95,42,.18);border-radius:2px;color:#1B1A17;font-family:var(--sans);font-size:14px;font-weight:300;padding:.85rem 1.1rem;outline:none;transition:border-color .25s;resize:none;}
 .mfield input:focus,.mfield textarea:focus{border-color:#7D5F2A;}
-.mfield textarea{min-height:110px;line-height:1.8;}
-.chip-group{display:flex;flex-wrap:wrap;gap:.5rem;}
-.chip{background:#E2E0D9;border:.5px solid rgba(125,95,42,.2);border-radius:100px;color:rgba(27,26,23,.6);font-size:12.5px;font-weight:300;padding:.45rem 1rem;transition:all .18s;white-space:nowrap;cursor:pointer;}
+.mfield textarea{min-height:120px;line-height:1.8;}
+.chip-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
+.chip{background:#E2E0D9;border:.5px solid rgba(125,95,42,.2);border-radius:100px;color:rgba(27,26,23,.55);font-family:var(--sans);font-size:12.5px;font-weight:300;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
 .chip:hover{border-color:rgba(125,95,42,.5);color:#1B1A17;}
 .chip.selected{background:rgba(125,95,42,.1);border-color:#7D5F2A;color:#7D5F2A;font-weight:400;}
-.modal-error{min-height:1.2em;font-size:12px;color:#B5613A;text-align:center;margin-bottom:.6rem;}
-.modal-submit{width:100%;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-size:12.5px;letter-spacing:.12em;font-weight:500;transition:opacity .2s;}
-.modal-submit:hover{opacity:.85;}
-.modal-submit:disabled{opacity:.5;}
-.modal-privacy{font-size:11px;line-height:1.7;color:var(--mute);text-align:center;margin-top:.9rem;}
-.modal-privacy a{text-decoration:underline;}
+.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:opacity .2s;cursor:none;}
+.modal-submit:hover{opacity:.82;}
 .modal-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem 0 1rem;}
 .modal-success.show{display:flex;}
-.modal-success .ok{width:48px;height:48px;border-radius:50%;border:.5px solid rgba(125,95,42,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}
-.modal-success b{font-family:var(--kr);font-size:20px;font-weight:400;margin-bottom:.8rem;}
-.modal-success span{font-size:13px;line-height:1.9;color:var(--mute);}
 
-/* ── 나타나기 ── */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;}
-.rv.on{opacity:1;transform:none;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
-@media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none;}
-  .hero-eyebrow,.hero-h1,.hero-bottom{animation:none;opacity:1;}
+/* ── FOOTER ── */
+.footer{
+  padding:3.5rem 4rem 2.5rem;border-top:.5px solid rgba(201,185,154,.08);
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;background:#E2E0D9;
+}
+.footer-brand-kr{font-family:var(--kr);font-size:18px;font-weight:400;letter-spacing:.1em;color:#1B1A17;margin-bottom:3px;}
+.footer-brand-en{font-family:var(--serif);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.4rem;}
+.footer-tagline{font-size:12px;color:rgba(27,26,23,.6);line-height:1.9;margin-bottom:1.5rem;}
+.footer-addr{font-size:11.5px;color:rgba(27,26,23,.55);line-height:1.9;}
+.footer-col-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(125,95,42,.75);margin-bottom:1.2rem;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a,.footer-links span{font-size:13px;color:rgba(27,26,23,.58);transition:color .2s;}
+.footer-links a:hover{color:#1B1A17;}
+.footer-btm{padding:1.8rem 4rem;border-top:.5px solid rgba(125,95,42,.08);background:#E2E0D9;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(27,26,23,.62);letter-spacing:.04em;}
+
+@media(max-width:768px){
+  /* NAV */
+  .nav-cta{font-size:10px;padding:8px 16px;}
+
+  /* HERO */
+  .hero{padding:0 1.4rem 3.5rem;min-height:100svh;justify-content:flex-end;}
+  .hero-eyebrow{font-size:9px;letter-spacing:.16em;margin-bottom:1.6rem;}
+  .hero-h1{font-size:clamp(30px,8vw,44px);line-height:1.18;margin-bottom:2rem;}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.8rem;}
+  .hero-sub{font-size:13px;line-height:1.9;max-width:100%;}
+  .hero-btns{min-width:unset;width:100%;}
+
+  /* FOOTER */
+  .footer{grid-template-columns:1fr;padding:2.8rem 1.4rem;gap:2.2rem;}
+  .footer-btm{padding:1.4rem 1.4rem;flex-direction:column;gap:.6rem;text-align:center;}
 }
 
-/* ── 휴대폰 ── */
-@media(max-width:768px){
-  .nav,.nav.scrolled{padding-left:1.4rem;padding-right:1.4rem;}
-  .nav-cta{font-size:10.5px;padding:8px 16px;}
-  .hero{padding:0 1.4rem 3.4rem;}
-  .hero-eyebrow{font-size:9px;letter-spacing:.16em;margin-bottom:1.6rem;}
-  .hero-h1{font-size:clamp(31px,8.6vw,44px);line-height:1.22;margin-bottom:2rem;}
-  .hero-bottom{flex-direction:column;align-items:flex-start;gap:1.9rem;}
-  .hero-sub{font-size:13.5px;line-height:1.95;}
-  .hero-btns{min-width:0;width:100%;}
-
-  .sec{padding:6.5rem 1.4rem;}
-  .sec-label{margin-bottom:1.8rem;}
-  .sec-h2{font-size:clamp(26px,7.4vw,34px);margin-bottom:2rem;}
-  .body-text{font-size:14px;line-height:2;}
-
-  .glance{grid-template-columns:1fr 1fr;margin-top:3rem;}
-  .glance li{padding:1.4rem .2rem;}
-  .glance li + li{border-left:none;}
-  .glance li:nth-child(even){border-left:.5px solid rgba(125,95,42,.18);padding-left:1.2rem;}
-  .glance li:nth-child(n+3){border-top:.5px solid rgba(125,95,42,.18);}
-  .glance b{font-size:18px;}
-  .recommend li{font-size:16px;padding:1.2rem 0 1.2rem 1.6rem;}
-  .recommend li::before{left:.1rem;top:2.05rem;}
-  .prep{grid-template-columns:1fr;gap:2.8rem;}
-  .prep h3{font-size:17.5px;}
-  .prep li{font-size:13.5px;}
-  .order-list small{font-size:12px;line-height:1.85;display:block;}
-
-  .order-sub{margin-bottom:2.6rem;}
-  .order-list b{font-size:17.5px;}
-  .order-list li + li::before{margin-bottom:1.9rem;}
-
-  .steps{grid-template-columns:1fr 1fr;gap:2.2rem 1.4rem;}
-  .steps i{font-size:26px;}
-  .steps b{font-size:16px;}
-  .steps span{font-size:12.5px;}
-
-  .faq li{padding:1.6rem 0;}
-  .faq b{font-size:16.5px;}
-  .faq span{font-size:13.5px;padding-left:0;}
-
-  .closing{padding:7.5rem 1.4rem;}
-  .closing .btn-primary{min-width:0;width:100%;}
-
-  .footer{flex-direction:column;align-items:flex-start;padding:2.6rem 1.4rem;}
-  .footer-links{text-align:left;}
-
-  .modal-overlay{padding:0;align-items:flex-end;}
-  .modal{padding:2.4rem 1.4rem 2rem;border-radius:10px 10px 0 0;max-height:92svh;}
-  .modal-title{font-size:19px;}
+/* ── 기기 호환 보정 (iOS 글자 확대 방지 · 입력창 자동 확대 방지 · 터치 기기 커서 숨김) ── */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+@media (max-width:768px),(hover:none) and (pointer:coarse){
+  input,select,textarea{font-size:16px !important;}
+}
+@media (hover:none) and (pointer:coarse){
+  body{cursor:auto;}
+  .cur,.cur-ring{display:none !important;}
 }
 </style>
+<link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/motion.css">
 </head>
 <body>
@@ -305,268 +236,1114 @@ button{font-family:inherit;cursor:none;}
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curRing"></div>
 
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#top" class="logo" data-scroll="top">
+  <a href="#home" class="logo">
     <span class="logo-kr">비프리히어</span>
     <span class="logo-en">Befreehere</span>
   </a>
-  <button class="nav-cta" data-modal="open">신청하기</button>
+
+  <button class="nav-cta" data-modal="open">상담 문의</button>
 </nav>
 
-<!-- 첫 화면 -->
-<section class="hero living-hero" id="top">
-  <div class="hero-eyebrow">The Living Funeral · 생전추모식</div>
+<!-- HERO -->
+<section class="hero living-hero" id="home">
+
+  <div class="hero-eyebrow">Living Farewell · 살아있는 동안의 작별</div>
+
   <h1 class="hero-h1">
-    내 인생의 엔딩 크레딧을<br>
+    내 인생의 엔딩 크레딧을,<br>
     <em>미리 보는 날</em>
   </h1>
+
+
   <div class="hero-bottom">
     <p class="hero-sub">
-      살아 있을 때 여는 나의 장례식, 생전추모식.<br>
-      소중한 사람 몇 명을 초대해<br>
-      <strong>고맙다는 말을 직접 듣는 자리</strong>예요.
+      당신의 가장 젊은 날 치러지는 가장 솔직한 장례식,<br>
+      소중한 사람들과 나누는 <strong>의미있는 자리</strong>를<br>
+      비프리히어가 함께 만듭니다.
     </p>
     <div class="hero-btns">
       <button class="btn-primary" data-modal="open">
-        첫 번째 주인공 신청하기
-        <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width=".8"/><polyline points="6,1 10,5 6,9" fill="none" stroke="currentColor" stroke-width=".8"/></svg>
+        상담 시작하기
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0;transition:transform .3s;">
+          <line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width=".8"/>
+          <polyline points="6,1 10,5 6,9" fill="none" stroke="currentColor" stroke-width=".8"/>
+        </svg>
       </button>
-      <span class="hero-note">1~2시간 · 6명 이하 · 작은 한옥 방</span>
     </div>
   </div>
 </section>
 
-<!-- 처음 들어보셨죠 -->
-<section class="sec" id="what">
-  <div class="sec-in">
-    <div class="sec-label rv">생전추모식이란</div>
-    <h2 class="sec-h2 rv">생전추모식,<br><span class="soft">처음 들어보셨죠?</span></h2>
-    <p class="body-text rv">생전추모식은 <strong>살아 있을 때 여는 나의 장례식</strong>이에요.</p>
-    <p class="body-text rv">보통 장례식에서는 "고마웠어", "사랑해" 같은 말이 많이 오가지만, 정작 그 말을 들어야 할 사람은 그 자리에 없어요. 생전추모식은 그 말들을 <strong>주인공이 살아 있을 때 직접 들을 수 있게</strong> 만든 자리예요.</p>
-    <p class="body-text rv">슬픈 자리가 아니에요. 가까운 사람 몇 명이 모여 편지를 읽어 주고, 주인공이 좋아하는 노래를 같이 듣는, 작고 따뜻한 시간이에요.</p>
-    <p class="body-text rv">나를 위해 열어도 되고, <strong>부모님이나 친구에게 선물로</strong> 열어 드려도 돼요.</p>
+<!-- 생전추모식이란 -->
+<section id="about" style="padding:14rem 4rem;background:#ECEBE6;border-bottom:.5px solid rgba(125,95,42,.12);position:relative;overflow:hidden;">
 
-    <ul class="glance rv">
-      <li><span>걸리는 시간</span><b>1~2시간</b></li>
-      <li><span>초대하는 사람</span><b>6명 이하</b></li>
-      <li><span>장소</span><b>작은 한옥 방</b></li>
-      <li><span>관</span><b>원하실 때만</b></li>
-    </ul>
+  <!-- 배경 글로우 -->
+  <div style="position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 55% 70% at 15% 60%, rgba(125,95,42,.04) 0%, transparent 65%),
+      radial-gradient(ellipse 35% 50% at 85% 30%, rgba(125,95,42,.025) 0%, transparent 60%);
+  "></div>
+
+  <!-- 배경 장식선 -->
+  <div class="center-rule" style="position:absolute;top:0;bottom:0;left:50%;width:.5px;background:linear-gradient(to bottom,transparent,rgba(125,95,42,.07) 20%,rgba(125,95,42,.07) 80%,transparent);pointer-events:none;"></div>
+
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+
+    <!-- 헤더 — 풀 스크린 슬라이드형 재설계 -->
+    <div class="rv" style="margin-bottom:9rem;">
+
+      <!-- 상단 레이블 -->
+      <div class="sec-label" style="margin-bottom:3rem;">생전추모식이란</div>
+
+      <!-- 핵심 헤드라인 — 왼쪽 텍스트 + 오른쪽 장식 분할 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:end;margin-bottom:5rem;">
+        <div>
+          <h2 style="
+            font-family:var(--kr);
+            font-size:clamp(38px,5.5vw,76px);
+            font-weight:700;
+            line-height:1.18;
+            color:#1B1A17;
+            letter-spacing:-.025em;
+            white-space:nowrap;
+          ">
+            <span style="display:block;">살아있는 지금 건네는,</span>
+            <span style="
+              display:block;
+              position:relative;
+              color:inherit;
+            ">가장 솔직한 인사.<div style="
+              position:absolute;bottom:-6px;left:0;width:60%;height:.5px;
+              background:linear-gradient(to right,#7D5F2A,transparent);
+              opacity:.28;
+            "></div></span>
+          </h2>
+        </div>
+
+        <!-- 오른쪽 — 세로 타이포 장식 컬럼 -->
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:2.2rem;padding-bottom:.4rem;">
+          <p style="font-size:14px;line-height:2.1;color:rgba(27,26,23,.65);font-weight:300;word-break:keep-all;max-width:320px;">
+            생전추모식은 죽음 이후를 위한 것이 아닙니다.<br>
+            지금, 살아있는 당신이 사랑하는 사람들에게<br>
+            진심으로 인사를 건네는 자리입니다.
+          </p>
+          <div style="display:flex;align-items:center;gap:1.2rem;">
+            <div style="width:1px;height:48px;background:linear-gradient(to bottom,transparent,rgba(125,95,42,.25));"></div>
+            <p style="font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:.12em;color:rgba(125,95,42,.45);">A living farewell, on your own terms.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 가로 슬라이드 — 3 카드, 완전 재설계 -->
+      <div class="about-slides" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;">
+
+        <!-- 카드 01 — Gratitude -->
+        <div class="aslide" style="
+          position:relative;z-index:1;
+          padding:4.5rem 3.5rem 4rem;
+          overflow:hidden;
+          cursor:default;
+        ">
+          <!-- 배경 넘버 — 풀 블리드 -->
+          <div style="
+            position:absolute;right:-12px;bottom:-20px;
+            font-family:var(--serif);font-weight:300;
+            font-size:clamp(120px,14vw,200px);
+            color:rgba(125,95,42,.05);
+            line-height:1;letter-spacing:-.06em;
+            pointer-events:none;user-select:none;
+            transition:color .5s;
+          " class="slide-num">01</div>
+
+          <!-- 상단 라벨 -->
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:3.5rem;">
+            <div style="width:20px;height:.5px;background:#7D5F2A;opacity:.38;"></div>
+            <span style="font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(125,95,42,.5);">Gratitude</span>
+          </div>
+
+          <!-- 핵심 텍스트 -->
+          <h3 style="
+            font-family:var(--kr);
+            font-size:clamp(18px,2vw,24px);
+            font-weight:400;color:#1B1A17;
+            line-height:1.55;
+            margin-bottom:2rem;
+            letter-spacing:-.015em;
+            word-break:keep-all;
+          ">자신의 가장 젊은 날,<br>소중한 사람들에게<br>진심 어린 감사를.</h3>
+
+          <!-- 설명 -->
+          <p style="font-size:12.5px;line-height:2.05;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;">
+            후회 없이 전할 수 있는<br>가장 솔직한 자리.
+          </p>
+
+          <!-- 하단 장식선 — hover 시 펼쳐짐 -->
+          <div class="slide-bar" style="
+            position:absolute;bottom:0;left:3.5rem;right:3.5rem;
+            height:.5px;
+            background:linear-gradient(to right,transparent,rgba(201,185,154,.0),transparent);
+            transition:background .5s;
+          "></div>
+        </div>
+
+        <!-- 카드 02 — Celebration -->
+        <div class="aslide" style="
+          position:relative;z-index:1;
+          padding:4.5rem 3.5rem 4rem;
+          overflow:hidden;
+          cursor:default;
+        ">
+          <div style="
+            position:absolute;right:-12px;bottom:-20px;
+            font-family:var(--serif);font-weight:300;
+            font-size:clamp(120px,14vw,200px);
+            color:rgba(125,95,42,.05);
+            line-height:1;letter-spacing:-.06em;
+            pointer-events:none;user-select:none;
+            transition:color .5s;
+          " class="slide-num">02</div>
+
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:3.5rem;">
+            <div style="width:20px;height:.5px;background:#7D5F2A;opacity:.38;"></div>
+            <span style="font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(125,95,42,.5);">Celebration</span>
+          </div>
+
+          <h3 style="
+            font-family:var(--kr);
+            font-size:clamp(18px,2vw,24px);
+            font-weight:400;color:#1B1A17;
+            line-height:1.55;
+            margin-bottom:2rem;
+            letter-spacing:-.015em;
+            word-break:keep-all;
+          ">장례식도 신나고<br>즐거울 수 있다는 것,<br>평생 기억에 남을 순간.</h3>
+
+          <p style="font-size:12.5px;line-height:2.05;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;">
+            슬픔이 아닌 축제로,<br>이별을 다시 쓰는 방식.
+          </p>
+
+          <div class="slide-bar" style="
+            position:absolute;bottom:0;left:3.5rem;right:3.5rem;
+            height:.5px;
+            background:linear-gradient(to right,transparent,rgba(201,185,154,.0),transparent);
+            transition:background .5s;
+          "></div>
+        </div>
+
+        <!-- 카드 03 — Presence -->
+        <div class="aslide" style="
+          position:relative;z-index:1;
+          padding:4.5rem 3.5rem 4rem;
+          overflow:hidden;
+          cursor:default;
+        ">
+          <div style="
+            position:absolute;right:-12px;bottom:-20px;
+            font-family:var(--serif);font-weight:300;
+            font-size:clamp(120px,14vw,200px);
+            color:rgba(125,95,42,.05);
+            line-height:1;letter-spacing:-.06em;
+            pointer-events:none;user-select:none;
+            transition:color .5s;
+          " class="slide-num">03</div>
+
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:3.5rem;">
+            <div style="width:20px;height:.5px;background:#7D5F2A;opacity:.38;"></div>
+            <span style="font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(125,95,42,.5);">Presence</span>
+          </div>
+
+          <h3 style="
+            font-family:var(--kr);
+            font-size:clamp(18px,2vw,24px);
+            font-weight:400;color:#1B1A17;
+            line-height:1.55;
+            margin-bottom:2rem;
+            letter-spacing:-.015em;
+            word-break:keep-all;
+          ">살아있는 동안 나눌 수 있는,<br>가장 솔직한 인사.</h3>
+
+          <p style="font-size:12.5px;line-height:2.05;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;white-space:nowrap;">
+            지금 이 순간을 살고 있는<br>당신만이 할 수 있는 것.
+          </p>
+
+          <div class="slide-bar" style="
+            position:absolute;bottom:0;left:3.5rem;right:3.5rem;
+            height:.5px;
+            background:linear-gradient(to right,transparent,rgba(201,185,154,.0),transparent);
+            transition:background .5s;
+          "></div>
+        </div>
+
+      </div><!-- /about-slides -->
+
+      <!-- 슬라이드 테두리 전체 (외곽선) -->
+      <div style="outline:.5px solid rgba(125,95,42,.1);outline-offset:-1px;margin-top:-1px;pointer-events:none;position:relative;z-index:2;height:1px;"></div>
+
+    </div><!-- /헤더 rv -->
+
+    <!-- 슬라이드 hover 스크립트 (인라인) -->
+    <style>
+      .aslide { transition: background .38s cubic-bezier(.4,0,.2,1); }
+      .aslide:hover { background: rgba(125,95,42,.04); }
+      .aslide:hover .slide-num { color: rgba(125,95,42,.08) !important; }
+      .aslide:hover .slide-bar {
+        background: linear-gradient(to right, transparent, rgba(125,95,42,.18), transparent) !important;
+      }
+      @media(max-width:900px){
+        .about-slides { grid-template-columns: 1fr !important; }
+      }
+      @media(max-width:768px){
+        .about-slides > div { padding: 2.8rem 1.4rem 2.4rem !important; }
+        [style*="grid-template-columns:1fr 1fr"]:has(h2) {
+          grid-template-columns: 1fr !important;
+          gap: 2rem !important;
+        }
+      }
+    </style>
+
+
+
+  </div>
+
+  <!-- 모바일 반응형 -->
+  <style>
+    @media(max-width:768px){
+      #about{padding:5rem 1.4rem !important;}
+      #about [style*="grid-template-columns:1fr 1fr"]{
+        grid-template-columns:1fr !important;
+        gap:2rem !important;
+      }
+      #about h2{white-space:normal !important;font-size:clamp(26px,7vw,38px) !important;}
+      #about [style*="margin-bottom:9rem"]{margin-bottom:4rem !important;}
+      #about [style*="margin-bottom:5rem"]{margin-bottom:3rem !important;}
+    }
+  </style>
+</section>
+
+<!-- 컨셉 -->
+<section id="concept" style="padding:10rem 4rem;background:#ECEBE6;" class="sec-concept">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="rv" style="margin-bottom:5rem;">
+      <div class="sec-label">이번 생전추모식</div>
+      <h2 style="font-family:var(--kr);font-size:clamp(26px,3.5vw,46px);font-weight:700;line-height:1.3;color:#1B1A17;letter-spacing:-.01em;">
+        작은 한옥 방에서,<br>
+        <em style="font-style:normal;color:inherit;">가장 가까운 여섯 사람과.</em>
+      </h2>
+    </div>
+
+    <!-- 아코디언 컨셉 -->
+    <div class="cac-wrap rv">
+
+      <div class="cac-item" data-index="0">
+        <div class="cac-header">
+          <div class="cac-num">01</div>
+          <div class="cac-titles">
+            <span class="cac-en">A Small Room</span>
+            <h3 class="cac-kr">작은 한옥 방</h3>
+          </div>
+          <div class="cac-arrow">
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+              <line x1="0" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width=".8"/>
+              <polyline points="10,1 15,5 10,9" fill="none" stroke="currentColor" stroke-width=".8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cac-body">
+          <div class="cac-body-inner">
+            <p class="cac-desc">가장 가까운 사람들과 함께하는 조용한 자리.<br>마이크 없이, 서로의 목소리가 닿는 거리에서.<br>1시간에서 2시간 남짓, 오롯이 당신을 위한 시간.</p>
+            <div class="cac-bg-num">01</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cac-item" data-index="1">
+        <div class="cac-header">
+          <div class="cac-num">02</div>
+          <div class="cac-titles">
+            <span class="cac-en">Letters</span>
+            <h3 class="cac-kr">소리 내어 읽는 편지</h3>
+          </div>
+          <div class="cac-arrow">
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+              <line x1="0" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width=".8"/>
+              <polyline points="10,1 15,5 10,9" fill="none" stroke="currentColor" stroke-width=".8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cac-body">
+          <div class="cac-body-inner">
+            <p class="cac-desc">초대받은 사람들이 한 명씩, 끝까지 아껴 두었던 말을 꺼내는 시간.<br>장례식에서만 들을 수 있던 말들을, 살아있는 지금.<br>주인공은 그저 듣기만 하면 됩니다.</p>
+            <div class="cac-bg-num">02</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cac-item" data-index="2">
+        <div class="cac-header">
+          <div class="cac-num">03</div>
+          <div class="cac-titles">
+            <span class="cac-en">The Coffin</span>
+            <h3 class="cac-kr">원하신다면, 관 속에서</h3>
+          </div>
+          <div class="cac-arrow">
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+              <line x1="0" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width=".8"/>
+              <polyline points="10,1 15,5 10,9" fill="none" stroke="currentColor" stroke-width=".8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cac-body">
+          <div class="cac-body-inner">
+            <p class="cac-desc">원하신다면 관 안에서 편지를 들으실 수 있습니다.<br>숨구멍이 뚫려 있고, 작은 종을 치면 언제든 열어 드립니다.<br>들어가지 않으셔도 괜찮습니다.</p>
+            <div class="cac-bg-num">03</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cac-item" data-index="3">
+        <div class="cac-header">
+          <div class="cac-num">04</div>
+          <div class="cac-titles">
+            <span class="cac-en">Two Albums</span>
+            <h3 class="cac-kr">두 장의 앨범</h3>
+          </div>
+          <div class="cac-arrow">
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+              <line x1="0" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width=".8"/>
+              <polyline points="10,1 15,5 10,9" fill="none" stroke="currentColor" stroke-width=".8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="cac-body">
+          <div class="cac-body-inner">
+            <p class="cac-desc">처음과 마지막을 함께할 앨범 두 장.<br>그날은 당신이 고른 음악으로 채워집니다.</p>
+            <div class="cac-bg-num">04</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cac-wrap -->
+
+    <style>
+      /* ── 아코디언 래퍼 ── */
+      .cac-wrap {
+        border-top: .5px solid rgba(125,95,42,.15);
+      }
+
+      /* ── 각 아이템 ── */
+      .cac-item {
+        border-bottom: .5px solid rgba(125,95,42,.15);
+        overflow: hidden;
+        transition: background .5s ease;
+      }
+      .cac-item.active {
+        background: rgba(125,95,42,.035);
+      }
+      .cac-item:not(.active) {
+        cursor: pointer;
+      }
+
+      /* ── 헤더 행 ── */
+      .cac-header {
+        display: grid;
+        grid-template-columns: 72px 1fr 36px;
+        align-items: center;
+        padding: 2.6rem 0;
+        gap: 2rem;
+        transition: opacity .4s;
+      }
+      .cac-item:not(.active) .cac-header:hover {
+        opacity: .72;
+      }
+
+      /* 번호 */
+      .cac-num {
+        font-family: var(--serif);
+        font-size: clamp(32px, 3.5vw, 46px);
+        font-weight: 300;
+        color: rgba(125,95,42,.22);
+        letter-spacing: -.04em;
+        line-height: 1;
+        transition: color .4s;
+      }
+      .cac-item.active .cac-num {
+        color: #7D5F2A;
+      }
+
+      /* 타이틀 묶음 */
+      .cac-titles {
+        display: flex;
+        align-items: baseline;
+        gap: 1.6rem;
+      }
+      .cac-en {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 10.5px;
+        letter-spacing: .26em;
+        text-transform: uppercase;
+        color: rgba(125,95,42,.4);
+        transition: color .4s;
+        white-space: nowrap;
+      }
+      .cac-item.active .cac-en {
+        color: rgba(125,95,42,.65);
+      }
+      .cac-kr {
+        font-family: var(--kr);
+        font-size: clamp(20px, 2.4vw, 30px);
+        font-weight: 400;
+        color: rgba(27,26,23,.45);
+        letter-spacing: -.02em;
+        line-height: 1;
+        transition: color .4s, transform .4s;
+      }
+      .cac-item.active .cac-kr {
+        color: #1B1A17;
+      }
+
+      /* 화살표 */
+      .cac-arrow {
+        color: rgba(125,95,42,.25);
+        transition: color .4s, transform .5s cubic-bezier(.4,0,.2,1);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .cac-item.active .cac-arrow {
+        color: #7D5F2A;
+        transform: rotate(90deg);
+      }
+
+      /* ── 펼쳐지는 본문 ── */
+      .cac-body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows .6s cubic-bezier(.4,0,.2,1);
+      }
+      .cac-item.active .cac-body {
+        grid-template-rows: 1fr;
+      }
+      .cac-body-inner {
+        overflow: hidden;
+        padding-left: 0;
+        padding-right: 0;
+        position: relative;
+      }
+      .cac-item.active .cac-body-inner {
+        padding-bottom: 3.6rem;
+      }
+
+      /* 설명 텍스트 */
+      .cac-desc {
+        font-size: 13.5px;
+        line-height: 2.2;
+        color: rgba(27,26,23,.52);
+        font-weight: 300;
+        word-break: keep-all;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity .45s .18s, transform .45s .18s;
+      }
+      .cac-item.active .cac-desc {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* 배경 큰 넘버 */
+      .cac-bg-num {
+        position: absolute;
+        right: 0;
+        bottom: -8px;
+        font-family: var(--serif);
+        font-size: clamp(80px, 9vw, 130px);
+        font-weight: 300;
+        color: rgba(125,95,42,.055);
+        line-height: 1;
+        letter-spacing: -.06em;
+        pointer-events: none;
+        user-select: none;
+        opacity: 0;
+        transition: opacity .5s .15s;
+      }
+      .cac-item.active .cac-bg-num {
+        opacity: 1;
+      }
+
+      /* 비활성 항목 dim */
+      .cac-wrap.has-active .cac-item:not(.active) {
+        opacity: .45;
+        transition: opacity .45s, background .5s;
+      }
+      .cac-wrap.has-active .cac-item:not(.active):hover {
+        opacity: .72;
+      }
+
+      /* 모바일 */
+      @media(max-width:768px){
+        .cac-header { grid-template-columns: 44px 1fr 24px; gap: 1rem; padding: 1.8rem 0; }
+        .cac-titles { flex-direction: column; gap: .3rem; align-items: flex-start; }
+        .cac-en { font-size: 9.5px; letter-spacing: .18em; }
+        .cac-kr { font-size: clamp(18px, 5vw, 24px); }
+        .cac-num { font-size: clamp(26px, 7vw, 38px); }
+        .cac-body-inner { padding-left: 0; padding-right: 0; }
+        .cac-desc { font-size: 13px; line-height: 2.1; }
+        .cac-bg-num { font-size: clamp(60px, 16vw, 100px); }
+      }
+    </style>
+
+    <script>
+    (function(){
+      const wrap = document.querySelector('.cac-wrap');
+      const items = wrap.querySelectorAll('.cac-item');
+
+      function activate(idx) {
+        items.forEach((el, i) => {
+          if (i === idx) {
+            el.classList.add('active');
+          } else {
+            el.classList.remove('active');
+          }
+        });
+        wrap.classList.add('has-active');
+      }
+
+      // 첫 번째 기본 열림
+      activate(0);
+
+      items.forEach((el, i) => {
+        el.addEventListener('click', () => {
+          if (el.classList.contains('active')) return;
+          activate(i);
+        });
+      });
+    })();
+    </script>
+
+    <p class="rv" style="font-size:12.5px;line-height:1.9;color:rgba(27,26,23,.55);margin-top:2.4rem;text-align:center;font-weight:300;">
+      평생 기억에 남을 그 날.
+    </p>
   </div>
 </section>
 
-<!-- 이런 분께 추천해요 -->
-<section class="sec" id="for">
-  <div class="sec-in">
-    <div class="sec-label rv">이런 분께 추천해요</div>
-    <h2 class="sec-h2 rv">이런 분이라면,<br><span class="soft">한 번쯤 열어 보세요.</span></h2>
-    <ul class="recommend">
-      <li class="rv">칠순이나 환갑을 조금 다르게 보내고 싶은 분</li>
+<!-- 그날의 순서 -->
+<section id="order" class="lf-order">
+  <div class="lf-in">
+    <div class="sec-label rv" style="justify-content:center;">그날의 순서</div>
+    <p class="lf-order-en rv">Order of Service</p>
+    <p class="lf-order-sub rv">1시간에서 2시간, 이런 순서로 진행됩니다.</p>
+    <ol class="lf-order-list rv">
+      <li><b>오프닝 곡</b><small>당신이 고른 첫 곡으로, 그날이 시작됩니다.</small></li>
+      <li><b>환영 인사</b><small>오늘 모인 이유를 함께 나눕니다.</small></li>
+      <li><b>인생영화</b><small>지난 사진들로 엮은 짧은 영상.</small></li>
+      <li><b>소리 내어 읽는 편지</b><small>한 사람씩, 아껴 두었던 말.</small></li>
+      <li><b>가만히 머무는 시간</b><small>아무 말 없이, 함께 있는 시간.</small></li>
+      <li><b>마지막 인사</b><small>당신이 직접 남기는 말.</small></li>
+      <li><b>엔딩 크레딧</b><small>당신이 고른 마지막 곡과 함께.</small></li>
+    </ol>
+    <p class="lf-order-foot rv">순서와 음악은 주인공에 맞춰 함께 바꿀 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- 이런 분께 -->
+<section id="for" class="lf-for">
+  <div class="lf-in" style="max-width:1100px;">
+    <div class="rv" style="margin-bottom:4rem;">
+      <div class="sec-label">이런 분께</div>
+      <h2 style="font-family:var(--kr);font-size:clamp(26px,3.5vw,44px);font-weight:700;line-height:1.3;color:#1B1A17;letter-spacing:-.01em;">
+        이런 분이라면,<br>
+        <em style="font-style:normal;color:inherit;">한 번쯤 용기 내보셔도 좋습니다.</em>
+      </h2>
+    </div>
+    <ul class="lf-for-list">
+      <li class="rv">칠순이나 환갑을, 조금 다르게 보내고 싶은 분</li>
       <li class="rv">부모님께 평생 못 한 고맙다는 말을 들려 드리고 싶은 분</li>
       <li class="rv">은퇴나 퇴사처럼, 인생의 한 장을 마무리하는 분</li>
-      <li class="rv">이민이나 유학으로 멀리 떠나기 전, 소중한 사람들에게 인사하고 싶은 분</li>
+      <li class="rv">멀리 떠나기 전, 소중한 사람들에게 인사하고 싶은 분</li>
       <li class="rv">큰 수술이나 투병을 앞두고, 고마운 사람들을 한자리에 모으고 싶은 분</li>
       <li class="rv">내 장례식에서 사람들이 무슨 말을 할지, 한 번쯤 궁금했던 분</li>
     </ul>
   </div>
 </section>
 
-<!-- 그날의 순서 -->
-<section class="sec order" id="order">
-  <div class="sec-in">
-    <div class="sec-label rv">그날의 순서</div>
-    <p class="order-title rv">Order of Service</p>
-    <p class="order-sub rv">이런 순서로 진행돼요. 전체 1~2시간 정도예요.</p>
-    <ol class="order-list rv">
-      <li><b>오프닝 곡</b><small>주인공이 고른 노래 한 곡으로 시작해요.<br>다 같이 조용히 들어요.</small></li>
-      <li><b>환영 인사</b><small>진행자가 오늘 왜 모였는지 짧게 이야기해요.<br>처음이라 어색해도 괜찮아요. 순서마다 진행자가 안내해 드려요.</small></li>
-      <li><b>인생영화</b><small>주인공의 지난 사진들로 만든 짧은 영상을 함께 봐요.</small></li>
-      <li><b>소리 내어 읽는 편지</b><small>초대받은 분들이 써 온 편지를 한 사람씩 소리 내어 읽어요.<br>주인공은 듣기만 하면 돼요.</small></li>
-      <li><b>가만히 머무는 시간</b><small>아무 말 없이, 잠시 함께 있어요.</small></li>
-      <li><b>마지막 인사</b><small>주인공이 직접 준비한 말을 남겨요.</small></li>
-      <li><b>엔딩 크레딧</b><small>주인공이 고른 마지막 노래로 끝나요.</small></li>
-    </ol>
-    <p class="order-foot rv">원하시면 손님이 오기 전에 미리 관 안에 누워 계시다가,<br>관 뚜껑을 열고 편지를 들으실 수도 있어요.<br>순서와 노래는 주인공에 맞춰 바꿀 수 있어요.</p>
-  </div>
-</section>
+<style>
+  .lf-in{max-width:620px;margin:0 auto;}
+  .lf-order{padding:10rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.1);text-align:center;}
+  .lf-order .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
+  .lf-order-en{font-family:var(--serif);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#7D5F2A;margin-bottom:.7rem;}
+  .lf-order-sub{font-family:var(--kr);font-size:15px;color:var(--mute);margin-bottom:3.6rem;}
+  .lf-order-list{list-style:none;}
+  .lf-order-list li{padding:1.1rem 0;}
+  .lf-order-list li + li::before{content:'';display:block;width:5px;height:5px;margin:0 auto 2.2rem;border:.5px solid #7D5F2A;transform:rotate(45deg);}
+  .lf-order-list b{display:block;font-family:var(--kr);font-size:19px;font-weight:400;color:#1B1A17;margin-bottom:.35rem;}
+  .lf-order-list small{display:block;font-size:12.5px;line-height:1.85;color:var(--mute);font-weight:300;}
+  .lf-order-foot{margin-top:3.4rem;font-size:12.5px;color:var(--mute);font-weight:300;}
+  .lf-for{padding:10rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.1);}
+  .lf-for-list{list-style:none;border-top:.5px solid rgba(125,95,42,.15);}
+  .lf-for-list li{font-family:var(--kr);font-size:clamp(16px,1.7vw,20px);line-height:1.7;color:#1B1A17;padding:1.7rem 0 1.7rem 2.2rem;border-bottom:.5px solid rgba(125,95,42,.15);position:relative;word-break:keep-all;}
+  .lf-for-list li::before{content:'';position:absolute;left:.3rem;top:2.6rem;width:5px;height:5px;border:.5px solid #7D5F2A;transform:rotate(45deg);}
+  @media(max-width:768px){
+    .lf-order,.lf-for{padding:5rem 1.4rem;}
+    .lf-order-sub{margin-bottom:2.6rem;}
+    .lf-order-list b{font-size:17.5px;}
+    .lf-order-list small{font-size:12px;}
+    .lf-order-list li + li::before{margin-bottom:1.8rem;}
+    .lf-for-list li{font-size:16px;padding:1.3rem 0 1.3rem 1.7rem;}
+    .lf-for-list li::before{left:.1rem;top:2.15rem;}
+  }
+</style>
 
-<!-- 준비할 것 -->
-<section class="sec" id="prep">
-  <div class="sec-in">
-    <div class="sec-label rv">준비할 것</div>
-    <h2 class="sec-h2 rv">준비할 건<br><span class="soft">생각보다 많지 않아요.</span></h2>
-    <div class="prep">
-      <div class="rv">
-        <h3>주인공이 정할 것</h3>
-        <ul>
-          <li>초대하고 싶은 사람 (6명 이하)</li>
-          <li>처음과 마지막을 함께할 앨범 두 장</li>
-          <li>인생영화에 넣을 지난 사진 몇 장</li>
-          <li>마지막에 남기고 싶은 말</li>
-        </ul>
+<!-- 진행 과정 -->
+<section id="process" style="padding:10rem 4rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.1);">
+  <style>
+    @media(max-width:768px){
+      .sec-concept{padding:5rem 1.4rem !important;}
+      #process{padding:5rem 1.4rem !important;}
+      #process [style*="repeat(4"]{grid-template-columns:1fr !important;}
+      #process [style*="border-right"]{border-right:none !important;border-bottom:.5px solid rgba(125,95,42,.08) !important;}
+      #process [style*="transition-delay"]{transition-delay:0s !important;}
+    }
+  </style>
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="rv" style="margin-bottom:5rem;">
+      <div class="sec-label">진행 과정</div>
+      <h2 style="font-family:var(--kr);font-size:clamp(26px,3.5vw,44px);font-weight:700;line-height:1.3;color:#1B1A17;letter-spacing:-.01em;">
+        처음 연락부터<br>
+        <em style="font-style:normal;color:inherit;">그날까지, 함께.</em>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(125,95,42,.08);">
+      <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .3s;" class="p-bar"></div>
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">1</span>
+        <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">첫 상담</div>
+        <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">신청서를 남겨 주시면, 어떤 자리를 원하시는지 상담을 통해 편하게 이야기 나눕니다.</p>
       </div>
-      <div class="rv">
-        <h3>손님이 가져올 것</h3>
-        <ul>
-          <li>주인공에게 읽어 줄 편지 한 편</li>
-        </ul>
-        <h3 class="prep-us">비프리히어가 맡는 것</h3>
-        <ul>
-          <li>장소와 꽃, 관 준비</li>
-          <li>손님께 드릴 초대장과 순서지</li>
-          <li>인생영화 만들기와 그날의 진행</li>
-        </ul>
+      <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;transition-delay:.08s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">2</span>
+        <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">함께 준비</div>
+        <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">초대할 사람, 두 장의 앨범, 지난 사진 몇 장, 마지막에 남기고 싶은 말. 초대장과 순서지는 비프리히어가 만듭니다.</p>
+      </div>
+      <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;transition-delay:.16s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">3</span>
+        <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">진행</div>
+        <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">상담한 내용을 바탕으로 모든 운영이 진행됩니다. 기억에 남을 그 날을 함께합니다.</p>
+      </div>
+      <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;position:relative;transition:background .25s;transition-delay:.24s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">4</span>
+        <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">기억 아카이빙</div>
+        <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">그날의 기록을 남깁니다. 사진, 영상, 편지. 오래도록 간직할 수 있도록.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 신청부터 그날까지 -->
-<section class="sec" id="steps">
-  <div class="sec-in">
-    <div class="sec-label rv">신청부터 그날까지</div>
-    <h2 class="sec-h2 rv">처음이어도<br><span class="soft">하나씩 함께해요.</span></h2>
-    <ol class="steps">
-      <li class="rv"><i>1</i><b>신청서 쓰기</b><span>아래 신청서에 누구를 위한 자리인지 짧게 적어 주세요.</span></li>
-      <li class="rv"><i>2</i><b>비프리히어와 상담</b><span>날짜, 초대할 사람, 앨범을 함께 정해요.</span></li>
-      <li class="rv"><i>3</i><b>초대장 보내기</b><span>저희가 만든 초대장을 손님들께 전해 주세요.</span></li>
-      <li class="rv"><i>4</i><b>그날</b><span>오시기만 하면 돼요. 진행은 저희가 맡아요.</span></li>
-    </ol>
+<style>
+  /* ── CTA 섹션 ── */
+  .cta-section {
+    padding: clamp(6rem,14vw,14rem) clamp(1.4rem,4vw,4rem);
+    text-align: center;
+    background: #ECEBE6;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 배경 중앙 오브 — 은은하게 숨쉬는 빛 */
+  .cta-orb {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(340px, 58vw, 720px);
+    height: clamp(240px, 40vw, 500px);
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+      rgba(201,165,100,.16) 0%,
+      rgba(125,95,42,.08)   35%,
+      transparent           70%
+    );
+    pointer-events: none;
+    animation: orbBreathe 7s ease-in-out infinite;
+  }
+  @keyframes orbBreathe {
+    0%,100% { opacity: .7;  transform: translate(-50%,-50%) scale(1); }
+    50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.07); }
+  }
+
+  /* ── 상담 시작하기 버튼 ── */
+  .btn-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    font-weight: 300;
+    padding: 15px 36px;
+    border: .5px solid rgba(125,95,42,.35);
+    border-radius: 100px;
+    background: transparent;
+    color: #7D5F2A;
+    cursor: none;
+    outline: none;
+    transition: color .4s, border-color .4s;
+    overflow: visible;
+    z-index: 2;
+  }
+
+  /* 버튼 내부 — 마우스오버 시 채워지는 빛 */
+  .btn-cta::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 100px;
+    background: radial-gradient(ellipse at var(--mx,50%) var(--my,50%),
+      rgba(201,165,100,.22) 0%,
+      rgba(125,95,42,.12)   40%,
+      transparent           72%
+    );
+    opacity: 0;
+    transition: opacity .5s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+  }
+
+  /* 버튼 외부 후광 — 마우스오버 시 퍼지는 빛 */
+  .btn-cta::after {
+    content: '';
+    position: absolute;
+    inset: -28px;
+    border-radius: 100px;
+    background: radial-gradient(ellipse at 50% 50%,
+      rgba(201,165,100,.18) 0%,
+      rgba(125,95,42,.10)   30%,
+      transparent           68%
+    );
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);
+    transform: scale(.7);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .btn-cta:hover {
+    color: #5E4520;
+    border-color: rgba(125,95,42,.7);
+  }
+  .btn-cta:hover::before { opacity: 1; }
+  .btn-cta:hover::after  { opacity: 1; transform: scale(1); }
+
+  /* 클릭 시 섬광 */
+  .btn-cta:active::after {
+    opacity: 1.4;
+    transform: scale(1.25);
+    transition: opacity .12s, transform .12s;
+  }
+
+  /* 화살표 아이콘 */
+  .btn-cta .arr {
+    display: inline-flex;
+    align-items: center;
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    flex-shrink: 0;
+  }
+  .btn-cta:hover .arr { transform: translateX(5px); }
+
+  /* ── 스크롤 진입 시 버튼 빛 bloom ── */
+  .btn-cta.bloomed::after {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.4s cubic-bezier(.2,0,.2,1);
+  }
+  .btn-cta.bloomed::before {
+    opacity: .55;
+    transition: opacity 1s .2s cubic-bezier(.4,0,.2,1);
+  }
+  /* bloom 후 자연스럽게 fade */
+  .btn-cta.bloom-fade::after  { opacity: 0; transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform .6s; transform: scale(1.1); }
+  .btn-cta.bloom-fade::before { opacity: 0; transition: opacity .9s cubic-bezier(.4,0,.2,1); }
+</style>
+
+<!-- CTA -->
+<section class="cta-section" id="ctaSection">
+  <div class="cta-orb"></div>
+
+  <div style="position:relative;z-index:1;">
+    <div class="sec-label rv" style="justify-content:center;">함께 만들어요</div>
+    <h2 class="rv cta-h2" style="font-family:var(--kr);font-size:clamp(20px,4.5vw,72px);font-weight:700;line-height:1.2;margin-bottom:1.6rem;letter-spacing:-.01em;">
+      생전에 치르는 추모식,<br>
+      <em style="font-style:normal;color:inherit;">평생 기억에 남을 이야기.</em>
+    </h2>
+    <p class="rv" style="font-size:14px;line-height:1.95;color:rgba(27,26,23,.62);max-width:460px;margin:0 auto 3.5rem;">
+      자신뿐만 아닌 함께하는 사람의 기억에도 평생 남을 이야기.<br>특별한 용기를 내보셔도 좋습니다.
+    </p>
+    <p class="rv" style="margin:-2rem auto 3rem;font-size:13px;"><a href="/living-stories.html" style="color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.45);padding-bottom:2px;">74세 어머니가 직접 준비한 생전추모식 이야기 읽기 →</a></p>
+
+    <div class="rv lf-price">
+      <div class="lf-price-row"><span>생전추모식</span><b>150<small>만 원</small></b></div>
+      <p>1~2시간 · 작은 한옥 방 · 초대 여섯 명 이하<br>장소, 꽃, 관, 초대장과 순서지, 인생영화, 진행까지 모두 포함</p>
+      <p class="gift">첫 번째 주인공께는 그날의 영상과 사진을 선물로 드립니다. (촬영 동의 시)</p>
+    </div>
+    <style>
+      .lf-price{max-width:420px;margin:0 auto 3.4rem;padding:1.8rem 0;border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);}
+      .lf-price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.9rem;}
+      .lf-price-row span{font-family:var(--kr);font-size:16px;}
+      .lf-price-row b{font-family:var(--serif);font-size:30px;font-weight:400;color:#7D5F2A;}
+      .lf-price-row b small{font-family:var(--sans);font-size:12px;font-weight:300;margin-left:2px;}
+      .lf-price p{font-size:12.5px;line-height:1.95;color:rgba(27,26,23,.6);font-weight:300;text-align:left;word-break:keep-all;}
+      .lf-price p.gift{color:#7D5F2A;margin-top:.5rem;}
+    </style>
+    <button class="rv btn-cta" id="ctaBtn" data-modal="open">
+      상담 시작하기
+      <span class="arr">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+          <line x1="0" y1="4.5" x2="9.5" y2="4.5" stroke="currentColor" stroke-width=".85"/>
+          <polyline points="6,1 9.5,4.5 6,8" fill="none" stroke="currentColor" stroke-width=".85"/>
+        </svg>
+      </span>
+    </button>
   </div>
 </section>
 
-<!-- 자주 묻는 질문 -->
-<section class="sec" id="faq">
-  <div class="sec-in">
-    <div class="sec-label rv">자주 묻는 질문</div>
-    <ul class="faq">
-      <li class="rv"><b>시간은 얼마나 걸려요?</b><span>1시간에서 2시간 정도예요. 주인공이 힘드시면 순서를 줄일 수 있어요.</span></li>
-      <li class="rv"><b>관에 꼭 들어가야 하나요?</b><span>아니요. 원하시는 분만 들어가세요. 의자에 앉아 편지를 들으셔도 충분해요.</span></li>
-      <li class="rv"><b>관 안이 답답하거나 무섭지 않을까요?</b><span>숨구멍이 뚫려 있고, 관 안에 작은 종이 있어요. 불편하시면 종을 치는 순간 바로 열어 드려요.</span></li>
-      <li class="rv"><b>아픈 분만 하는 자리인가요?</b><span>아니요. 건강할 때, 고맙다는 말을 미루고 싶지 않은 누구나 할 수 있어요.</span></li>
-      <li class="rv"><b>울어도 되고, 웃어도 되나요?</b><span>네, 둘 다 괜찮아요. 정해진 표정은 없어요.</span></li>
-      <li class="rv"><b>촬영을 하나요?</b><span>첫 번째 주인공께는 그날을 영상과 사진으로 남겨 선물로 드려요. 촬영은 동의해 주실 때만 해요.</span></li>
-    </ul>
+<!-- FOOTER -->
+<footer>
+  <div class="footer" style="grid-template-columns:1.5fr 1fr;">
+    <div>
+      <div class="footer-brand-kr">비프리히어</div>
+      <div class="footer-brand-en">Befreehere</div>
+      <p class="footer-tagline">죽음을 똑바로 바라보는 것.<br>이제까지 본 적 없던 형태의 장례식.</p>
+    </div>
+    <div>
+      <div class="footer-col-label">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/befreehere_" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="mailto:befreehere.kr@gmail.com">이메일 문의</a></li>
+        <li><a href="/privacy.html">개인정보처리방침</a></li>
+      </ul>
+    </div>
   </div>
-</section>
-
-<!-- 신청 -->
-<section class="closing" id="apply">
-  <div class="sec-label rv">첫 번째 주인공을 찾습니다</div>
-  <h2 class="sec-h2 rv">당신의 엔딩 크레딧에<br><span class="soft">누구의 이름이 오를까요.</span></h2>
-  <p class="body-text rv">한국에서는 아직 낯선 자리라, 저희도 걱정 반 설렘 반으로 첫 번째 주인공을 기다리고 있어요.</p>
-  <button class="btn-primary rv" data-modal="open">
-    신청서 쓰기
-    <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width=".8"/><polyline points="6,1 10,5 6,9" fill="none" stroke="currentColor" stroke-width=".8"/></svg>
-  </button>
-</section>
-
-<footer class="footer">
-  <div>
-    <div class="footer-brand-kr">비프리히어</div>
-    <div class="footer-brand-en">Befreehere</div>
-    <p class="footer-tagline">장례는 끝이 아니라 새로운 시작입니다.</p>
-  </div>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/befreehere_" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:befreehere.kr@gmail.com">befreehere.kr@gmail.com</a>
-    <a href="/privacy.html">개인정보처리방침</a>
-    <span class="footer-copy">© 2026 비프리히어 Befreehere</span>
-  </div>
+  <div class="footer-btm"><span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span></div>
 </footer>
 
-<!-- 신청서 → formspree → 대표님 메일 -->
+<!-- CONTACT MODAL -->
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="닫기">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="2" x2="14" y2="14" stroke="currentColor" stroke-width="1.2"/><line x1="14" y1="2" x2="2" y2="14" stroke="currentColor" stroke-width="1.2"/></svg>
     </button>
+    <div class="modal-eyebrow">상담 문의</div>
+    <div class="modal-title">생전추모식 상담</div>
+    <div class="modal-sub">상담 내용을 바탕으로 최대한 빠른 시일 내에 연락드리겠습니다.</div>
     <div id="modalForm">
-      <div class="modal-eyebrow">생전추모식 신청</div>
-      <div class="modal-title" id="modalTitle">첫 번째 주인공 신청서</div>
 
-      <div class="price">
-        <div class="price-row"><span>생전추모식</span><b>150<small>만 원</small></b></div>
-        <ul>
-          <li>1~2시간 · 작은 한옥 방 · 초대 6명 이하</li>
-          <li>장소, 꽃, 관, 초대장·순서지, 인생영화, 진행까지 모두 포함</li>
-          <li class="gift">첫 번째 주인공께는 그날의 영상과 사진을 선물로 드려요 (촬영 동의 시)</li>
-        </ul>
-      </div>
-
+      <!-- 분위기 -->
       <div class="mfield">
-        <label>누구를 위한 자리인가요?</label>
-        <div class="chip-group" id="chipFor">
-          <button type="button" class="chip" data-val="나를 위해">나를 위해</button>
-          <button type="button" class="chip" data-val="부모님께">부모님께</button>
-          <button type="button" class="chip" data-val="친구·연인에게">친구·연인에게</button>
-          <button type="button" class="chip" data-val="그 밖에">그 밖에</button>
+        <label>어떤 분위기를 원하시나요?</label>
+        <div class="chip-group" id="chipMood">
+          <button type="button" class="chip" data-val="조용하고 따뜻한">조용하고 따뜻한</button>
+          <button type="button" class="chip" data-val="밝고 축제 같은">밝고 축제 같은</button>
+          <button type="button" class="chip" data-val="품위 있고 격식 있는">품위 있고 격식 있는</button>
+          <button type="button" class="chip" data-val="아직 잘 모르겠어요">아직 잘 모르겠어요</button>
         </div>
       </div>
+
+      <!-- 규모 -->
       <div class="mfield">
-        <label>관에 들어가 보고 싶으신가요?</label>
-        <div class="chip-group" id="chipCoffin">
-          <button type="button" class="chip" data-val="네">네</button>
-          <button type="button" class="chip" data-val="아니요">아니요</button>
-          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
+        <label>예상 인원이 어떻게 되나요?</label>
+        <div class="chip-group" id="chipSize">
+          <button type="button" class="chip" data-val="1~3명">1~3명</button>
+          <button type="button" class="chip" data-val="3~5명">3~5명</button>
+          <button type="button" class="chip" data-val="5~7명">5~7명</button>
         </div>
       </div>
+
+      <!-- 시기 -->
       <div class="mfield">
         <label>언제쯤 생각하고 계세요?</label>
         <div class="chip-group" id="chipTime">
           <button type="button" class="chip" data-val="1개월 이내">1개월 이내</button>
+          <button type="button" class="chip" data-val="2개월 이내">2개월 이내</button>
           <button type="button" class="chip" data-val="3개월 이내">3개월 이내</button>
-          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
         </div>
-      </div>
-      <div class="mfield">
-        <label for="mStory">어떤 분의 생전추모식인가요? <small>(짧게 들려주세요)</small></label>
-        <textarea id="mStory" placeholder="예) 올해 일흔이 되시는 엄마께, 한 번도 못 한 고맙다는 말을 들려 드리고 싶어요."></textarea>
-      </div>
-      <div class="mfield">
-        <label for="mName">성함</label>
-        <input type="text" id="mName" autocomplete="name" placeholder="이름을 입력해 주세요"/>
-      </div>
-      <div class="mfield">
-        <label for="mPhone">연락처</label>
-        <input type="tel" id="mPhone" autocomplete="tel" placeholder="010-0000-0000"/>
-      </div>
-      <div class="mfield">
-        <label for="mEmail">이메일 <small>(선택)</small></label>
-        <input type="email" id="mEmail" autocomplete="email" placeholder="example@email.com"/>
+
+        <!-- 날짜 직접 선택 (캘린더) -->
+        <div id="calWrap" style="margin-top:1.1rem;background:#DCD9D1;border:.5px solid rgba(125,95,42,.18);border-radius:4px;padding:1rem 1rem .8rem;display:none;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;">
+            <button type="button" id="calPrev" style="background:none;border:none;cursor:pointer;color:rgba(27,26,23,.4);font-size:16px;padding:0 4px;line-height:1;">&#8249;</button>
+            <span id="calMonthLabel" style="font-family:var(--kr);font-size:13px;font-weight:400;color:#1B1A17;letter-spacing:.04em;"></span>
+            <button type="button" id="calNext" style="background:none;border:none;cursor:pointer;color:rgba(27,26,23,.4);font-size:16px;padding:0 4px;line-height:1;">&#8250;</button>
+          </div>
+          <div id="calGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;"></div>
+
+          <!-- 선택 후 확인 영역 -->
+          <div id="calConfirmRow" style="display:none;margin-top:.9rem;padding-top:.8rem;border-top:.5px solid rgba(125,95,42,.15);">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span id="calPreview" style="font-size:12.5px;color:#1B1A17;font-family:var(--kr);font-weight:300;"></span>
+              <button type="button" id="calConfirm" style="flex-shrink:0;background:#7D5F2A;border:none;border-radius:100px;color:#fff;font-family:var(--sans);font-size:11.5px;font-weight:400;padding:.4rem 1rem;cursor:pointer;letter-spacing:.04em;transition:background .18s;">날짜 확인</button>
+            </div>
+          </div>
+
+          <!-- 저장 완료 -->
+          <div id="calSaved" style="display:none;margin-top:.9rem;padding:.65rem .9rem;background:rgba(125,95,42,.08);border-radius:3px;border:.5px solid rgba(125,95,42,.2);">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="display:flex;align-items:center;gap:.5rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="calSavedLabel" style="font-size:12.5px;color:#7D5F2A;font-family:var(--kr);font-weight:400;"></span>
+              </div>
+              <button type="button" id="calReset" style="background:none;border:none;padding:0;font-size:11px;color:rgba(27,26,23,.35);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:var(--sans);">변경</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="calToggle" style="margin-top:.65rem;background:none;border:none;padding:0;font-family:var(--sans);font-size:12px;color:rgba(125,95,42,.7);cursor:pointer;letter-spacing:.03em;text-decoration:underline;text-underline-offset:3px;">+ 날짜를 직접 고를게요</button>
       </div>
 
-      <p class="modal-error" id="modalError" aria-live="polite"></p>
-      <button class="modal-submit" id="modalSubmit">신청하기</button>
-      <p class="modal-privacy">입력하신 정보는 생전추모식 상담에만 사용됩니다. <a href="/privacy.html" target="_blank">개인정보처리방침</a></p>
+      <!-- 이름 / 연락처 -->
+      <div class="mfield">
+        <label>성함</label>
+        <input type="text" id="mName" placeholder="이름을 입력해 주세요"/>
+      </div>
+      <div class="mfield">
+        <label>연락처</label>
+        <input type="tel" id="mPhone" placeholder="010-0000-0000"/>
+      </div>
+      <div class="mfield">
+        <label>이메일</label>
+        <input type="email" id="mEmail" placeholder="example@email.com"/>
+      </div>
+
+      <!-- 추가 메모 -->
+      <div class="mfield">
+        <label>추가로 전하고 싶은 말 <span style="font-weight:300;color:rgba(27,26,23,.5);">(선택)</span></label>
+        <textarea id="mInquiry" placeholder="자유롭게 적어주세요." style="min-height:80px;"></textarea>
+      </div>
+
+      <p style="font-size:12px;line-height:1.8;color:rgba(27,26,23,.6);text-align:center;margin:1.6rem 0 1rem;padding-top:1.4rem;border-top:.5px solid rgba(125,95,42,.18);">생전추모식 <b style="font-weight:500;color:#7D5F2A;">150만 원</b> · 장소, 꽃, 관, 초대장, 진행 포함</p>
+      <button class="modal-submit" id="modalSubmit">상담 신청하기</button>
+      <p style="font-size:11px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">상담 신청 시 입력하신 정보는 상담 목적으로만 사용됩니다. <a href="/privacy.html" target="_blank" style="text-decoration:underline;">개인정보처리방침</a></p>
     </div>
     <div class="modal-success" id="modalSuccess">
-      <div class="ok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <b>신청서가 잘 도착했어요.</b>
-      <span>상담을 위해 비프리히어가 연락드릴게요.<br>용기 내 주셔서 고맙습니다.</span>
+      <div style="width:48px;height:48px;border-radius:50%;border:.5px solid rgba(125,95,42,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div style="font-family:var(--kr);font-size:20px;font-weight:300;color:#1B1A17;margin-bottom:.8rem;">상담 신청이 완료되었습니다.</div>
+      <div style="font-size:13px;line-height:1.9;color:rgba(27,26,23,.45);">빠른 시간 내에 연락드리겠습니다.</div>
     </div>
   </div>
 </div>
 
 <script>
-// ── 위쪽 바 ──
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+// 커서는 assets/motion.js 에서 처리
 
-// ── 신청서 열고 닫기 ──
+// ── NAV ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+// ── 모달 ──
 const overlay=document.getElementById('modalOverlay');
+const modalClose=document.getElementById('modalClose');
 const modalForm=document.getElementById('modalForm');
 const modalSuccess=document.getElementById('modalSuccess');
 const modalSubmit=document.getElementById('modalSubmit');
-const modalError=document.getElementById('modalError');
 function openModal(){overlay.classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';}
 document.querySelectorAll('[data-modal="open"]').forEach(el=>{
   el.addEventListener('click',e=>{e.preventDefault();openModal();});
 });
-document.getElementById('modalClose').addEventListener('click',closeModal);
+modalClose.addEventListener('click',closeModal);
 overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ── 캘린더 ──
+let calYear,calMonth,calPickedDate='';
+(function(){const n=new Date();calYear=n.getFullYear();calMonth=n.getMonth();})();
+const DAY_KR=['일','월','화','수','목','금','토'];
+const MONTH_KR=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+function renderCal(){
+  const label=document.getElementById('calMonthLabel');
+  const grid=document.getElementById('calGrid');
+  if(!label||!grid)return;
+  label.textContent=calYear+'년 '+MONTH_KR[calMonth];
+  grid.innerHTML='';
+  DAY_KR.forEach((d,i)=>{
+    const cell=document.createElement('div');
+    cell.textContent=d;
+    cell.style.cssText='font-size:10px;font-weight:400;color:rgba(27,26,23,.35);padding:2px 0 6px;letter-spacing:.03em;'+(i===0?'color:rgba(125,95,42,.5);':'')+(i===6?'color:rgba(100,120,180,.5);':'');
+    grid.appendChild(cell);
+  });
+  const firstDay=new Date(calYear,calMonth,1).getDay();
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const today=new Date();today.setHours(0,0,0,0);
+  for(let i=0;i<firstDay;i++)grid.appendChild(document.createElement('div'));
+  for(let d=1;d<=daysInMonth;d++){
+    const date=new Date(calYear,calMonth,d);
+    const dateStr=calYear+'년 '+MONTH_KR[calMonth]+' '+d+'일';
+    const btn=document.createElement('button');
+    btn.type='button'; btn.textContent=d;
+    const limit=new Date(today);limit.setMonth(limit.getMonth()+3);
+    const isPast=date<today||date>limit,isSelected=calPickedDate===dateStr,dow=date.getDay();
+    btn.style.cssText='width:100%;aspect-ratio:1;border:none;border-radius:50%;font-family:var(--sans);font-size:12px;font-weight:300;cursor:pointer;transition:background .15s;'+(isSelected?'background:#7D5F2A;color:#fff;font-weight:500;':isPast?'background:none;color:rgba(27,26,23,.18);cursor:default;':'background:none;color:'+(dow===0?'rgba(125,95,42,.8)':dow===6?'rgba(100,120,180,.7)':'#1B1A17')+';');
+    if(!isPast){
+      btn.onmouseover=()=>{if(calPickedDate!==dateStr)btn.style.background='rgba(125,95,42,.12)';};
+      btn.onmouseout=()=>{if(calPickedDate!==dateStr)btn.style.background='none';};
+      btn.addEventListener('click',()=>{
+        calPickedDate=dateStr;
+        document.getElementById('calConfirmRow').style.display='block';
+        document.getElementById('calPreview').textContent=dateStr;
+        document.getElementById('calSaved').style.display='none';
+        renderCal();
+      });
+    }else{btn.disabled=true;}
+    grid.appendChild(btn);
+  }
+}
+const calToggle=document.getElementById('calToggle');
+const calWrap=document.getElementById('calWrap');
+calToggle.addEventListener('click',()=>{
+  const open=calWrap.style.display==='block';
+  if(open&&calPickedDate){
+    document.getElementById('calSavedLabel').textContent=calPickedDate+' 저장됨';
+    document.getElementById('calSaved').style.display='block';
+    document.getElementById('calConfirmRow').style.display='none';
+    calWrap.style.display='none';
+    calToggle.textContent='✓ '+calPickedDate;
+    calToggle.style.cssText='color:#7D5F2A;text-decoration:none;font-weight:400;';
+  }else if(open){
+    calWrap.style.display='none';
+    calToggle.textContent='+ 날짜를 직접 고를게요';
+    calToggle.style.cssText='color:rgba(125,95,42,.7);text-decoration:underline;font-weight:300;';
+  }else{
+    calWrap.style.display='block';
+    calToggle.textContent='− 날짜 선택 닫기';
+    calToggle.style.cssText='color:rgba(27,26,23,.4);text-decoration:underline;font-weight:300;';
+    renderCal();
+  }
+});
+document.getElementById('calPrev').addEventListener('click',()=>{calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCal();});
+document.getElementById('calNext').addEventListener('click',()=>{calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCal();});
+document.getElementById('calConfirm').addEventListener('click',()=>{
+  if(!calPickedDate)return;
+  document.getElementById('calSavedLabel').textContent=calPickedDate+' 저장됨';
+  document.getElementById('calSaved').style.display='block';
+  document.getElementById('calConfirmRow').style.display='none';
+  calWrap.style.display='none';
+  calToggle.textContent='✓ '+calPickedDate;
+  calToggle.style.cssText='color:#7D5F2A;text-decoration:none;font-weight:400;';
+});
+document.getElementById('calReset').addEventListener('click',()=>{
+  calPickedDate='';
+  document.getElementById('calSaved').style.display='none';
+  document.getElementById('calConfirmRow').style.display='none';
+  calWrap.style.display='block';
+  calToggle.textContent='− 날짜 선택 닫기';
+  calToggle.style.cssText='color:rgba(27,26,23,.4);text-decoration:underline;font-weight:300;';
+  renderCal();
+});
 
 // ── 칩 선택 ──
 document.querySelectorAll('.chip-group').forEach(group=>{
@@ -578,49 +1355,104 @@ document.querySelectorAll('.chip-group').forEach(group=>{
   });
 });
 
-// ── 보내기 ──
+// ── 폼 제출 ──
 modalSubmit.addEventListener('click',()=>{
-  const val=id=>document.getElementById(id).value.trim();
-  const pick=id=>document.querySelector('#'+id+' .chip.selected')?.dataset.val||'';
-  const name=val('mName'),phone=val('mPhone'),email=val('mEmail'),story=val('mStory');
-  if(!name||!phone){modalError.textContent='성함과 연락처를 적어 주세요.';return;}
-  modalError.textContent='';
-  modalSubmit.disabled=true;modalSubmit.textContent='보내는 중...';
+  const name=document.getElementById('mName').value.trim();
+  const phone=document.getElementById('mPhone').value.trim();
+  const email=document.getElementById('mEmail').value.trim();
+  const inquiry=document.getElementById('mInquiry').value.trim();
+  const mood=document.querySelector('#chipMood .chip.selected')?.dataset.val||'';
+  const size=document.querySelector('#chipSize .chip.selected')?.dataset.val||'';
+  const time=document.querySelector('#chipTime .chip.selected')?.dataset.val||'';
+  if(!name||!email){alert('성함과 이메일을 입력해 주세요.');return;}
+  modalSubmit.disabled=true; modalSubmit.textContent='전송 중...';
   const message=[
-    pick('chipFor')?'누구를 위해: '+pick('chipFor'):'',
-    pick('chipCoffin')?'관에 들어가기: '+pick('chipCoffin'):'',
-    pick('chipTime')?'희망 시기: '+pick('chipTime'):'',
-    story?'사연: '+story:''
+    mood?'분위기: '+mood:'',
+    size?'예상 인원: '+size:'',time?'희망 시기: '+time:'',
+    calPickedDate?'희망 날짜: '+calPickedDate:'',inquiry?'추가 메모: '+inquiry:''
   ].filter(Boolean).join('\n');
-  const body={_subject:'[비프리히어] [생전추모식 첫 주인공] 신청 - '+name,name,phone,email,message,source:'생전추모식 모집 페이지(/livingfuneral)'};
-  if(email)body._replyto=email;
-  fetch('https://formspree.io/f/mbdpqopv',{
-    method:'POST',
-    headers:{'Accept':'application/json','Content-Type':'application/json'},
-    body:JSON.stringify(body)
-  }).then(r=>{
-    if(!r.ok)throw new Error(r.status);
-    modalForm.style.display='none';modalSuccess.classList.add('show');
-  }).catch(()=>{
-    modalError.textContent='보내지 못했어요. befreehere.kr@gmail.com 으로 직접 보내 주세요.';
-    modalSubmit.disabled=false;modalSubmit.textContent='신청하기';
-  });
+  const payload=JSON.stringify({_subject:'[비프리히어] [생전추모식 첫 주인공] 상담 문의 - '+name,_replyto:email,name,phone,email,message,source:'생전추모식 모집 페이지(/livingfuneral)'});
+  const xhr=new XMLHttpRequest();
+  xhr.open('POST','https://formspree.io/f/mbdpqopv',true);
+  xhr.setRequestHeader('Accept','application/json');
+  xhr.setRequestHeader('Content-Type','application/json');
+  xhr.onreadystatechange=function(){
+    if(xhr.readyState!==4)return;
+    if(xhr.status>=200&&xhr.status<300){modalForm.style.display='none';modalSuccess.classList.add('show');}
+    else{alert('전송에 실패했습니다. 이메일로 직접 문의해 주세요.');modalSubmit.disabled=false;modalSubmit.textContent='상담 신청하기';}
+  };
+  xhr.send(payload);
 });
 
-// ── 나타나기 ──
+// ── 리빌 (rAF throttle) ──
 window.addEventListener('load',function(){
-  const els=document.querySelectorAll('.rv');
-  let raf=null;
-  function check(){
+  const rvEls=document.querySelectorAll('.rv');
+  let scrollRaf=null;
+  function checkRv(){
     const vh=window.innerHeight+20;
-    els.forEach(el=>{if(el.getBoundingClientRect().top<vh)el.classList.add('on');});
-    raf=null;
+    rvEls.forEach(el=>{if(el.getBoundingClientRect().top<vh)el.classList.add('on');});
+    scrollRaf=null;
   }
-  check();
-  window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(check);},{passive:true});
+  checkRv();
+  window.addEventListener('scroll',()=>{if(!scrollRaf)scrollRaf=requestAnimationFrame(checkRv);},{passive:true});
 });
+
+// ── CTA 버튼 빛 효과 ──
+(function(){
+  const btn=document.getElementById('ctaBtn');
+  if(!btn)return;
+  btn.addEventListener('mousemove',function(e){
+    const r=btn.getBoundingClientRect();
+    btn.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+    btn.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+  });
+  const obs=new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting)return;
+    btn.classList.remove('bloom-fade');
+    btn.classList.add('bloomed');
+    setTimeout(function(){
+      btn.classList.add('bloom-fade');
+      setTimeout(function(){btn.classList.remove('bloomed','bloom-fade');},1300);
+    },900);
+    obs.unobserve(btn);
+  },{threshold:0.6});
+  obs.observe(btn);
+})();
 </script>
 <script src="/assets/living-glow.js" defer></script>
+<script>
+/* 휴대폰 전용 (768px 이하에서만 동작 — 컴퓨터 화면은 그대로)
+   생전추모식 '어떤 자리든' 세 가지(잔잔한 작별 · 파티형 추모식 · 둘만의 작별)를 옆으로 넘기는 카드로 */
+(function () {
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+  var wrap = document.querySelector('.cac-wrap');
+  if (!wrap) return;
+  var items = Array.prototype.slice.call(wrap.querySelectorAll('.cac-item'));
+  if (!items.length) return;
+  wrap.classList.add('m-cac');
+
+  // 설명 문장: 한 문장씩 새 줄에서 시작하되, 줄이 넘치면 고르게 나눠지도록
+  wrap.querySelectorAll('.cac-desc').forEach(function (p) {
+    p.innerHTML = p.innerHTML.split(/<br\s*\/?>/i)
+      .map(function (line) { return '<span class="m-line">' + line.trim() + '</span>'; }).join('');
+  });
+
+  // 아래 점: 지금 몇 번째 카드인지
+  var dots = document.createElement('div');
+  dots.className = 'm-dots'; dots.setAttribute('aria-hidden', 'true');
+  items.forEach(function (_, i) {
+    var d = document.createElement('i'); if (i === 0) d.className = 'on'; dots.appendChild(d);
+  });
+  wrap.parentNode.insertBefore(dots, wrap.nextSibling);
+
+  wrap.addEventListener('scroll', function () {
+    var w = items[0].getBoundingClientRect().width + 12;
+    var idx = Math.min(items.length - 1, Math.round(wrap.scrollLeft / w));
+    dots.querySelectorAll('i').forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+  }, { passive: true });
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/motion.js" defer></script>
 </body>
