@@ -9,9 +9,9 @@
 <title>내 인생의 엔딩 크레딧을 미리 보는 날 · 생전추모식 | 비프리히어</title>
 <meta name="description" content="살아 있을 때 여는 나의 장례식, 생전추모식. 소중한 사람 6명 이하를 초대해 고맙다는 말을 직접 듣는 1~2시간의 자리. 비프리히어가 첫 번째 주인공을 찾습니다."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://befreeherekr.com/ending-credit.html"/>
+<link rel="canonical" href="https://befreeherekr.com/livingfuneral/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://befreeherekr.com/ending-credit.html"/>
+<meta property="og:url" content="https://befreeherekr.com/livingfuneral/"/>
 <meta property="og:title" content="내 인생의 엔딩 크레딧을 미리 보는 날 · 생전추모식"/>
 <meta property="og:description" content="장례식에서만 나오던 고맙다는 말을, 살아 있을 때 직접 듣는 자리. 비프리히어가 첫 번째 주인공을 찾습니다."/>
 <meta property="og:image" content="https://befreeherekr.com/og-image.JPG"/>
@@ -298,7 +298,7 @@ button{font-family:inherit;cursor:none;}
   .modal-title{font-size:19px;}
 }
 </style>
-<link rel="stylesheet" href="assets/motion.css">
+<link rel="stylesheet" href="/assets/motion.css">
 </head>
 <body>
 
@@ -470,7 +470,7 @@ button{font-family:inherit;cursor:none;}
   <div class="footer-links">
     <a href="https://www.instagram.com/befreehere_" target="_blank" rel="noopener">Instagram</a>
     <a href="mailto:befreehere.kr@gmail.com">befreehere.kr@gmail.com</a>
-    <a href="privacy.html">개인정보처리방침</a>
+    <a href="/privacy.html">개인정보처리방침</a>
     <span class="footer-copy">© 2026 비프리히어 Befreehere</span>
   </div>
 </footer>
@@ -538,7 +538,7 @@ button{font-family:inherit;cursor:none;}
 
       <p class="modal-error" id="modalError" aria-live="polite"></p>
       <button class="modal-submit" id="modalSubmit">신청하기</button>
-      <p class="modal-privacy">입력하신 정보는 생전추모식 상담에만 사용됩니다. <a href="privacy.html" target="_blank">개인정보처리방침</a></p>
+      <p class="modal-privacy">입력하신 정보는 생전추모식 상담에만 사용됩니다. <a href="/privacy.html" target="_blank">개인정보처리방침</a></p>
     </div>
     <div class="modal-success" id="modalSuccess">
       <div class="ok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -592,7 +592,7 @@ modalSubmit.addEventListener('click',()=>{
     pick('chipTime')?'희망 시기: '+pick('chipTime'):'',
     story?'사연: '+story:''
   ].filter(Boolean).join('\n');
-  const body={_subject:'[비프리히어] [생전추모식 첫 주인공] 신청 - '+name,name,phone,email,message,source:'엔딩 크레딧 모집 페이지'};
+  const body={_subject:'[비프리히어] [생전추모식 첫 주인공] 신청 - '+name,name,phone,email,message,source:'생전추모식 모집 페이지(/livingfuneral)'};
   if(email)body._replyto=email;
   fetch('https://formspree.io/f/mbdpqopv',{
     method:'POST',
@@ -620,8 +620,8 @@ window.addEventListener('load',function(){
   window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(check);},{passive:true});
 });
 </script>
-<script src="assets/living-glow.js" defer></script>
+<script src="/assets/living-glow.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="assets/motion.js" defer></script>
+<script src="/assets/motion.js" defer></script>
 </body>
 </html>
