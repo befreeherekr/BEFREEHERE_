@@ -141,6 +141,12 @@ button{font-family:inherit;cursor:none;}
 .glance span{display:block;font-size:11.5px;color:#7D5F2A;letter-spacing:.06em;margin-bottom:.6rem;}
 .glance b{font-family:var(--kr);font-size:20px;font-weight:400;}
 
+/* 이런 분께 추천해요 */
+.recommend{list-style:none;}
+.recommend li{font-family:var(--kr);font-size:18px;line-height:1.7;padding:1.4rem 0 1.4rem 2rem;border-top:.5px solid rgba(125,95,42,.22);position:relative;}
+.recommend li:last-child{border-bottom:.5px solid rgba(125,95,42,.22);}
+.recommend li::before{content:'';position:absolute;left:.3rem;top:2.35rem;width:5px;height:5px;border:.5px solid #7D5F2A;transform:rotate(45deg);}
+
 /* 준비할 것 */
 .prep{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
 .prep h3{font-family:var(--kr);font-size:19px;font-weight:400;padding-bottom:1rem;border-bottom:.5px solid rgba(125,95,42,.3);margin-bottom:1rem;}
@@ -261,6 +267,8 @@ button{font-family:inherit;cursor:none;}
   .glance li:nth-child(even){border-left:.5px solid rgba(125,95,42,.18);padding-left:1.2rem;}
   .glance li:nth-child(n+3){border-top:.5px solid rgba(125,95,42,.18);}
   .glance b{font-size:18px;}
+  .recommend li{font-size:16px;padding:1.2rem 0 1.2rem 1.6rem;}
+  .recommend li::before{left:.1rem;top:2.05rem;}
   .prep{grid-template-columns:1fr;gap:2.8rem;}
   .prep h3{font-size:17.5px;}
   .prep li{font-size:13.5px;}
@@ -347,6 +355,22 @@ button{font-family:inherit;cursor:none;}
   </div>
 </section>
 
+<!-- 이런 분께 추천해요 -->
+<section class="sec" id="for">
+  <div class="sec-in">
+    <div class="sec-label rv">이런 분께 추천해요</div>
+    <h2 class="sec-h2 rv">이런 분이라면,<br><span class="soft">한 번쯤 열어 보세요.</span></h2>
+    <ul class="recommend">
+      <li class="rv">칠순이나 환갑을 조금 다르게 보내고 싶은 분</li>
+      <li class="rv">부모님께 평생 못 한 고맙다는 말을 들려 드리고 싶은 분</li>
+      <li class="rv">은퇴나 퇴사처럼, 인생의 한 장을 마무리하는 분</li>
+      <li class="rv">이민이나 유학으로 멀리 떠나기 전, 소중한 사람들에게 인사하고 싶은 분</li>
+      <li class="rv">큰 수술이나 투병을 앞두고, 고마운 사람들을 한자리에 모으고 싶은 분</li>
+      <li class="rv">내 장례식에서 사람들이 무슨 말을 할지, 한 번쯤 궁금했던 분</li>
+    </ul>
+  </div>
+</section>
+
 <!-- 그날의 순서 -->
 <section class="sec order" id="order">
   <div class="sec-in">
@@ -376,7 +400,7 @@ button{font-family:inherit;cursor:none;}
         <h3>주인공이 정할 것</h3>
         <ul>
           <li>초대하고 싶은 사람 (6명 이하)</li>
-          <li>처음과 마지막에 들을 노래 두 곡</li>
+          <li>처음과 마지막을 함께할 앨범 두 장</li>
           <li>인생영화에 넣을 지난 사진 몇 장</li>
           <li>마지막에 남기고 싶은 말</li>
         </ul>
@@ -404,7 +428,7 @@ button{font-family:inherit;cursor:none;}
     <h2 class="sec-h2 rv">처음이어도<br><span class="soft">하나씩 함께해요.</span></h2>
     <ol class="steps">
       <li class="rv"><i>1</i><b>신청서 쓰기</b><span>아래 신청서에 누구를 위한 자리인지 짧게 적어 주세요.</span></li>
-      <li class="rv"><i>2</i><b>전화로 이야기</b><span>비프리히어 대표가 직접 전화드려요. 날짜, 초대할 사람, 노래를 같이 정해요.</span></li>
+      <li class="rv"><i>2</i><b>비프리히어와 상담</b><span>날짜, 초대할 사람, 앨범을 함께 정해요.</span></li>
       <li class="rv"><i>3</i><b>초대장 보내기</b><span>저희가 만든 초대장을 손님들께 전해 주세요.</span></li>
       <li class="rv"><i>4</i><b>그날</b><span>오시기만 하면 돼요. 진행은 저희가 맡아요.</span></li>
     </ol>
@@ -519,7 +543,7 @@ button{font-family:inherit;cursor:none;}
     <div class="modal-success" id="modalSuccess">
       <div class="ok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg></div>
       <b>신청서가 잘 도착했어요.</b>
-      <span>비프리히어 대표가 직접 연락드릴게요.<br>용기 내 주셔서 고맙습니다.</span>
+      <span>상담을 위해 비프리히어가 연락드릴게요.<br>용기 내 주셔서 고맙습니다.</span>
     </div>
   </div>
 </div>
