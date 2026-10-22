@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <!-- 생전추모식 첫 주인공 모집 — 인스타 프로필 링크용. living.html을 바탕으로, 장례 메뉴 없이 생전추모식만 -->
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -230,6 +230,25 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 </style>
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/motion.css">
+<style>
+/* ── 휴대폰 다듬기 (인스타에서 들어오는 사람 대부분이 휴대폰) ── */
+html{-webkit-tap-highlight-color:transparent;}
+@media(max-width:768px){
+  #about{padding:1.2rem 1.4rem 4rem !important;}
+  .about-slides > div{padding:2.4rem 1.4rem 2.2rem !important;}
+  .aslide > div[style*="margin-bottom:3.5rem"]{margin-bottom:1.6rem !important;}
+  .aslide h3{margin-bottom:1.1rem !important;}
+  #process .rv[style*="margin-bottom:5rem"]{margin-bottom:2.6rem !important;}
+  #process [style*="padding:3rem 2.2rem"]{padding:2rem 1.4rem !important;}
+  #process span[style*="font-size:clamp(72px"]{font-size:52px !important;margin-bottom:.5rem !important;}
+  .sec-concept .rv[style*="margin-bottom:5rem"]{margin-bottom:2.6rem !important;}
+  /* 상담 창은 아래에서 올라오는 시트로 — 엄지로 쓰기 편하게 */
+  .modal-overlay{padding:0 !important;align-items:flex-end !important;}
+  .modal{max-width:none !important;border-radius:14px 14px 0 0 !important;max-height:92svh !important;padding:2.2rem 1.4rem calc(1.8rem + env(safe-area-inset-bottom)) !important;}
+  .modal-close{top:1.2rem !important;right:1rem !important;width:44px !important;height:44px !important;}
+  .chip{padding:.6rem 1.1rem !important;}
+}
+</style>
 </head>
 <body>
 
