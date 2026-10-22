@@ -7,7 +7,7 @@
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <title>내 인생의 엔딩 크레딧을 미리 보는 날 · 생전추모식 | 비프리히어</title>
-<meta name="description" content="살아 있을 때 치르는 장례식, 생전추모식. 장례식에서만 나오던 고맙다는 말을 주인공이 직접 듣는 자리. 작은 한옥 방, 초대는 여섯 명 이하. 비프리히어가 첫 번째 주인공을 찾습니다."/>
+<meta name="description" content="살아 있을 때 여는 나의 장례식, 생전추모식. 소중한 사람 6명 이하를 초대해 고맙다는 말을 직접 듣는 1~2시간의 자리. 비프리히어가 첫 번째 주인공을 찾습니다."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://befreeherekr.com/ending-credit.html"/>
 <meta property="og:type" content="website"/>
@@ -119,20 +119,6 @@ button{font-family:inherit;cursor:none;}
 .body-text + .body-text{margin-top:1.4rem;}
 .body-text strong{color:#1B1A17;font-weight:400;}
 
-/* 장례식에서 나오는 세 마디 */
-.regrets{display:flex;flex-direction:column;gap:.6rem;margin:3.4rem 0;}
-.regrets span{font-family:var(--kr);font-size:clamp(20px,2.4vw,28px);color:#1B1A17;}
-.regrets span::before{content:'“';color:#7D5F2A;margin-right:.15em;}
-.regrets span::after{content:'”';color:#7D5F2A;margin-left:.1em;}
-
-/* 그날의 장면 — 번호 + 가는 선 */
-.scenes{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:0 5rem;}
-.scene{padding:2.6rem 0;border-top:.5px solid rgba(125,95,42,.22);}
-.scene-no{font-family:var(--serif);font-size:13px;color:#7D5F2A;letter-spacing:.1em;margin-bottom:1rem;display:block;}
-.scene-en{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(125,95,42,.7);margin-left:.6rem;}
-.scene h3{font-family:var(--kr);font-size:22px;font-weight:400;margin-bottom:.9rem;}
-.scene p{font-size:14px;line-height:2;color:var(--mute);font-weight:300;}
-
 /* 그날의 순서 — 초대장 식순과 같은 결 */
 .order{background:#E2E0D9;}
 .order .sec-in{max-width:620px;text-align:center;}
@@ -144,15 +130,24 @@ button{font-family:inherit;cursor:none;}
 .order-list li{padding:1.15rem 0;}
 .order-list li + li::before{content:'';display:block;width:5px;height:5px;margin:0 auto 2.3rem;border:.5px solid #7D5F2A;transform:rotate(45deg);}
 .order-list b{display:block;font-family:var(--kr);font-size:19px;font-weight:400;color:#1B1A17;margin-bottom:.35rem;}
-.order-list small{font-size:12.5px;color:var(--mute);font-weight:300;letter-spacing:.02em;}
+.order-list small{font-size:12.5px;line-height:1.85;color:var(--mute);font-weight:300;letter-spacing:.02em;}
 .order-foot{margin-top:3.6rem;font-size:12.5px;line-height:1.9;color:var(--mute);}
 
-/* 누구를 위한 자리 */
-.whos{list-style:none;margin-top:1rem;}
-.whos li{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:1.8rem 0;border-top:.5px solid rgba(125,95,42,.22);align-items:baseline;}
-.whos li:last-child{border-bottom:.5px solid rgba(125,95,42,.22);}
-.whos b{font-family:var(--kr);font-size:19px;font-weight:400;}
-.whos span{font-size:14px;line-height:2;color:var(--mute);font-weight:300;}
+
+/* 한눈에 보기 */
+.glance{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);margin-top:4rem;border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);}
+.glance li{padding:1.8rem 1.2rem;}
+.glance li + li{border-left:.5px solid rgba(125,95,42,.18);}
+.glance span{display:block;font-size:11.5px;color:#7D5F2A;letter-spacing:.06em;margin-bottom:.6rem;}
+.glance b{font-family:var(--kr);font-size:20px;font-weight:400;}
+
+/* 준비할 것 */
+.prep{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.prep h3{font-family:var(--kr);font-size:19px;font-weight:400;padding-bottom:1rem;border-bottom:.5px solid rgba(125,95,42,.3);margin-bottom:1rem;}
+.prep h3.prep-us{margin-top:2.8rem;}
+.prep ul{list-style:none;}
+.prep li{font-size:14px;line-height:2.2;color:var(--mute);font-weight:300;}
+.prep li::before{content:'·';color:#7D5F2A;margin-right:.6rem;}
 
 /* 준비 과정 */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2.4rem;margin-top:1rem;}
@@ -259,21 +254,21 @@ button{font-family:inherit;cursor:none;}
   .sec-label{margin-bottom:1.8rem;}
   .sec-h2{font-size:clamp(26px,7.4vw,34px);margin-bottom:2rem;}
   .body-text{font-size:14px;line-height:2;}
-  .regrets{margin:2.6rem 0;}
-  .regrets span{font-size:20px;}
 
-  .scenes{grid-template-columns:1fr;}
-  .scene{padding:2.1rem 0;}
-  .scene h3{font-size:20px;}
-  .scene p{font-size:13.5px;}
+  .glance{grid-template-columns:1fr 1fr;margin-top:3rem;}
+  .glance li{padding:1.4rem .2rem;}
+  .glance li + li{border-left:none;}
+  .glance li:nth-child(even){border-left:.5px solid rgba(125,95,42,.18);padding-left:1.2rem;}
+  .glance li:nth-child(n+3){border-top:.5px solid rgba(125,95,42,.18);}
+  .glance b{font-size:18px;}
+  .prep{grid-template-columns:1fr;gap:2.8rem;}
+  .prep h3{font-size:17.5px;}
+  .prep li{font-size:13.5px;}
+  .order-list small{font-size:12px;line-height:1.85;display:block;}
 
   .order-sub{margin-bottom:2.6rem;}
   .order-list b{font-size:17.5px;}
   .order-list li + li::before{margin-bottom:1.9rem;}
-
-  .whos li{grid-template-columns:1fr;gap:.5rem;padding:1.5rem 0;}
-  .whos b{font-size:17.5px;}
-  .whos span{font-size:13.5px;}
 
   .steps{grid-template-columns:1fr 1fr;gap:2.2rem 1.4rem;}
   .steps i{font-size:26px;}
@@ -319,62 +314,35 @@ button{font-family:inherit;cursor:none;}
   </h1>
   <div class="hero-bottom">
     <p class="hero-sub">
-      살아 있을 때 치르는 장례식, 생전추모식.<br>
-      장례식에서만 나오던 고맙다는 말을<br>
-      <strong>주인공이 직접 듣는 자리</strong>입니다.
+      살아 있을 때 여는 나의 장례식, 생전추모식.<br>
+      소중한 사람 몇 명을 초대해<br>
+      <strong>고맙다는 말을 직접 듣는 자리</strong>예요.
     </p>
     <div class="hero-btns">
       <button class="btn-primary" data-modal="open">
         첫 번째 주인공 신청하기
         <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><line x1="0" y1="5" x2="10" y2="5" stroke="currentColor" stroke-width=".8"/><polyline points="6,1 10,5 6,9" fill="none" stroke="currentColor" stroke-width=".8"/></svg>
       </button>
-      <span class="hero-note">작은 한옥 방 · 초대는 여섯 명 이하</span>
+      <span class="hero-note">1~2시간 · 6명 이하 · 작은 한옥 방</span>
     </div>
   </div>
 </section>
 
-<!-- 왜 -->
-<section class="sec" id="why">
+<!-- 처음 들어보셨죠 -->
+<section class="sec" id="what">
   <div class="sec-in">
     <div class="sec-label rv">생전추모식이란</div>
-    <h2 class="sec-h2 rv">그 말을 왜<br><span class="soft">떠난 뒤에야 할까요.</span></h2>
-    <p class="body-text rv">장례식에서 사람들이 하는 말은 놀랍도록 닮아 있습니다.</p>
-    <div class="regrets rv">
-      <span>더 자주 볼걸</span>
-      <span>고맙다고 말할걸</span>
-      <span>좀 더 사랑할걸</span>
-    </div>
-    <p class="body-text rv">그런데 정작 그 말을 들어야 할 사람은 그 자리에 없습니다.</p>
-    <p class="body-text rv">생전추모식은 그 말들을 <strong>주인공이 살아 있을 때, 직접 들을 수 있게</strong> 만든 자리입니다. 슬픈 날이 아니라, 지금까지의 인생에 고맙다고 말하는 날이에요.</p>
-  </div>
-</section>
+    <h2 class="sec-h2 rv">생전추모식,<br><span class="soft">처음 들어보셨죠?</span></h2>
+    <p class="body-text rv">생전추모식은 <strong>살아 있을 때 여는 나의 장례식</strong>이에요.</p>
+    <p class="body-text rv">보통 장례식에서는 "고마웠어", "사랑해" 같은 말이 많이 오가지만, 정작 그 말을 들어야 할 사람은 그 자리에 없어요. 생전추모식은 그 말들을 <strong>주인공이 살아 있을 때 직접 들을 수 있게</strong> 만든 자리예요.</p>
+    <p class="body-text rv">슬픈 자리가 아니에요. 가까운 사람 몇 명이 모여 편지를 읽어 주고, 주인공이 좋아하는 노래를 같이 듣는, 작고 따뜻한 시간이에요.</p>
+    <p class="body-text rv">나를 위해 열어도 되고, <strong>부모님이나 친구에게 선물로</strong> 열어 드려도 돼요.</p>
 
-<!-- 그날의 장면 -->
-<section class="sec" id="scenes">
-  <div class="sec-in">
-    <div class="sec-label rv">그날의 장면</div>
-    <h2 class="sec-h2 rv">작고, 조용하고,<br><span class="soft">오래 남는 자리.</span></h2>
-    <ul class="scenes">
-      <li class="scene rv">
-        <span class="scene-no">01<span class="scene-en">A small room</span></span>
-        <h3>작은 한옥 방</h3>
-        <p>정말 가까운 사람들만 부르는 자리예요. 초대는 여섯 명 이하, 마이크 없이 서로의 목소리가 닿는 거리에서 진행합니다.</p>
-      </li>
-      <li class="scene rv">
-        <span class="scene-no">02<span class="scene-en">The coffin</span></span>
-        <h3>원하시면, 관 안에서</h3>
-        <p>원하시면 관 안에 누워 계실 수 있어요. 숨구멍이 뚫려 있고, 관 안의 작은 종을 치면 언제든 나오실 수 있습니다. 들어가지 않으셔도 괜찮아요.</p>
-      </li>
-      <li class="scene rv">
-        <span class="scene-no">03<span class="scene-en">Letters</span></span>
-        <h3>소리 내어 읽는 편지</h3>
-        <p>초대받은 사람들이 한 명씩, 끝까지 아껴 두었던 말을 편지로 읽어 드립니다. 주인공은 그저 듣기만 하시면 돼요.</p>
-      </li>
-      <li class="scene rv">
-        <span class="scene-no">04<span class="scene-en">Your songs</span></span>
-        <h3>주인공이 고른 노래</h3>
-        <p>여는 노래와 닫는 노래는 주인공이 직접 고릅니다. 그날은 그 사람만의 플레이리스트로 채워져요.</p>
-      </li>
+    <ul class="glance rv">
+      <li><span>걸리는 시간</span><b>1~2시간</b></li>
+      <li><span>초대하는 사람</span><b>6명 이하</b></li>
+      <li><span>장소</span><b>작은 한옥 방</b></li>
+      <li><span>관</span><b>원하실 때만</b></li>
     </ul>
   </div>
 </section>
@@ -384,43 +352,61 @@ button{font-family:inherit;cursor:none;}
   <div class="sec-in">
     <div class="sec-label rv">그날의 순서</div>
     <p class="order-title rv">Order of Service</p>
-    <p class="order-sub rv">웃으며 들어와, 조용히 듣고, 가볍게 나서는 날</p>
+    <p class="order-sub rv">이런 순서로 진행돼요. 전체 1~2시간 정도예요.</p>
     <ol class="order-list rv">
-      <li><b>여는 노래</b><small>주인공이 고른 첫 곡</small></li>
-      <li><b>환영 인사</b><small>오늘 모인 이유를 함께 나눠요</small></li>
-      <li><b>인생 영화</b><small>지난 사진들로 엮은 짧은 영상</small></li>
-      <li><b>소리 내어 읽는 편지</b><small>한 사람씩, 아껴 두었던 말</small></li>
-      <li><b>가만히 머무는 시간</b><small>아무 말 없이, 함께 있는 시간</small></li>
-      <li><b>마지막 인사</b><small>주인공이 직접 남기는 말</small></li>
-      <li><b>엔딩 크레딧</b><small>주인공이 고른 마지막 곡</small></li>
+      <li><b>오프닝 곡</b><small>주인공이 고른 노래 한 곡으로 시작해요.<br>다 같이 조용히 들어요.</small></li>
+      <li><b>환영 인사</b><small>진행자가 오늘 왜 모였는지 짧게 이야기해요.<br>처음이라 어색해도 괜찮아요. 순서마다 진행자가 안내해 드려요.</small></li>
+      <li><b>인생영화</b><small>주인공의 지난 사진들로 만든 짧은 영상을 함께 봐요.</small></li>
+      <li><b>소리 내어 읽는 편지</b><small>초대받은 분들이 써 온 편지를 한 사람씩 소리 내어 읽어요.<br>주인공은 듣기만 하면 돼요.</small></li>
+      <li><b>가만히 머무는 시간</b><small>아무 말 없이, 잠시 함께 있어요.</small></li>
+      <li><b>마지막 인사</b><small>주인공이 직접 준비한 말을 남겨요.</small></li>
+      <li><b>엔딩 크레딧</b><small>주인공이 고른 마지막 노래로 끝나요.</small></li>
     </ol>
-    <p class="order-foot rv">순서와 노래는 주인공에 맞춰 함께 바꿀 수 있어요.</p>
+    <p class="order-foot rv">원하시면 손님이 오기 전에 미리 관 안에 누워 계시다가,<br>관 뚜껑을 열고 편지를 들으실 수도 있어요.<br>순서와 노래는 주인공에 맞춰 바꿀 수 있어요.</p>
   </div>
 </section>
 
-<!-- 누구를 위한 자리 -->
-<section class="sec" id="who">
+<!-- 준비할 것 -->
+<section class="sec" id="prep">
   <div class="sec-in">
-    <div class="sec-label rv">누구를 위한 자리</div>
-    <h2 class="sec-h2 rv">나를 위해서도,<br><span class="soft">누군가에게 선물로도.</span></h2>
-    <ul class="whos">
-      <li class="rv"><b>나를 위해</b><span>내 장례식에 직접 가 보고 싶은 분. 지금까지의 인생에 마침표가 아니라 쉼표를 찍고 싶은 분.</span></li>
-      <li class="rv"><b>부모님께</b><span>칠순 잔치 대신, 부모님이 평생 들어 보지 못한 말을 들려 드리고 싶은 분.</span></li>
-      <li class="rv"><b>친구·연인에게</b><span>고맙다는 말을 미루고 싶지 않은 사람이 있는 분.</span></li>
-    </ul>
+    <div class="sec-label rv">준비할 것</div>
+    <h2 class="sec-h2 rv">준비할 건<br><span class="soft">생각보다 많지 않아요.</span></h2>
+    <div class="prep">
+      <div class="rv">
+        <h3>주인공이 정할 것</h3>
+        <ul>
+          <li>초대하고 싶은 사람 (6명 이하)</li>
+          <li>처음과 마지막에 들을 노래 두 곡</li>
+          <li>인생영화에 넣을 지난 사진 몇 장</li>
+          <li>마지막에 남기고 싶은 말</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h3>손님이 가져올 것</h3>
+        <ul>
+          <li>주인공에게 읽어 줄 편지 한 편</li>
+        </ul>
+        <h3 class="prep-us">비프리히어가 맡는 것</h3>
+        <ul>
+          <li>장소와 꽃, 관 준비</li>
+          <li>손님께 드릴 초대장과 순서지</li>
+          <li>인생영화 만들기와 그날의 진행</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 준비 과정 -->
+<!-- 신청부터 그날까지 -->
 <section class="sec" id="steps">
   <div class="sec-in">
-    <div class="sec-label rv">준비 과정</div>
-    <h2 class="sec-h2 rv">신청부터 그날까지,<br><span class="soft">함께 준비해요.</span></h2>
+    <div class="sec-label rv">신청부터 그날까지</div>
+    <h2 class="sec-h2 rv">처음이어도<br><span class="soft">하나씩 함께해요.</span></h2>
     <ol class="steps">
-      <li class="rv"><i>1</i><b>신청</b><span>아래 신청서에 짧게 사연을 남겨 주세요.</span></li>
-      <li class="rv"><i>2</i><b>이야기 나누기</b><span>비프리히어 대표가 직접 연락드려 누구를 부를지, 어떤 노래를 고를지 함께 이야기해요.</span></li>
-      <li class="rv"><i>3</i><b>초대장과 순서</b><span>초대장과 그날의 순서지를 비프리히어가 만들어 드려요.</span></li>
-      <li class="rv"><i>4</i><b>그날</b><span>진행은 비프리히어가 맡아요. 주인공은 오롯이 듣기만 하시면 돼요.</span></li>
+      <li class="rv"><i>1</i><b>신청서 쓰기</b><span>아래 신청서에 누구를 위한 자리인지 짧게 적어 주세요.</span></li>
+      <li class="rv"><i>2</i><b>전화로 이야기</b><span>비프리히어 대표가 직접 전화드려요. 날짜, 초대할 사람, 노래를 같이 정해요.</span></li>
+      <li class="rv"><i>3</i><b>초대장 보내기</b><span>저희가 만든 초대장을 손님들께 전해 주세요.</span></li>
+      <li class="rv"><i>4</i><b>그날</b><span>오시기만 하면 돼요. 진행은 저희가 맡아요.</span></li>
     </ol>
   </div>
 </section>
@@ -430,11 +416,12 @@ button{font-family:inherit;cursor:none;}
   <div class="sec-in">
     <div class="sec-label rv">자주 묻는 질문</div>
     <ul class="faq">
-      <li class="rv"><b>관에 꼭 들어가야 하나요?</b><span>아니요. 원하시는 분만 들어가세요. 의자에 앉아 편지를 들으셔도 충분합니다.</span></li>
-      <li class="rv"><b>관 안이 답답하거나 무섭지 않을까요?</b><span>숨구멍이 뚫려 있고, 관 안에 작은 종이 있어요. 불편하시면 종을 치는 순간 바로 열어 드립니다.</span></li>
-      <li class="rv"><b>아픈 분만 하는 자리인가요?</b><span>아니요. 건강할 때, 고맙다는 말을 미루고 싶지 않은 누구나 할 수 있어요. 생일처럼 의미 있는 날에 열어도 좋습니다.</span></li>
-      <li class="rv"><b>노래는 정해져 있나요?</b><span>아니요. 여는 노래와 닫는 노래 모두 주인공이 고릅니다.</span></li>
-      <li class="rv"><b>촬영을 하나요?</b><span>첫 번째 주인공께는 그날을 영상과 사진으로 남겨 선물로 드려요. 촬영은 동의해 주실 때만 합니다.</span></li>
+      <li class="rv"><b>시간은 얼마나 걸려요?</b><span>1시간에서 2시간 정도예요. 주인공이 힘드시면 순서를 줄일 수 있어요.</span></li>
+      <li class="rv"><b>관에 꼭 들어가야 하나요?</b><span>아니요. 원하시는 분만 들어가세요. 의자에 앉아 편지를 들으셔도 충분해요.</span></li>
+      <li class="rv"><b>관 안이 답답하거나 무섭지 않을까요?</b><span>숨구멍이 뚫려 있고, 관 안에 작은 종이 있어요. 불편하시면 종을 치는 순간 바로 열어 드려요.</span></li>
+      <li class="rv"><b>아픈 분만 하는 자리인가요?</b><span>아니요. 건강할 때, 고맙다는 말을 미루고 싶지 않은 누구나 할 수 있어요.</span></li>
+      <li class="rv"><b>울어도 되고, 웃어도 되나요?</b><span>네, 둘 다 괜찮아요. 정해진 표정은 없어요.</span></li>
+      <li class="rv"><b>촬영을 하나요?</b><span>첫 번째 주인공께는 그날을 영상과 사진으로 남겨 선물로 드려요. 촬영은 동의해 주실 때만 해요.</span></li>
     </ul>
   </div>
 </section>
@@ -477,8 +464,8 @@ button{font-family:inherit;cursor:none;}
       <div class="price">
         <div class="price-row"><span>생전추모식</span><b>150<small>만 원</small></b></div>
         <ul>
-          <li>작은 한옥 방 · 초대 여섯 명 이하</li>
-          <li>상담, 초대장·순서지, 꽃, 진행까지 모두 포함</li>
+          <li>1~2시간 · 작은 한옥 방 · 초대 6명 이하</li>
+          <li>장소, 꽃, 관, 초대장·순서지, 인생영화, 진행까지 모두 포함</li>
           <li class="gift">첫 번째 주인공께는 그날의 영상과 사진을 선물로 드려요 (촬영 동의 시)</li>
         </ul>
       </div>
