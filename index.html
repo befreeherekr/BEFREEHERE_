@@ -248,6 +248,19 @@ html{-webkit-tap-highlight-color:transparent;}
   .modal-close{top:1.2rem !important;right:1rem !important;width:44px !important;height:44px !important;}
   .chip{padding:.6rem 1.1rem !important;}
 }
+.footer-3{grid-template-columns:1.4fr 1.3fr 1fr}
+@media(max-width:768px){.footer-3{grid-template-columns:1fr 1fr;gap:2rem 1.4rem}.footer-3>div:first-child{grid-column:1/-1}}
+/* ── 자주 묻는 질문 ── */
+.lf-faq{padding:9rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.12)}
+.lf-faq-in{max-width:620px;margin:0 auto}
+.lf-faq details{border-bottom:.5px solid rgba(125,95,42,.25)}
+.lf-faq details:first-of-type{border-top:.5px solid rgba(125,95,42,.25)}
+.lf-faq summary{list-style:none;cursor:pointer;padding:1.4rem 2rem 1.4rem 0;font-family:var(--kr);font-size:16.5px;line-height:1.6;color:#1B1A17;position:relative;word-break:keep-all}
+.lf-faq summary::-webkit-details-marker{display:none}
+.lf-faq summary::after{content:'+';position:absolute;right:2px;top:1.25rem;font-family:var(--serif);font-size:20px;color:#7D5F2A;transition:transform .3s}
+.lf-faq details[open] summary::after{transform:rotate(45deg)}
+.lf-faq details p{padding:0 0 1.5rem;font-size:13.5px;line-height:2;color:rgba(27,26,23,.62);word-break:keep-all}
+@media(max-width:768px){.lf-faq{padding:5rem 1.4rem}.lf-faq summary{font-size:15.5px}}
 </style>
 </head>
 <body>
@@ -745,6 +758,25 @@ html{-webkit-tap-highlight-color:transparent;}
   .btn-cta.bloom-fade::before { opacity: 0; transition: opacity .9s cubic-bezier(.4,0,.2,1); }
 </style>
 
+<!-- 자주 묻는 질문 -->
+<section class="lf-faq" id="faq">
+  <div class="lf-faq-in">
+    <div class="rv" style="text-align:center;margin-bottom:2.8rem;">
+      <div class="sec-label" style="justify-content:center;">FAQ</div>
+      <h2 style="font-family:var(--kr);font-size:clamp(22px,5vw,30px);font-weight:400;line-height:1.5;">궁금하실 만한 것들.</h2>
+    </div>
+    <div class="rv">
+      <details><summary>건강한데 생전추모식을 해도 되나요?</summary><p>오히려 건강할 때가 가장 좋습니다. 여유 있게 준비할 수 있고, 참석하는 분들도 슬픔보다 따뜻함을 더 많이 느낍니다.</p></details>
+      <details><summary>누구를 초대하나요?</summary><p>주인공이 직접 정합니다. 가장 가까운 사람들과 함께하는 조용한 자리이고, 초대장과 순서지는 비프리히어가 만들어 드립니다.</p></details>
+      <details><summary>관에 꼭 들어가야 하나요?</summary><p>아니요, 들어가지 않으셔도 괜찮습니다. 원하시는 분만 들어가시고, 관에는 숨구멍이 뚫려 있습니다. 작은 종을 치면 언제든 열어 드립니다.</p></details>
+      <details><summary>슬프기만 한 자리인가요?</summary><p>꼭 그렇지는 않습니다. 조용하고 따뜻하게 치르기도 하고, 밝고 축제처럼 치르기도 합니다. 원하시는 분위기는 신청서에 적어 주세요.</p></details>
+      <details><summary>저는 무엇을 준비해야 하나요?</summary><p>초대할 분들, 장례식에 흐를 노래들, 마지막에 남길 말까지 비프리히어가 함께 준비합니다. 처음부터 다 정해 오지 않으셔도 괜찮습니다.</p></details>
+      <details><summary>비용은 얼마인가요?</summary><p>200만 원이며, 위에 안내한 내용이 모두 포함됩니다.</p></details>
+      <details><summary>신청하면 바로 정해지나요?</summary><p>신청서에 남겨 주신 사연을 읽고 답변드립니다. 그다음 일정과 방식을 함께 이야기 나눕니다.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- 장례 · 현재 준비 중 -->
 <section style="padding:7rem 1.4rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);text-align:center;">
   <div class="rv" style="max-width:560px;margin:0 auto;">
@@ -783,26 +815,19 @@ html{-webkit-tap-highlight-color:transparent;}
   </div>
 </section>
 
-<!-- 언론보도 -->
-<section style="padding:6rem 1.4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.12);">
-  <div class="rv" style="max-width:560px;margin:0 auto;">
-    <div class="sec-label" style="justify-content:center;">Press</div>
-    <h2 style="font-family:var(--kr);font-size:clamp(20px,5vw,26px);font-weight:400;text-align:center;margin-bottom:2.2rem;">언론 보도</h2>
-    <a href="https://www.hani.co.kr/arti/society/labor/1242680.html" target="_blank" rel="noopener noreferrer" style="display:block;padding:1.6rem 0;border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);">
-      <div style="font-family:var(--serif);font-size:11px;letter-spacing:.2em;color:#7D5F2A;margin-bottom:.7rem;">한겨레</div>
-      <div style="font-family:var(--kr);font-size:17px;line-height:1.65;color:#1B1A17;word-break:keep-all;margin-bottom:.7rem;">축구복 입은 고인이라니, 이렇게 다른 호주의 장례 [.txt]</div>
-      <div style="font-size:12.5px;color:rgba(27,26,23,.55);">기사 읽기 →</div>
-    </a>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <div class="footer" style="grid-template-columns:1.5fr 1fr;">
+  <div class="footer footer-3">
     <div>
       <div class="footer-brand-kr">비프리히어</div>
       <div class="footer-brand-en">Befreehere</div>
       <p class="footer-tagline">죽음을 똑바로 바라보는 것.<br>이제까지 본 적 없던 형태의 장례식.</p>
+    </div>
+    <div>
+      <div class="footer-col-label">언론 보도</div>
+      <ul class="footer-links">
+        <li><a href="https://www.hani.co.kr/arti/society/labor/1242680.html" target="_blank" rel="noopener noreferrer">한겨레<br><span style="font-size:12px;opacity:.85;line-height:1.7;display:inline-block;margin-top:2px;">축구복 입은 고인이라니, 이렇게 다른 호주의 장례</span></a></li>
+      </ul>
     </div>
     <div>
       <div class="footer-col-label">Contact</div>
