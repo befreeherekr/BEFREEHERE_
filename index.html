@@ -249,6 +249,8 @@ html{-webkit-tap-highlight-color:transparent;}
   .chip{padding:.6rem 1.1rem !important;}
 }
 .footer-3{grid-template-columns:1.4fr 1.3fr 1fr}
+.footer-3 .footer-links{gap:2px}.footer-3 .footer-links a{display:inline-block;padding:7px 0}
+.lf-faq summary{min-height:52px}
 @media(max-width:768px){.footer-3{grid-template-columns:1fr 1fr;gap:2rem 1.4rem}.footer-3>div:first-child{grid-column:1/-1}}
 /* ── 자주 묻는 질문 ── */
 .lf-faq{padding:9rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.12)}
@@ -608,22 +610,22 @@ html{-webkit-tap-highlight-color:transparent;}
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(125,95,42,.08);">
       <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .3s;" class="p-bar"></div>
-        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">1</span>
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.24);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">1</span>
         <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">사연 읽기</div>
         <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">신청서에 남겨 주신 사연을 읽고 답변드립니다. 어떤 자리를 원하시는지 편하게 이야기 나눕니다.</p>
       </div>
       <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;transition-delay:.08s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
-        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">2</span>
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.24);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">2</span>
         <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">함께 준비</div>
         <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">초대할 분들, 장례식에 흐를 노래들, 마지막에 남길 말까지 비프리히어가 함께 준비합니다.</p>
       </div>
       <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;border-right:.5px solid rgba(125,95,42,.08);position:relative;transition:background .25s;transition-delay:.16s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
-        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">3</span>
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.24);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">3</span>
         <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">진행</div>
         <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">상담한 내용을 바탕으로 모든 운영이 진행됩니다. 기억에 남을 그 날을 함께합니다.</p>
       </div>
       <div class="rv" style="background:#E2E0D9;padding:3rem 2.2rem;position:relative;transition:background .25s;transition-delay:.24s;" onmouseover="this.style.background='rgba(125,95,42,.05)'" onmouseout="this.style.background='#E2E0D9'">
-        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.1);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">4</span>
+        <span style="font-family:var(--serif);font-size:clamp(72px,8vw,120px);font-weight:300;color:rgba(125,95,42,.24);display:block;margin-bottom:1rem;line-height:.9;letter-spacing:-.04em;">4</span>
         <div style="font-size:15px;font-weight:500;margin-bottom:.65rem;letter-spacing:.02em;">기억 아카이빙</div>
         <p style="font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;">그날의 기록을 남깁니다. 사진, 영상, 편지. 오래도록 간직할 수 있도록.</p>
       </div>
@@ -634,7 +636,7 @@ html{-webkit-tap-highlight-color:transparent;}
 <style>
   /* ── CTA 섹션 ── */
   .cta-section {
-    padding: clamp(6rem,14vw,14rem) clamp(1.4rem,4vw,4rem);
+    padding: clamp(4rem,10vw,10rem) clamp(1.4rem,4vw,4rem);
     text-align: center;
     background: #ECEBE6;
     position: relative;
@@ -778,10 +780,10 @@ html{-webkit-tap-highlight-color:transparent;}
 </section>
 
 <!-- 장례 · 현재 준비 중 -->
-<section style="padding:7rem 1.4rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);text-align:center;">
+<section style="padding:5rem 1.4rem 4.2rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);text-align:center;">
   <div class="rv" style="max-width:560px;margin:0 auto;">
     <div class="sec-label" style="justify-content:center;">Funeral · 현재 준비 중</div>
-    <h2 style="font-family:var(--kr);font-size:clamp(20px,5vw,28px);font-weight:400;line-height:1.6;margin-bottom:1.4rem;word-break:keep-all;">비프리히어는 그 사람다운<br>장례를 만듭니다.</h2>
+    <h2 style="font-family:var(--kr);font-size:clamp(20px,5vw,28px);font-weight:400;line-height:1.6;margin-bottom:0;word-break:keep-all;">비프리히어는 그 사람다운<br>장례를 만듭니다.</h2>
   </div>
 </section>
 
