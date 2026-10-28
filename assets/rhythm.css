@@ -6,13 +6,22 @@
 .aslide p{color:rgba(27,26,23,.78) !important}
 .aslide .slide-num{right:1.2rem !important;bottom:-.08em !important;color:rgba(125,95,42,.09) !important}
 
-/* ── 칸 경계가 선처럼 끊기지 않게: 색이 가장자리로 갈수록 크림색으로 옅어짐 ── */
-html body #order{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 26%,var(--sand-warm) 74%,#ECEBE6 100%) !important;border-top:0 !important}
-html body #for{border-top:0 !important}
-html body #process{background:linear-gradient(180deg,#ECEBE6 0%,#E2E0D9 22%,#E2E0D9 78%,#ECEBE6 100%) !important;border-top:0 !important}
-html body #ctaSection{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 30%,var(--sand-warm) 72%,#ECEBE6 100%) !important}
+/* ── 칸이 바뀌는 곳은 파도 모양으로: 각 칸 위쪽 가장자리를 앞 칸의 색으로 물결치게 칠함 ── */
+html body #order,html body #for,html body #process,html body #ctaSection,html body .lf-faq{position:relative;border-top:0 !important}
+html body #order{background:#DDD3BE !important}
+html body #for{background:#ECEBE6 !important}
+html body #process{background:#E2E0D9 !important}
+html body #ctaSection{background:#DDD3BE !important}
+html body .lf-faq{background:#ECEBE6 !important}
+html body #order::before,html body #for::before,html body #process::before,html body #ctaSection::before,html body .lf-faq::before{
+  content:'';position:absolute;left:0;right:0;top:-1px;height:clamp(64px,10vw,130px);
+  background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;z-index:0}
+html body #order::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 90%22 preserveAspectRatio=%22none%22%3E%3Cpath fill=%22%23ECEBE6%22 fill-opacity=%22.55%22 d=%22M0,0H1440V58C1200,96 1010,10 720,48C440,84 230,12 0,56Z%22/%3E%3Cpath fill=%22%23ECEBE6%22 d=%22M0,0H1440V34C1150,78 930,0 700,34C450,68 220,8 0,42Z%22/%3E%3C/svg%3E")}
+html body #for::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 90%22 preserveAspectRatio=%22none%22%3E%3Cpath fill=%22%23DDD3BE%22 fill-opacity=%22.55%22 d=%22M0,0H1440V58C1200,96 1010,10 720,48C440,84 230,12 0,56Z%22/%3E%3Cpath fill=%22%23DDD3BE%22 d=%22M0,0H1440V34C1150,78 930,0 700,34C450,68 220,8 0,42Z%22/%3E%3C/svg%3E")}
+html body #process::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 90%22 preserveAspectRatio=%22none%22%3E%3Cpath fill=%22%23ECEBE6%22 fill-opacity=%22.55%22 d=%22M0,0H1440V58C1200,96 1010,10 720,48C440,84 230,12 0,56Z%22/%3E%3Cpath fill=%22%23ECEBE6%22 d=%22M0,0H1440V34C1150,78 930,0 700,34C450,68 220,8 0,42Z%22/%3E%3C/svg%3E")}
+html body #ctaSection::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 90%22 preserveAspectRatio=%22none%22%3E%3Cpath fill=%22%23E2E0D9%22 fill-opacity=%22.55%22 d=%22M0,0H1440V58C1200,96 1010,10 720,48C440,84 230,12 0,56Z%22/%3E%3Cpath fill=%22%23E2E0D9%22 d=%22M0,0H1440V34C1150,78 930,0 700,34C450,68 220,8 0,42Z%22/%3E%3C/svg%3E")}
+html body .lf-faq::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 90%22 preserveAspectRatio=%22none%22%3E%3Cpath fill=%22%23DDD3BE%22 fill-opacity=%22.55%22 d=%22M0,0H1440V58C1200,96 1010,10 720,48C440,84 230,12 0,56Z%22/%3E%3Cpath fill=%22%23DDD3BE%22 d=%22M0,0H1440V34C1150,78 930,0 700,34C450,68 220,8 0,42Z%22/%3E%3C/svg%3E")}
 html body #about{border-bottom:0 !important}
-html body .lf-faq{border-top:0 !important}
 
 /* ── 첫 화면과 다음 칸 사이 큰 공백: 간격을 줄이고, 가는 선이 위에서 내려오듯 이어줌 ── */
 html body #about::before{content:'';position:absolute;top:0;left:50%;width:.5px;height:56px;background:linear-gradient(180deg,rgba(125,95,42,.55),transparent);z-index:1}
