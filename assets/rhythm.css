@@ -1,0 +1,39 @@
+/* ── 색 하나 추가: 따뜻한 모래빛 ── */
+:root{--sand-warm:#DDD3BE}
+
+/* ── 옅은 글씨 진하게, 큰 숫자 잘림 수정 (문구·크기는 그대로) ── */
+.aslide span{color:rgba(125,95,42,.88) !important}
+.aslide p{color:rgba(27,26,23,.78) !important}
+.aslide .slide-num{right:1.2rem !important;bottom:-.08em !important;color:rgba(125,95,42,.09) !important}
+
+/* ── 칸이 바뀌는 곳: 색이 가장자리에서 옅어지며 이웃 칸으로 번져 나감 ── */
+html body #order,html body #process,html body #ctaSection{position:relative}
+html body #order{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 22%,var(--sand-warm) 78%,#ECEBE6 100%) !important;border-top:0 !important}
+html body #process{background:linear-gradient(180deg,#ECEBE6 0%,#E2E0D9 20%,#E2E0D9 80%,#ECEBE6 100%) !important;border-top:0 !important}
+html body #ctaSection{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 26%,var(--sand-warm) 74%,#ECEBE6 100%) !important;overflow:visible !important}
+html body #for,html body .lf-faq{border-top:0 !important}
+html body #order::before,html body #order::after,
+html body #process::before,html body #process::after,
+html body #ctaSection::before,html body #ctaSection::after{
+  content:'';position:absolute;left:0;right:0;height:240px;pointer-events:none;z-index:1;filter:blur(20px);opacity:.6}
+html body #order::before,html body #process::before,html body #ctaSection::before{top:-120px}
+html body #order::after,html body #process::after,html body #ctaSection::after{bottom:-120px}
+html body #order::before{background:radial-gradient(ellipse 46% 52% at 16% 58%,rgba(221,211,190,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 60% 40%,rgba(221,211,190,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 92% 62%,rgba(221,211,190,.9),transparent 72%)}
+html body #order::after{background:radial-gradient(ellipse 46% 52% at 30% 42%,rgba(221,211,190,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 74% 60%,rgba(221,211,190,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 10% 55%,rgba(221,211,190,.9),transparent 72%)}
+html body #process::before{background:radial-gradient(ellipse 46% 52% at 22% 55%,rgba(226,224,217,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 66% 42%,rgba(226,224,217,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 95% 60%,rgba(226,224,217,.9),transparent 72%)}
+html body #process::after{background:radial-gradient(ellipse 46% 52% at 14% 45%,rgba(226,224,217,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 58% 62%,rgba(226,224,217,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 88% 48%,rgba(226,224,217,.9),transparent 72%)}
+html body #ctaSection::before{background:radial-gradient(ellipse 46% 52% at 12% 60%,rgba(221,211,190,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 55% 45%,rgba(221,211,190,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 86% 58%,rgba(221,211,190,.9),transparent 72%)}
+html body #ctaSection::after{background:radial-gradient(ellipse 46% 52% at 34% 42%,rgba(221,211,190,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 80% 58%,rgba(221,211,190,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 8% 52%,rgba(221,211,190,.9),transparent 72%)}
+html body #about{border-bottom:0 !important}
+
+/* ── 첫 화면과 다음 칸 사이 큰 공백: 간격을 줄이고, 가는 선이 위에서 내려오듯 이어줌 ── */
+html body #about::before{content:'';position:absolute;top:0;left:50%;width:.5px;height:56px;background:linear-gradient(180deg,rgba(125,95,42,.55),transparent);z-index:1}
+@media(min-width:769px){
+  html body .living-hero{padding-bottom:3.5rem !important}
+  html body #about{padding-top:9rem !important}
+}
+@media(max-width:768px){
+  html body .aslide p{white-space:normal !important}
+  html body .living-hero{padding-bottom:2.8rem !important}
+  html body #about{padding-top:4.6rem !important}
+}
