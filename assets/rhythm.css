@@ -37,3 +37,11 @@ html body #about::before{content:'';position:absolute;top:0;left:50%;width:.5px;
   html body .living-hero{padding-bottom:2.8rem !important}
   html body #about{padding-top:4.6rem !important}
 }
+
+/* ── 맨 마지막 칸(푸터)도 같은 방식으로: 위쪽 가장자리에서 FAQ 칸으로 색이 번져 나감 ── */
+html body footer{position:relative;background:linear-gradient(180deg,#ECEBE6 0%,#E2E0D9 22%) !important}
+html body footer .footer{background:transparent !important;border-top:0 !important;position:relative;z-index:1}
+html body footer .footer-btm{position:relative;z-index:1}
+html body footer::before{
+  content:'';position:absolute;left:0;right:0;top:-120px;height:240px;pointer-events:none;z-index:0;filter:blur(20px);opacity:.6;
+  background:radial-gradient(ellipse 46% 52% at 20% 58%,rgba(226,224,217,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 62% 42%,rgba(226,224,217,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 94% 56%,rgba(226,224,217,.85),transparent 72%)}
