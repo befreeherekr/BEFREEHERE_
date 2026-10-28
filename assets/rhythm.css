@@ -1,10 +1,27 @@
-/* ── 색 하나 추가: 따뜻한 모래빛 (크림·회색 모래 사이, 순서 칸과 「준비 중」 띠에만) ── */
+/* ── 색 하나 추가: 따뜻한 모래빛 ── */
 :root{--sand-warm:#DDD3BE}
 
 /* ── 옅은 글씨 진하게, 큰 숫자 잘림 수정 (문구·크기는 그대로) ── */
 .aslide span{color:rgba(125,95,42,.88) !important}
 .aslide p{color:rgba(27,26,23,.78) !important}
 .aslide .slide-num{right:1.2rem !important;bottom:-.08em !important;color:rgba(125,95,42,.09) !important}
+
+/* ── 칸 경계가 선처럼 끊기지 않게: 색이 가장자리로 갈수록 크림색으로 옅어짐 ── */
+html body #order{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 26%,var(--sand-warm) 74%,#ECEBE6 100%) !important;border-top:0 !important}
+html body #for{border-top:0 !important}
+html body #process{background:linear-gradient(180deg,#ECEBE6 0%,#E2E0D9 22%,#E2E0D9 78%,#ECEBE6 100%) !important;border-top:0 !important}
+html body #ctaSection{background:linear-gradient(180deg,#ECEBE6 0%,var(--sand-warm) 30%,var(--sand-warm) 72%,#ECEBE6 100%) !important}
+html body #about{border-bottom:0 !important}
+html body .lf-faq{border-top:0 !important}
+
+/* ── 첫 화면과 다음 칸 사이 큰 공백: 간격을 줄이고, 가는 선이 위에서 내려오듯 이어줌 ── */
+html body #about::before{content:'';position:absolute;top:0;left:50%;width:.5px;height:56px;background:linear-gradient(180deg,rgba(125,95,42,.55),transparent);z-index:1}
+@media(min-width:769px){
+  html body .living-hero{padding-bottom:3.5rem !important}
+  html body #about{padding-top:9rem !important}
+}
 @media(max-width:768px){
   html body .aslide p{white-space:normal !important}
+  html body .living-hero{padding-bottom:2.8rem !important}
+  html body #about{padding-top:4.6rem !important}
 }
