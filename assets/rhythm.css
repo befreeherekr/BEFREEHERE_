@@ -1,0 +1,23 @@
+/* ── 화면 리듬: 가운데 칸만 먹색으로 뒤집고, 옅은 글씨 진하게 ── */
+.aslide span{color:rgba(125,95,42,.88) !important}
+.aslide p{color:rgba(27,26,23,.78) !important}
+.aslide .slide-num{right:1.2rem !important;bottom:-.08em !important;color:rgba(125,95,42,.09) !important}
+
+.aslide:nth-child(2),.aslide:nth-child(2):hover{background:#1B1A17 !important}
+.aslide:nth-child(2) h3{color:#ECEBE6 !important}
+.aslide:nth-child(2) p{color:rgba(236,235,230,.8) !important}
+.aslide:nth-child(2) span{color:#D9B877 !important}
+.aslide:nth-child(2) div[style*="width:20px"]{background:#D9B877 !important;opacity:.8 !important}
+.aslide:nth-child(2) .slide-num{color:rgba(236,235,230,.1) !important}
+
+@media(min-width:769px){
+  .living-hero{justify-content:center !important;padding-bottom:0 !important}
+}
+@media(max-width:768px){
+  html body .hero-h1{font-size:clamp(28px,8.6vw,44px) !important;line-height:1.2 !important}
+  html body .hero-sub{font-size:14px !important;color:rgba(27,26,23,.78) !important}
+  html body .aslide h3{font-size:clamp(22px,6.4vw,28px) !important}
+  html body .aslide p{font-size:14px !important;white-space:normal !important}
+  /* 먹색 칸은 화면 끝까지 — 상자가 아니라 장면이 바뀌는 느낌으로 */
+  html body .about-slides > .aslide:nth-child(2){margin-left:-1.4rem;margin-right:-1.4rem;padding:3.8rem 2.8rem 3.6rem !important}
+}
