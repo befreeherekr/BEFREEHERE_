@@ -45,3 +45,18 @@ html body footer .footer-btm{position:relative;z-index:1}
 html body footer::before{
   content:'';position:absolute;left:0;right:0;top:-120px;height:240px;pointer-events:none;z-index:0;filter:blur(20px);opacity:.6;
   background:radial-gradient(ellipse 46% 52% at 20% 58%,rgba(226,224,217,.95),transparent 72%),radial-gradient(ellipse 36% 44% at 62% 42%,rgba(226,224,217,.75),transparent 70%),radial-gradient(ellipse 42% 56% at 94% 56%,rgba(226,224,217,.85),transparent 72%)}
+
+/* ── 「비프리히어는 그 사람다운 장례를 만듭니다」 칸: 가운데는 색이 꽉 차고, 가장자리는 먹물이 번지듯 들쭉날쭉 자연스럽게 ── */
+html body #ctaSection{background:transparent !important;overflow:visible !important;position:relative}
+html body #ctaSection::after{display:none !important}
+html body #ctaSection::before{content:'';position:absolute;left:-8%;right:-8%;top:-90px;bottom:-90px;height:auto;z-index:0;pointer-events:none;opacity:1;filter:blur(22px);
+  background:
+    linear-gradient(var(--sand-warm),var(--sand-warm)) 50% 50%/100% 66% no-repeat,
+    radial-gradient(ellipse 34% 15% at 9% 20%,rgba(221,211,190,.95),transparent 72%),
+    radial-gradient(ellipse 26% 11% at 41% 15%,rgba(221,211,190,.8),transparent 70%),
+    radial-gradient(ellipse 30% 17% at 72% 22%,rgba(221,211,190,.9),transparent 72%),
+    radial-gradient(ellipse 20% 12% at 96% 13%,rgba(221,211,190,.7),transparent 70%),
+    radial-gradient(ellipse 30% 14% at 18% 86%,rgba(221,211,190,.85),transparent 72%),
+    radial-gradient(ellipse 24% 17% at 52% 90%,rgba(221,211,190,.95),transparent 72%),
+    radial-gradient(ellipse 34% 12% at 84% 82%,rgba(221,211,190,.8),transparent 70%),
+    radial-gradient(ellipse 16% 10% at 2% 92%,rgba(221,211,190,.6),transparent 70%)}
