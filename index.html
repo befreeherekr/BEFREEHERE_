@@ -887,6 +887,22 @@ p{text-wrap:pretty}
   .btn-cta.bloom-fade::before { opacity: 0; transition: opacity .9s cubic-bezier(.4,0,.2,1); }
 </style>
 
+<!-- 유골 커스텀 안내 띠 -->
+<section class="kp-band">
+  <div class="rv kp-band-in">
+    <div class="sec-label" style="justify-content:center;">Keepsake</div>
+    <p class="kp-band-t">그날 이후 나를 어떻게 남길지도 함께 정할 수 있어요.<br>유골 LP, 우주장 같은 방식도 사전 신청을 받고 있어요.</p>
+    <a class="kp-band-a" href="/keepsake/">자세히 보기 <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+<style>
+  .kp-band{padding:7rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.12);text-align:center;}
+  .kp-band .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
+  .kp-band-t{font-family:var(--kr);font-size:clamp(15px,1.5vw,18px);line-height:2;color:#1B1A17;word-break:keep-all;margin-bottom:1.6rem;}
+  .kp-band-a{font-size:12.5px;letter-spacing:.08em;color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.5);padding-bottom:3px;}
+  @media(max-width:768px){.kp-band{padding:4.2rem 1.4rem;}}
+</style>
+
 <!-- CTA -->
 <section class="cta-section" id="ctaSection">
   <div class="cta-orb"></div>
@@ -1072,6 +1088,16 @@ p{text-wrap:pretty}
         <textarea id="mInquiry" placeholder="어떤 사연이 있으신지 편하게 적어주세요." style="min-height:130px;"></textarea>
       </div>
 
+      <!-- 함께 알아보고 싶은 것 -->
+      <div class="mfield">
+        <label>함께 알아보고 싶은 것 (선택)</label>
+        <div class="chip-group" id="chipKeep" data-multi="1">
+          <button type="button" class="chip" data-val="유골 LP">유골 LP</button>
+          <button type="button" class="chip" data-val="우주장">우주장</button>
+          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
+        </div>
+      </div>
+
       <button class="modal-submit" id="modalSubmit">신청하기</button>
       <p style="font-size:11px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">입력하신 정보는 신청 확인 목적으로만 사용됩니다.</p>
     </div>
@@ -1181,6 +1207,7 @@ document.querySelectorAll('.chip-group').forEach(group=>{
   group.addEventListener('click',e=>{
     const chip=e.target.closest('.chip');
     if(!chip||chip.id==='calChip')return;
+    if(group.dataset.multi){chip.classList.toggle('selected');return;}
     if(group.id==='chipTime')resetCal();
     group.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
     chip.classList.add('selected');
@@ -1196,13 +1223,14 @@ modalSubmit.addEventListener('click',()=>{
   const mood=document.querySelector('#chipMood .chip.selected')?.dataset.val||'';
   const size=document.querySelector('#chipSize .chip.selected')?.dataset.val||'';
   const time=document.querySelector('#chipTime .chip.selected')?.dataset.val||'';
+  const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
   if(!name||!email){alert('성함과 이메일을 입력해 주세요.');return;}
   if(!inquiry){alert('신청 이유를 간단히라도 적어 주세요.');return;}
   modalSubmit.disabled=true; modalSubmit.textContent='전송 중...';
   const message=[
     mood?'분위기: '+mood:'',
     size?'예상 인원: '+size:'',time?'희망 시기: '+time:'',
-    calPickedDate?'희망 날짜: '+calPickedDate:'',inquiry?'신청 이유·하고 싶은 말: '+inquiry:''
+    keep?'함께 알아보고 싶은 것: '+keep:'',calPickedDate?'희망 날짜: '+calPickedDate:'',inquiry?'신청 이유·하고 싶은 말: '+inquiry:''
   ].filter(Boolean).join('\n');
   const payload=JSON.stringify({_subject:'[비프리히어] [생전추모식 첫 주인공] 신청 - '+name,_replyto:email,name,phone,email,message,source:'생전추모식 모집 페이지(홈페이지 /)'});
   const xhr=new XMLHttpRequest();
