@@ -290,17 +290,21 @@ button{font-family:inherit;cursor:none;}
 .modal-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.6rem;display:flex;align-items:center;gap:10px;}
 .modal-eyebrow::before{content:"";width:16px;height:.5px;background:#7D5F2A;}
 .modal-title{font-family:var(--kr);font-size:22px;font-weight:300;line-height:1.4;color:#1B1A17;margin-bottom:.6rem;}
-.modal-sub{font-size:12.5px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
-.mfield{margin-bottom:1.4rem;}
-.mfield label{display:block;font-size:11.5px;color:rgba(27,26,23,.65);margin-bottom:.55rem;font-weight:400;}
-.mfield input,.mfield textarea{width:100%;background:#E2E0D9;border:.5px solid rgba(125,95,42,.18);border-radius:2px;color:#1B1A17;font-family:var(--sans);font-size:14px;font-weight:300;padding:.85rem 1.1rem;outline:none;transition:border-color .25s;resize:none;}
-.mfield input:focus,.mfield textarea:focus{border-color:#7D5F2A;}
-.mfield textarea{min-height:120px;line-height:1.8;}
+.modal-sub{font-family:var(--kr);font-size:13px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
+.mfield{margin-bottom:1.8rem;}
+.mfield label{display:block;font-family:var(--kr);font-size:12.5px;color:rgba(27,26,23,.6);margin-bottom:.2rem;font-weight:400;letter-spacing:.01em;}
+.mfield input,.mfield textarea{width:100%;background:transparent;border:none;border-bottom:.5px solid rgba(125,95,42,.35);border-radius:0;color:#1B1A17;font-family:var(--kr);font-size:15.5px;font-weight:400;padding:.6rem 0 .7rem;outline:none;transition:border-color .25s,box-shadow .25s;resize:none;-webkit-appearance:none;appearance:none;}
+.mfield input::placeholder,.mfield textarea::placeholder{color:rgba(27,26,23,.28);font-family:var(--kr);}
+.mfield input:focus,.mfield textarea:focus{border-bottom-color:#7D5F2A;box-shadow:0 .5px 0 #7D5F2A;}
+.mfield textarea{min-height:100px;line-height:1.9;}
+.mfield.err input,.mfield.err textarea{border-bottom-color:#B5613A;box-shadow:0 .5px 0 #B5613A;}
+.mfield .ferr{display:none;font-family:var(--kr);font-size:11.5px;line-height:1.6;color:#B5613A;margin-top:.45rem;}
+.mfield.err .ferr{display:block;}
 .chip-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
-.chip{background:#E2E0D9;border:.5px solid rgba(125,95,42,.2);border-radius:100px;color:rgba(27,26,23,.55);font-family:var(--sans);font-size:12.5px;font-weight:300;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.chip{background:transparent;border:.5px solid rgba(125,95,42,.3);border-radius:100px;color:rgba(27,26,23,.6);font-family:var(--kr);font-size:13px;font-weight:400;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
 .chip:hover{border-color:rgba(125,95,42,.5);color:#1B1A17;}
 .chip.selected{background:rgba(125,95,42,.1);border-color:#7D5F2A;color:#7D5F2A;font-weight:400;}
-.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:opacity .2s;cursor:none;}
+.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--kr);font-size:14px;letter-spacing:.08em;font-weight:400;transition:opacity .2s;cursor:none;}
 .modal-submit:hover{opacity:.82;}
 .modal-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem 0 1rem;}
 .modal-success.show{display:flex;}
@@ -413,6 +417,7 @@ p{text-wrap:pretty}
     <span class="logo-en">Befreehere</span>
   </a>
 
+  <a class="nav-keep" href="/keepsake/">나를 남기는 방식</a>
   <button class="nav-cta" data-modal="open">신청하기</button>
 </nav>
 
@@ -887,6 +892,25 @@ p{text-wrap:pretty}
   .btn-cta.bloom-fade::before { opacity: 0; transition: opacity .9s cubic-bezier(.4,0,.2,1); }
 </style>
 
+<!-- 유골 커스텀 안내 띠 -->
+<section class="kp-band">
+  <div class="rv kp-band-in">
+    <div class="sec-label" style="justify-content:center;">Keepsake</div>
+    <p class="kp-band-t">그날 이후 나를 어떻게 남길지도 함께 정할 수 있어요.<br>유골 LP, 우주장 같은 방식도 사전 신청을 받고 있습니다.</p>
+    <a class="kp-band-a" href="/keepsake/">자세히 보기 <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+<style>
+  .nav-keep{margin-left:auto;margin-right:1.6rem;font-family:var(--kr);font-size:13px;letter-spacing:.02em;color:rgba(27,26,23,.62);border-bottom:.5px solid rgba(125,95,42,.4);padding-bottom:2px;transition:color .2s;white-space:nowrap;}
+  .nav-keep:hover{color:#7D5F2A;}
+  .kp-band{padding:7rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.12);text-align:center;}
+  .kp-band .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
+  .kp-band-t,.faq-a-in p,.modal-sub{text-wrap:balance;}
+  .kp-band-t{font-family:var(--kr);font-size:clamp(15px,1.5vw,18px);line-height:2;color:#1B1A17;word-break:keep-all;margin-bottom:1.6rem;}
+  .kp-band-a{font-size:12.5px;letter-spacing:.08em;color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.5);padding-bottom:3px;}
+  @media(max-width:768px){.kp-band{padding:4.2rem 1rem;}.kp-band-t{font-size:13.5px;line-height:2;letter-spacing:-.02em;}.nav-keep{font-size:11.5px;margin-right:.9rem;}.nav .nav-cta{margin-left:0 !important;}}
+</style>
+
 <!-- CTA -->
 <section class="cta-section" id="ctaSection">
   <div class="cta-orb"></div>
@@ -1055,21 +1079,35 @@ p{text-wrap:pretty}
       <!-- 이름 / 연락처 -->
       <div class="mfield">
         <label>성함</label>
-        <input type="text" id="mName" placeholder="이름을 입력해 주세요"/>
+        <input type="text" id="mName" autocomplete="name" placeholder="이름을 입력해 주세요"/>
+        <div class="ferr">성함을 입력해 주세요.</div>
       </div>
       <div class="mfield">
         <label>연락처</label>
-        <input type="tel" id="mPhone" placeholder="010-0000-0000"/>
+        <input type="tel" id="mPhone" inputmode="numeric" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"/>
+        <div class="ferr">010-0000-0000 형식으로, 숫자 11자리를 입력해 주세요.</div>
       </div>
       <div class="mfield">
         <label>이메일</label>
-        <input type="email" id="mEmail" placeholder="example@email.com"/>
+        <input type="email" id="mEmail" inputmode="email" autocomplete="email" placeholder="example@email.com"/>
+        <div class="ferr">이메일 형식에 맞게 입력해 주세요. (예: name@email.com)</div>
       </div>
 
       <!-- 신청 이유 -->
       <div class="mfield">
         <label>신청 이유 또는 추가로 하고 싶은 말</label>
         <textarea id="mInquiry" placeholder="어떤 사연이 있으신지 편하게 적어주세요." style="min-height:130px;"></textarea>
+        <div class="ferr">신청 이유를 간단히라도 적어 주세요.</div>
+      </div>
+
+      <!-- 함께 알아보고 싶은 것 -->
+      <div class="mfield">
+        <label>함께 알아보고 싶은 것 (선택)</label>
+        <div class="chip-group" id="chipKeep" data-multi="1">
+          <button type="button" class="chip" data-val="유골 LP">유골 LP</button>
+          <button type="button" class="chip" data-val="우주장">우주장</button>
+          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
+        </div>
       </div>
 
       <button class="modal-submit" id="modalSubmit">신청하기</button>
@@ -1181,11 +1219,19 @@ document.querySelectorAll('.chip-group').forEach(group=>{
   group.addEventListener('click',e=>{
     const chip=e.target.closest('.chip');
     if(!chip||chip.id==='calChip')return;
+    if(group.dataset.multi){chip.classList.toggle('selected');return;}
     if(group.id==='chipTime')resetCal();
     group.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
     chip.classList.add('selected');
   });
 });
+
+// ── 입력 도우미: 연락처 자동 하이픈(11자리까지) · 이메일 형식 · 칸 아래 안내 ──
+const PHONE_RE=/^010-\d{4}-\d{4}$/,EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function fmtPhone(v){const d=v.replace(/\D/g,'').slice(0,11);if(d.length<4)return d;if(d.length<8)return d.slice(0,3)+'-'+d.slice(3);return d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);}
+document.querySelectorAll('input[type="tel"]').forEach(i=>i.addEventListener('input',()=>{i.value=fmtPhone(i.value);}));
+document.querySelectorAll('.mfield input,.mfield textarea').forEach(el=>el.addEventListener('input',()=>el.closest('.mfield').classList.remove('err')));
+function validateFields(list){let first=null;list.forEach(([id,ok])=>{const el=document.getElementById(id);el.closest('.mfield').classList.toggle('err',!ok);if(!ok&&!first)first=el;});if(first){first.focus();return false;}return true;}
 
 // ── 폼 제출 ──
 modalSubmit.addEventListener('click',()=>{
@@ -1196,13 +1242,13 @@ modalSubmit.addEventListener('click',()=>{
   const mood=document.querySelector('#chipMood .chip.selected')?.dataset.val||'';
   const size=document.querySelector('#chipSize .chip.selected')?.dataset.val||'';
   const time=document.querySelector('#chipTime .chip.selected')?.dataset.val||'';
-  if(!name||!email){alert('성함과 이메일을 입력해 주세요.');return;}
-  if(!inquiry){alert('신청 이유를 간단히라도 적어 주세요.');return;}
+  const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
+  if(!validateFields([['mName',!!name],['mPhone',!phone||PHONE_RE.test(phone)],['mEmail',EMAIL_RE.test(email)],['mInquiry',!!inquiry]]))return;
   modalSubmit.disabled=true; modalSubmit.textContent='전송 중...';
   const message=[
     mood?'분위기: '+mood:'',
     size?'예상 인원: '+size:'',time?'희망 시기: '+time:'',
-    calPickedDate?'희망 날짜: '+calPickedDate:'',inquiry?'신청 이유·하고 싶은 말: '+inquiry:''
+    keep?'함께 알아보고 싶은 것: '+keep:'',calPickedDate?'희망 날짜: '+calPickedDate:'',inquiry?'신청 이유·하고 싶은 말: '+inquiry:''
   ].filter(Boolean).join('\n');
   const payload=JSON.stringify({_subject:'[비프리히어] [생전추모식 첫 주인공] 신청 - '+name,_replyto:email,name,phone,email,message,source:'생전추모식 모집 페이지(홈페이지 /)'});
   const xhr=new XMLHttpRequest();
