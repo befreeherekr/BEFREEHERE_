@@ -290,17 +290,21 @@ button{font-family:inherit;cursor:none;}
 .modal-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.6rem;display:flex;align-items:center;gap:10px;}
 .modal-eyebrow::before{content:"";width:16px;height:.5px;background:#7D5F2A;}
 .modal-title{font-family:var(--kr);font-size:22px;font-weight:300;line-height:1.4;color:#1B1A17;margin-bottom:.6rem;}
-.modal-sub{font-size:12.5px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
-.mfield{margin-bottom:1.4rem;}
-.mfield label{display:block;font-size:11.5px;color:rgba(27,26,23,.65);margin-bottom:.55rem;font-weight:400;}
-.mfield input,.mfield textarea{width:100%;background:#E2E0D9;border:.5px solid rgba(125,95,42,.18);border-radius:2px;color:#1B1A17;font-family:var(--sans);font-size:14px;font-weight:300;padding:.85rem 1.1rem;outline:none;transition:border-color .25s;resize:none;}
-.mfield input:focus,.mfield textarea:focus{border-color:#7D5F2A;}
-.mfield textarea{min-height:120px;line-height:1.8;}
+.modal-sub{font-family:var(--kr);font-size:13px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
+.mfield{margin-bottom:1.8rem;}
+.mfield label{display:block;font-family:var(--kr);font-size:12.5px;color:rgba(27,26,23,.6);margin-bottom:.2rem;font-weight:400;letter-spacing:.01em;}
+.mfield input,.mfield textarea{width:100%;background:transparent;border:none;border-bottom:.5px solid rgba(125,95,42,.35);border-radius:0;color:#1B1A17;font-family:var(--kr);font-size:15.5px;font-weight:400;padding:.6rem 0 .7rem;outline:none;transition:border-color .25s,box-shadow .25s;resize:none;-webkit-appearance:none;appearance:none;}
+.mfield input::placeholder,.mfield textarea::placeholder{color:rgba(27,26,23,.28);font-family:var(--kr);}
+.mfield input:focus,.mfield textarea:focus{border-bottom-color:#7D5F2A;box-shadow:0 .5px 0 #7D5F2A;}
+.mfield textarea{min-height:100px;line-height:1.9;}
+.mfield.err input,.mfield.err textarea{border-bottom-color:#B5613A;box-shadow:0 .5px 0 #B5613A;}
+.mfield .ferr{display:none;font-family:var(--kr);font-size:11.5px;line-height:1.6;color:#B5613A;margin-top:.45rem;}
+.mfield.err .ferr{display:block;}
 .chip-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
-.chip{background:#E2E0D9;border:.5px solid rgba(125,95,42,.2);border-radius:100px;color:rgba(27,26,23,.55);font-family:var(--sans);font-size:12.5px;font-weight:300;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.chip{background:transparent;border:.5px solid rgba(125,95,42,.3);border-radius:100px;color:rgba(27,26,23,.6);font-family:var(--kr);font-size:13px;font-weight:400;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
 .chip:hover{border-color:rgba(125,95,42,.5);color:#1B1A17;}
 .chip.selected{background:rgba(125,95,42,.1);border-color:#7D5F2A;color:#7D5F2A;font-weight:400;}
-.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:opacity .2s;cursor:none;}
+.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--kr);font-size:14px;letter-spacing:.08em;font-weight:400;transition:opacity .2s;cursor:none;}
 .modal-submit:hover{opacity:.82;}
 .modal-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem 0 1rem;}
 .modal-success.show{display:flex;}
@@ -1074,21 +1078,25 @@ p{text-wrap:pretty}
       <!-- 이름 / 연락처 -->
       <div class="mfield">
         <label>성함</label>
-        <input type="text" id="mName" placeholder="이름을 입력해 주세요"/>
+        <input type="text" id="mName" autocomplete="name" placeholder="이름을 입력해 주세요"/>
+        <div class="ferr">성함을 입력해 주세요.</div>
       </div>
       <div class="mfield">
         <label>연락처</label>
-        <input type="tel" id="mPhone" placeholder="010-0000-0000"/>
+        <input type="tel" id="mPhone" inputmode="numeric" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"/>
+        <div class="ferr">010-0000-0000 형식으로, 숫자 11자리를 입력해 주세요.</div>
       </div>
       <div class="mfield">
         <label>이메일</label>
-        <input type="email" id="mEmail" placeholder="example@email.com"/>
+        <input type="email" id="mEmail" inputmode="email" autocomplete="email" placeholder="example@email.com"/>
+        <div class="ferr">이메일 형식에 맞게 입력해 주세요. (예: name@email.com)</div>
       </div>
 
       <!-- 신청 이유 -->
       <div class="mfield">
         <label>신청 이유 또는 추가로 하고 싶은 말</label>
         <textarea id="mInquiry" placeholder="어떤 사연이 있으신지 편하게 적어주세요." style="min-height:130px;"></textarea>
+        <div class="ferr">신청 이유를 간단히라도 적어 주세요.</div>
       </div>
 
       <!-- 함께 알아보고 싶은 것 -->
@@ -1217,6 +1225,13 @@ document.querySelectorAll('.chip-group').forEach(group=>{
   });
 });
 
+// ── 입력 도우미: 연락처 자동 하이픈(11자리까지) · 이메일 형식 · 칸 아래 안내 ──
+const PHONE_RE=/^010-\d{4}-\d{4}$/,EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function fmtPhone(v){const d=v.replace(/\D/g,'').slice(0,11);if(d.length<4)return d;if(d.length<8)return d.slice(0,3)+'-'+d.slice(3);return d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);}
+document.querySelectorAll('input[type="tel"]').forEach(i=>i.addEventListener('input',()=>{i.value=fmtPhone(i.value);}));
+document.querySelectorAll('.mfield input,.mfield textarea').forEach(el=>el.addEventListener('input',()=>el.closest('.mfield').classList.remove('err')));
+function validateFields(list){let first=null;list.forEach(([id,ok])=>{const el=document.getElementById(id);el.closest('.mfield').classList.toggle('err',!ok);if(!ok&&!first)first=el;});if(first){first.focus();return false;}return true;}
+
 // ── 폼 제출 ──
 modalSubmit.addEventListener('click',()=>{
   const name=document.getElementById('mName').value.trim();
@@ -1227,8 +1242,7 @@ modalSubmit.addEventListener('click',()=>{
   const size=document.querySelector('#chipSize .chip.selected')?.dataset.val||'';
   const time=document.querySelector('#chipTime .chip.selected')?.dataset.val||'';
   const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
-  if(!name||!email){alert('성함과 이메일을 입력해 주세요.');return;}
-  if(!inquiry){alert('신청 이유를 간단히라도 적어 주세요.');return;}
+  if(!validateFields([['mName',!!name],['mPhone',!phone||PHONE_RE.test(phone)],['mEmail',EMAIL_RE.test(email)],['mInquiry',!!inquiry]]))return;
   modalSubmit.disabled=true; modalSubmit.textContent='전송 중...';
   const message=[
     mood?'분위기: '+mood:'',

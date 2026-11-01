@@ -174,17 +174,21 @@ button{font-family:inherit;cursor:none;}
 .modal-eyebrow{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#7D5F2A;margin-bottom:1.6rem;display:flex;align-items:center;gap:10px;}
 .modal-eyebrow::before{content:"";width:16px;height:.5px;background:#7D5F2A;}
 .modal-title{font-family:var(--kr);font-size:22px;font-weight:300;line-height:1.4;color:#1B1A17;margin-bottom:.6rem;}
-.modal-sub{font-size:12.5px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
-.mfield{margin-bottom:1.4rem;}
-.mfield label{display:block;font-size:11.5px;color:rgba(27,26,23,.65);margin-bottom:.55rem;font-weight:400;}
-.mfield input,.mfield textarea{width:100%;background:#E2E0D9;border:.5px solid rgba(125,95,42,.18);border-radius:2px;color:#1B1A17;font-family:var(--sans);font-size:14px;font-weight:300;padding:.85rem 1.1rem;outline:none;transition:border-color .25s;resize:none;}
-.mfield input:focus,.mfield textarea:focus{border-color:#7D5F2A;}
-.mfield textarea{min-height:120px;line-height:1.8;}
+.modal-sub{font-family:var(--kr);font-size:13px;line-height:1.9;color:rgba(27,26,23,.62);margin-bottom:2.4rem;}
+.mfield{margin-bottom:1.8rem;}
+.mfield label{display:block;font-family:var(--kr);font-size:12.5px;color:rgba(27,26,23,.6);margin-bottom:.2rem;font-weight:400;letter-spacing:.01em;}
+.mfield input,.mfield textarea{width:100%;background:transparent;border:none;border-bottom:.5px solid rgba(125,95,42,.35);border-radius:0;color:#1B1A17;font-family:var(--kr);font-size:15.5px;font-weight:400;padding:.6rem 0 .7rem;outline:none;transition:border-color .25s,box-shadow .25s;resize:none;-webkit-appearance:none;appearance:none;}
+.mfield input::placeholder,.mfield textarea::placeholder{color:rgba(27,26,23,.28);font-family:var(--kr);}
+.mfield input:focus,.mfield textarea:focus{border-bottom-color:#7D5F2A;box-shadow:0 .5px 0 #7D5F2A;}
+.mfield textarea{min-height:100px;line-height:1.9;}
+.mfield.err input,.mfield.err textarea{border-bottom-color:#B5613A;box-shadow:0 .5px 0 #B5613A;}
+.mfield .ferr{display:none;font-family:var(--kr);font-size:11.5px;line-height:1.6;color:#B5613A;margin-top:.45rem;}
+.mfield.err .ferr{display:block;}
 .chip-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem;}
-.chip{background:#E2E0D9;border:.5px solid rgba(125,95,42,.2);border-radius:100px;color:rgba(27,26,23,.55);font-family:var(--sans);font-size:12.5px;font-weight:300;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.chip{background:transparent;border:.5px solid rgba(125,95,42,.3);border-radius:100px;color:rgba(27,26,23,.6);font-family:var(--kr);font-size:13px;font-weight:400;padding:.45rem 1rem;cursor:pointer;transition:all .18s;white-space:nowrap;}
 .chip:hover{border-color:rgba(125,95,42,.5);color:#1B1A17;}
 .chip.selected{background:rgba(125,95,42,.1);border-color:#7D5F2A;color:#7D5F2A;font-weight:400;}
-.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:opacity .2s;cursor:none;}
+.modal-submit{width:100%;margin-top:.6rem;padding:14px;background:#7D5F2A;color:#ECEBE6;border:none;border-radius:100px;font-family:var(--kr);font-size:14px;letter-spacing:.08em;font-weight:400;transition:opacity .2s;cursor:none;}
 .modal-submit:hover{opacity:.82;}
 .modal-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem 0 1rem;}
 .modal-success.show{display:flex;}
@@ -297,7 +301,7 @@ p{text-wrap:pretty}
     <span class="logo-en">Befreehere</span>
   </a>
   <a class="nav-keep" href="/">생전추모식</a>
-  <a class="nav-cta" href="#apply" style="display:inline-block;">사전 신청</a>
+  <button class="nav-cta" data-modal="open">사전 신청</button>
 </nav>
 
 <!-- HERO -->
@@ -360,7 +364,7 @@ p{text-wrap:pretty}
     <div class="sec-label" style="justify-content:center;">Now Open</div>
     <h2>사전 신청 <em>접수 중.</em></h2>
     <p>신청하신 순서대로 연락드립니다.<br>가격은 방식과 상황에 따라 달라<br>상담 후에 안내드립니다.</p>
-    <a class="kp-now-a" href="#apply">사전 신청하기 <span aria-hidden="true">↓</span></a>
+    <a class="kp-now-a" href="#apply" data-modal="open">사전 신청하기 <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -398,34 +402,16 @@ p{text-wrap:pretty}
 
 <!-- 사전 신청 -->
 <section class="kp-apply" id="apply">
-  <div class="kp-form">
-    <div class="rv" style="text-align:center;margin-bottom:2.8rem;">
-      <div class="sec-label" style="justify-content:center;">사전 신청</div>
-      <h2 style="font-family:var(--kr);font-size:clamp(22px,5vw,30px);font-weight:400;line-height:1.5;">연락처를 남겨 주세요.</h2>
-      <p style="font-size:13px;line-height:1.95;color:rgba(27,26,23,.6);margin-top:.8rem;font-weight:300;">신청해도 비용이 생기지 않습니다.<br>연락드려 상담부터 시작합니다.</p>
-    </div>
-    <div id="kpFormBox">
-      <div class="mfield">
-        <label>관심 있는 것 (여러 개 가능)</label>
-        <div class="chip-group" id="chipKeep" data-multi="1">
-          <button type="button" class="chip" data-val="유골 LP">유골 LP</button>
-          <button type="button" class="chip" data-val="우주장">우주장</button>
-          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
-        </div>
-      </div>
-      <div class="mfield"><label>성함</label><input type="text" id="kName" placeholder="이름을 입력해 주세요"/></div>
-      <div class="mfield"><label>연락처</label><input type="tel" id="kPhone" placeholder="010-0000-0000"/></div>
-      <div class="mfield"><label>남기고 싶은 말 (선택)</label><textarea id="kMsg" placeholder="편하게 적어 주세요." style="min-height:110px;"></textarea></div>
-      <button class="modal-submit" id="kSubmit" type="button">사전 신청하기</button>
-      <p style="font-size:11px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">입력하신 정보는 상담 연락 목적으로만 사용됩니다.</p>
-    </div>
-    <div class="modal-success" id="kSuccess">
-      <div style="width:48px;height:48px;border-radius:50%;border:.5px solid rgba(125,95,42,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <div style="font-family:var(--kr);font-size:20px;font-weight:300;color:#1B1A17;margin-bottom:.8rem;">신청이 완료되었습니다.</div>
-      <div style="font-size:13px;line-height:1.9;color:rgba(27,26,23,.45);">신청하신 순서대로 연락드리겠습니다.</div>
-    </div>
+  <div class="rv" style="max-width:480px;margin:0 auto;">
+    <div class="sec-label" style="justify-content:center;">사전 신청</div>
+    <h2 style="font-family:var(--kr);font-size:clamp(22px,5vw,30px);font-weight:400;line-height:1.5;">연락처를 남겨 주세요.</h2>
+    <p style="font-size:13px;line-height:1.95;color:rgba(27,26,23,.6);margin:.8rem 0 2.6rem;font-weight:300;">신청해도 비용이 생기지 않습니다.<br>연락드려 상담부터 시작합니다.</p>
+    <button class="btn-cta" type="button" data-modal="open">
+      사전 신청하기
+      <span class="arr">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><line x1="0" y1="4.5" x2="9.5" y2="4.5" stroke="currentColor" stroke-width=".85"/><polyline points="6,1 9.5,4.5 6,8" fill="none" stroke="currentColor" stroke-width=".85"/></svg>
+      </span>
+    </button>
   </div>
 </section>
 
@@ -457,7 +443,7 @@ p{text-wrap:pretty}
   .kp-now p{font-size:13px;line-height:2;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;margin-bottom:2.2rem;}
   .kp-now-a{font-size:12.5px;letter-spacing:.08em;color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.5);padding-bottom:3px;}
   .lf-order{padding-bottom:7rem;}
-  .kp-apply{padding:9rem 4rem 10rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);}
+  .kp-apply{padding:9rem 4rem 10rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);text-align:center;}
   .kp-form{max-width:480px;margin:0 auto;}
   .kp-form .mfield input,.kp-form .mfield textarea{background:#ECEBE6;}
   .kp-form .chip{background:#ECEBE6;}
@@ -664,11 +650,61 @@ p{text-wrap:pretty}
   <div class="footer-btm"><span class="footer-copy" style="display:block;margin-bottom:.5rem;color:rgba(27,26,23,.7);"><a href="/" style="text-decoration:underline;text-underline-offset:3px;">생전추모식 보러 가기</a></span><span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span></div>
 </footer>
 
+<!-- 사전 신청 창 -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" type="button" aria-label="닫기">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="2" x2="14" y2="14" stroke="currentColor" stroke-width="1.2"/><line x1="14" y1="2" x2="2" y2="14" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+    <div class="modal-eyebrow">사전 신청</div>
+    <div class="modal-title">연락처를 남겨 주세요.</div>
+    <div class="modal-sub">신청해도 비용이 생기지 않습니다. 연락드려 상담부터 시작합니다.</div>
+    <div id="kpFormBox">
+      <div class="mfield">
+        <label>관심 있는 것 (여러 개 가능)</label>
+        <div class="chip-group" id="chipKeep" data-multi="1">
+          <button type="button" class="chip" data-val="유골 LP">유골 LP</button>
+          <button type="button" class="chip" data-val="우주장">우주장</button>
+          <button type="button" class="chip" data-val="아직 모르겠어요">아직 모르겠어요</button>
+        </div>
+      </div>
+      <div class="mfield"><label>성함</label><input type="text" id="kName" autocomplete="name" placeholder="이름을 입력해 주세요"/><div class="ferr">성함을 입력해 주세요.</div></div>
+      <div class="mfield"><label>연락처</label><input type="tel" id="kPhone" inputmode="numeric" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"/><div class="ferr">010-0000-0000 형식으로, 숫자 11자리를 입력해 주세요.</div></div>
+      <div class="mfield"><label>남기고 싶은 말 (선택)</label><textarea id="kMsg" placeholder="편하게 적어 주세요."></textarea></div>
+      <button class="modal-submit" id="kSubmit" type="button">사전 신청하기</button>
+      <p style="font-family:var(--kr);font-size:11.5px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">입력하신 정보는 상담 연락 목적으로만 사용됩니다.</p>
+    </div>
+    <div class="modal-success" id="kSuccess">
+      <div style="width:48px;height:48px;border-radius:50%;border:.5px solid rgba(125,95,42,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7D5F2A" stroke-width="1.2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div style="font-family:var(--kr);font-size:20px;font-weight:300;color:#1B1A17;margin-bottom:.8rem;">신청이 완료되었습니다.</div>
+      <div style="font-family:var(--kr);font-size:13px;line-height:1.9;color:rgba(27,26,23,.5);">신청하신 순서대로 연락드리겠습니다.</div>
+    </div>
+  </div>
+</div>
+
+
 <script>
+// ── 신청 창 열고 닫기 ──
+const overlay=document.getElementById('modalOverlay');
+function openModal(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('[data-modal="open"]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openModal();}));
+document.getElementById('modalClose').addEventListener('click',closeModal);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 // ── 칩 선택 (여러 개) ──
 document.querySelectorAll('.chip-group').forEach(g=>{
   g.addEventListener('click',e=>{const c=e.target.closest('.chip');if(c)c.classList.toggle('selected');});
 });
+// ── 입력 도우미: 연락처 자동 하이픈(11자리까지) · 이메일 형식 · 칸 아래 안내 ──
+const PHONE_RE=/^010-\d{4}-\d{4}$/,EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+function fmtPhone(v){const d=v.replace(/\D/g,'').slice(0,11);if(d.length<4)return d;if(d.length<8)return d.slice(0,3)+'-'+d.slice(3);return d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7);}
+document.querySelectorAll('input[type="tel"]').forEach(i=>i.addEventListener('input',()=>{i.value=fmtPhone(i.value);}));
+document.querySelectorAll('.mfield input,.mfield textarea').forEach(el=>el.addEventListener('input',()=>el.closest('.mfield').classList.remove('err')));
+function validateFields(list){let first=null;list.forEach(([id,ok])=>{const el=document.getElementById(id);el.closest('.mfield').classList.toggle('err',!ok);if(!ok&&!first)first=el;});if(first){first.focus();return false;}return true;}
+
 // ── 폼 제출 ──
 const kSubmit=document.getElementById('kSubmit');
 kSubmit.addEventListener('click',()=>{
@@ -676,7 +712,7 @@ kSubmit.addEventListener('click',()=>{
   const phone=document.getElementById('kPhone').value.trim();
   const msg=document.getElementById('kMsg').value.trim();
   const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
-  if(!name||!phone){alert('성함과 연락처를 입력해 주세요.');return;}
+  if(!validateFields([['kName',!!name],['kPhone',PHONE_RE.test(phone)]]))return;
   kSubmit.disabled=true; kSubmit.textContent='전송 중...';
   const message=[keep?'관심 있는 것: '+keep:'',msg?'남기고 싶은 말: '+msg:''].filter(Boolean).join('\n');
   const payload=JSON.stringify({_subject:'[비프리히어] [유골 커스텀 사전 신청] '+name,name,phone,message,source:'유골 커스텀 사전 신청 페이지(/keepsake)'});
