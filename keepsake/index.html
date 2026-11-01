@@ -332,7 +332,7 @@ p{text-wrap:pretty}
       <div class="kp-slide">
         <div class="kp-ghost">02</div>
         <div class="kp-tag"><i></i><span>Starlight</span></div>
-        <h3>별이 되어<br>하늘로</h3>
+        <h3>별이 되어<br>우주로</h3>
         <p>유골을 작은 캡슐에 담아 우주로 보냅니다.<br>발사가 끝나면 인증서와 영상으로<br>그날을 확인할 수 있습니다.<br>일부만 보낼 수도, 전부를 보낼 수도 있습니다.</p>
       </div>
     </div>
@@ -344,16 +344,22 @@ p{text-wrap:pretty}
   <div class="lf-in">
     <div class="sec-label rv" style="justify-content:center;">어떻게 진행되나요</div>
     <p class="lf-order-en rv">How it goes</p>
-    <p class="lf-order-sub rv">세 걸음입니다.</p>
+    <p class="lf-order-sub rv">함께하는 세 걸음.</p>
     <ol class="lf-order-list rv">
       <li><b>상담</b><small>아래 신청서를 남겨 주시면 연락드립니다.<br>어떤 방식이 맞을지 함께 이야기 나눕니다.</small></li>
-      <li><b>준비</b><small>방식이 정해지면 유골을 전달해 주세요.</small></li>
+      <li><b>준비</b><small>방식이 정해지면 유골을 전달해 주세요.<br>또는 비프리히어가 조심히 유골을 운반합니다.</small></li>
       <li><b>마무리</b><small>완성된 결과물과 기록을 전달해 드립니다.</small></li>
     </ol>
-    <div class="rv kp-now-in">
-      <b>사전 신청 접수 중</b>
-      <small>신청하신 순서대로 연락드립니다.<br>가격은 방식과 상황에 따라 달라<br>상담 후에 안내드립니다.</small>
-    </div>
+  </div>
+</section>
+
+<!-- 사전 신청 접수 중 -->
+<section class="kp-now" id="now">
+  <div class="rv kp-now-in">
+    <div class="sec-label" style="justify-content:center;">Now Open</div>
+    <h2>사전 신청 <em>접수 중.</em></h2>
+    <p>신청하신 순서대로 연락드립니다.<br>가격은 방식과 상황에 따라 달라<br>상담 후에 안내드립니다.</p>
+    <a class="kp-now-a" href="#apply">사전 신청하기 <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
@@ -441,11 +447,13 @@ p{text-wrap:pretty}
   .kp-tag span{font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(125,95,42,.5);}
   .kp-slide h3{font-family:var(--kr);font-size:clamp(18px,2vw,24px);font-weight:400;color:#1B1A17;line-height:1.55;margin-bottom:2rem;letter-spacing:-.015em;word-break:keep-all;}
   .kp-slide p{font-size:12.5px;line-height:2.05;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;position:relative;}
-  .kp-now-in{margin-top:1.1rem;}
-  .kp-now-in::before{content:'';display:block;width:5px;height:5px;margin:0 auto 2.2rem;border:.5px solid #7D5F2A;transform:rotate(45deg);}
-  .kp-now-in b{display:block;font-family:var(--kr);font-size:19px;font-weight:400;color:#1B1A17;margin-bottom:.6rem;}
-  .kp-now-in small{display:block;font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;word-break:keep-all;}
-  .lf-order{padding-bottom:9rem;}
+  .kp-now{padding:8rem 4rem;background:#ECEBE6;text-align:center;border-top:.5px solid rgba(125,95,42,.12);}
+  .kp-now .sec-label::after{content:'';width:28px;height:.5px;background:#7D5F2A;}
+  .kp-now h2{font-family:var(--kr);font-size:clamp(30px,4.6vw,52px);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:#1B1A17;margin-bottom:2rem;}
+  .kp-now h2 em{font-style:normal;color:#B5613A;}
+  .kp-now p{font-size:13px;line-height:2;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;margin-bottom:2.2rem;}
+  .kp-now-a{font-size:12.5px;letter-spacing:.08em;color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.5);padding-bottom:3px;}
+  .lf-order{padding-bottom:7rem;}
   .kp-apply{padding:9rem 4rem 10rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);}
   .kp-form{max-width:480px;margin:0 auto;}
   .kp-form .mfield input,.kp-form .mfield textarea{background:#ECEBE6;}
@@ -460,9 +468,10 @@ p{text-wrap:pretty}
     .kp-slide + .kp-slide{border-left:none;border-top:.5px solid rgba(125,95,42,.18);}
     .kp-tag{margin-bottom:1.6rem;}
     .kp-slide h3{margin-bottom:1.1rem;}
-    .kp-now-in b{font-size:17.5px;}
-    .kp-now-in small{font-size:12px;}
-    .lf-order{padding-bottom:4.6rem;}
+    .lf-order{padding-bottom:4rem;}
+    .kp-now{padding:4.6rem 1.4rem;}
+    .kp-now h2{font-size:clamp(28px,8vw,36px);margin-bottom:1.5rem;}
+    .kp-now p{font-size:12.5px;margin-bottom:1.8rem;}
     .kp-apply{padding:5rem 1.4rem 6rem;}
   }
 </style>
