@@ -308,8 +308,8 @@ p{text-wrap:pretty}
   </h1>
   <div class="hero-bottom">
     <p class="hero-sub">
-      내가 좋아했던 음악이 되어 남을 수도 있고,<br>
-      <strong>별이 되어 하늘로 갈 수도 있습니다.</strong>
+      내가 좋아했던 음악이 되어,<br>
+      <strong>우주의 별이 되어.</strong>
     </p>
   </div>
 </section>
@@ -326,8 +326,8 @@ p{text-wrap:pretty}
       <div class="kp-slide">
         <div class="kp-ghost">01</div>
         <div class="kp-tag"><i></i><span>Vinyl</span></div>
-        <h3>내 유골이<br>LP판이 된다면</h3>
-        <p>유골의 아주 일부를 넣어 LP 음반으로 만듭니다.<br>음반에는 좋아하던 노래,<br>혹은 가족에게 남기는 목소리를 담을 수 있습니다.<br>보고 싶은 날, 턴테이블에 올려 두고 들으면 됩니다.</p>
+        <h3>내 유골이<br>LP가 된다면</h3>
+        <p>유골의 일부를 넣어 LP 음반으로 만듭니다.<br>음반에는 좋아하던 노래,<br>혹은 가족에게 남기는 목소리를 담을 수 있습니다.<br>보고 싶은 날, 턴테이블에 올려 두고 들으면 됩니다.</p>
       </div>
       <div class="kp-slide">
         <div class="kp-ghost">02</div>
@@ -350,22 +350,11 @@ p{text-wrap:pretty}
       <li><b>준비</b><small>방식이 정해지면 유골을 전달해 주세요.</small></li>
       <li><b>마무리</b><small>완성된 결과물과 기록을 전달해 드립니다.</small></li>
     </ol>
+    <div class="rv kp-now-in">
+      <b>사전 신청 접수 중</b>
+      <small>신청하신 순서대로 연락드립니다.<br>가격은 방식과 상황에 따라 달라<br>상담 후에 안내드립니다.</small>
+    </div>
   </div>
-</section>
-
-<!-- 지금은 -->
-<section class="kp-now">
-  <div class="rv lf-price kp-price">
-    <div class="lf-price-row"><span>지금 상태</span><b class="kp-t">사전 신청 접수 중</b></div>
-    <p>신청하신 순서대로 연락드립니다.<br>가격은 방식과 상황에 따라 달라 상담 후에 안내드립니다.</p>
-  </div>
-  <style>
-    .kp-price{max-width:440px;margin:0 auto;padding:1.8rem 0;border-top:.5px solid rgba(125,95,42,.3);border-bottom:.5px solid rgba(125,95,42,.3);}
-    .kp-price .lf-price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.9rem;}
-    .kp-price .lf-price-row span{font-family:var(--kr);font-size:15px;}
-    .kp-price .lf-price-row b.kp-t{font-family:var(--kr);font-size:17px;font-weight:400;color:#7D5F2A;}
-    .kp-price p{font-size:12.5px;line-height:1.95;color:rgba(27,26,23,.6);font-weight:300;text-align:left;word-break:keep-all;margin-top:1.1rem;}
-  </style>
 </section>
 
 <!-- 자주 묻는 질문 -->
@@ -452,8 +441,11 @@ p{text-wrap:pretty}
   .kp-tag span{font-family:var(--serif);font-style:italic;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(125,95,42,.5);}
   .kp-slide h3{font-family:var(--kr);font-size:clamp(18px,2vw,24px);font-weight:400;color:#1B1A17;line-height:1.55;margin-bottom:2rem;letter-spacing:-.015em;word-break:keep-all;}
   .kp-slide p{font-size:12.5px;line-height:2.05;color:rgba(27,26,23,.62);font-weight:300;word-break:keep-all;position:relative;}
-  .kp-now{padding:0 4rem 10rem;background:var(--sand-warm,#E2E0D9);}
-  .lf-order{padding-bottom:6rem;}
+  .kp-now-in{margin-top:1.1rem;}
+  .kp-now-in::before{content:'';display:block;width:5px;height:5px;margin:0 auto 2.2rem;border:.5px solid #7D5F2A;transform:rotate(45deg);}
+  .kp-now-in b{display:block;font-family:var(--kr);font-size:19px;font-weight:400;color:#1B1A17;margin-bottom:.6rem;}
+  .kp-now-in small{display:block;font-size:12.5px;line-height:1.95;color:var(--mute);font-weight:300;word-break:keep-all;}
+  .lf-order{padding-bottom:9rem;}
   .kp-apply{padding:9rem 4rem 10rem;background:#E2E0D9;border-top:.5px solid rgba(125,95,42,.12);}
   .kp-form{max-width:480px;margin:0 auto;}
   .kp-form .mfield input,.kp-form .mfield textarea{background:#ECEBE6;}
@@ -468,8 +460,9 @@ p{text-wrap:pretty}
     .kp-slide + .kp-slide{border-left:none;border-top:.5px solid rgba(125,95,42,.18);}
     .kp-tag{margin-bottom:1.6rem;}
     .kp-slide h3{margin-bottom:1.1rem;}
-    .kp-now{padding:0 1.4rem 5rem;}
-    .lf-order{padding-bottom:4rem;}
+    .kp-now-in b{font-size:17.5px;}
+    .kp-now-in small{font-size:12px;}
+    .lf-order{padding-bottom:4.6rem;}
     .kp-apply{padding:5rem 1.4rem 6rem;}
   }
 </style>
