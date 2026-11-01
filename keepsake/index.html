@@ -670,6 +670,7 @@ p{text-wrap:pretty}
       </div>
       <div class="mfield"><label>성함</label><input type="text" id="kName" autocomplete="name" placeholder="이름을 입력해 주세요"/><div class="ferr">성함을 입력해 주세요.</div></div>
       <div class="mfield"><label>연락처</label><input type="tel" id="kPhone" inputmode="numeric" maxlength="13" autocomplete="tel" placeholder="010-0000-0000"/><div class="ferr">010-0000-0000 형식으로, 숫자 11자리를 입력해 주세요.</div></div>
+      <div class="mfield"><label>이메일</label><input type="email" id="kEmail" inputmode="email" autocomplete="email" placeholder="example@email.com"/><div class="ferr">이메일 형식에 맞게 입력해 주세요. (예: name@email.com)</div></div>
       <div class="mfield"><label>남기고 싶은 말 (선택)</label><textarea id="kMsg" placeholder="편하게 적어 주세요."></textarea></div>
       <button class="modal-submit" id="kSubmit" type="button">사전 신청하기</button>
       <p style="font-family:var(--kr);font-size:11.5px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">입력하신 정보는 상담 연락 목적으로만 사용됩니다.</p>
@@ -710,12 +711,13 @@ const kSubmit=document.getElementById('kSubmit');
 kSubmit.addEventListener('click',()=>{
   const name=document.getElementById('kName').value.trim();
   const phone=document.getElementById('kPhone').value.trim();
+  const email=document.getElementById('kEmail').value.trim();
   const msg=document.getElementById('kMsg').value.trim();
   const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
-  if(!validateFields([['kName',!!name],['kPhone',PHONE_RE.test(phone)]]))return;
+  if(!validateFields([['kName',!!name],['kPhone',PHONE_RE.test(phone)],['kEmail',EMAIL_RE.test(email)]]))return;
   kSubmit.disabled=true; kSubmit.textContent='전송 중...';
   const message=[keep?'관심 있는 것: '+keep:'',msg?'남기고 싶은 말: '+msg:''].filter(Boolean).join('\n');
-  const payload=JSON.stringify({_subject:'[비프리히어] [유골 커스텀 사전 신청] '+name,name,phone,message,source:'유골 커스텀 사전 신청 페이지(/keepsake)'});
+  const payload=JSON.stringify({_subject:'[비프리히어] [유골 커스텀 사전 신청] '+name,_replyto:email,name,phone,email,message,source:'유골 커스텀 사전 신청 페이지(/keepsake)'});
   const xhr=new XMLHttpRequest();
   xhr.open('POST','https://formspree.io/f/mbdpqopv',true);
   xhr.setRequestHeader('Accept','application/json');
