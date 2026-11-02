@@ -1867,17 +1867,16 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 <!-- ────────────── DIFFERENCE ────────────── -->
 <!-- 사진 -->
 <section class="fp-pair" aria-hidden="false">
-  <figure class="fp-a"><img src="/images/ph/favorite-clothes.jpg" alt="햇살이 드는 방 벽에 걸린 즐겨 입던 옷과 밀짚모자, 들꽃" loading="lazy"></figure>
   <figure class="fp-b"><img src="/images/ph/hall.jpg" alt="흰 꽃으로 장식한 나무 관이 놓인 밝은 공간" loading="lazy"></figure>
 </section>
 <style>
-.fp-pair{background:#0e0d0b;padding:6rem 4rem;display:grid;grid-template-columns:5fr 7fr;gap:1.6rem;align-items:end;max-width:none}
+.fp-pair{background:#0e0d0b;padding:6rem 4rem;max-width:none}
 .fp-pair figure{margin:0;overflow:hidden;border-radius:2px;position:relative}
 .fp-pair img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(.92)}
-.fp-a{aspect-ratio:3/4}.fp-b{aspect-ratio:7/5}
+.fp-pair .fp-b{max-width:1200px;margin:0 auto;aspect-ratio:21/9}
 .fp-wide{background:#0e0d0b;padding:0 0 0;position:relative}
 .fp-wide img{display:block;width:100%;height:min(62vw,560px);object-fit:cover;filter:brightness(.8) saturate(.9);-webkit-mask-image:linear-gradient(180deg,transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(180deg,transparent,#000 22%,#000 78%,transparent)}
-@media(max-width:768px){.fp-pair{grid-template-columns:1fr;padding:3rem 1.2rem;gap:1rem}.fp-a{aspect-ratio:4/5}.fp-wide img{height:62vw}}
+@media(max-width:768px){.fp-pair{padding:3rem 1.2rem}.fp-pair .fp-b{aspect-ratio:4/3}.fp-wide img{height:62vw}}
 </style>
 
 <section id="services" style="
