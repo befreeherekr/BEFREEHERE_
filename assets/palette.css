@@ -1,0 +1,55 @@
+/* 비프리히어 색 정리 — 포인트 살구 하나 + 흰색 + 먹색. 모양·문구는 그대로, 색 자리만 정함 */
+:root{
+  --ap:#F2A878;      /* 포인트: 살구 */
+  --ap-tint:#FBE6D6; /* 살구를 옅게 */
+  --ap-ink:#B4531F;  /* 살구를 짙게(글씨·선) */
+  --wh:#FCFAF6;      /* 흰색 */
+  --ch:#2A2522;      /* 먹색 */
+}
+::selection{background:var(--ap);color:var(--ch)}
+::-webkit-scrollbar-thumb{background:var(--ap)}
+body{background:var(--wh)}
+
+/* 버튼: 살구 채움 + 먹색 글씨 */
+html body .nav-cta{background:var(--ap)!important;border-color:var(--ap)!important;color:var(--ch)!important;font-weight:500}
+html body .nav-cta:hover{background:var(--ch)!important;border-color:var(--ch)!important;color:var(--wh)!important}
+html body .btn-cta{background:var(--ch)!important;border-color:var(--ch)!important;color:var(--wh)!important}
+html body .btn-cta:hover{background:var(--ch)!important;color:var(--ap)!important}
+html body .modal-submit{background:var(--ch)!important;color:var(--wh)!important}
+html body .chip.selected{background:var(--ap-tint)!important;border-color:var(--ap)!important;color:var(--ch)!important}
+
+/* 칸 색 배분: 흰 → 살구옅음 → 흰 → 살구 → 흰 → 옅음 → 살구 → 흰 → 먹 */
+html body #about{background:var(--ap-tint)!important}
+html body #order{background:var(--wh)!important}
+html body #for,html body .lf-for{background:var(--ap)!important;border:0!important}
+html body #for h2,html body #for h2 em,html body #for .sec-label{color:var(--ch)!important}
+html body #for .sec-label::before{background:var(--ch)!important}
+html body .lf-slide{background:var(--wh)!important;border-color:transparent!important}
+html body .lf-slide-num{color:var(--ap-ink)!important}
+html body .lf-dots i{background:rgba(42,37,34,.25)!important}html body .lf-dots i.on{background:var(--ch)!important}
+html body #process{background:var(--wh)!important}
+html body .kp-band{background:var(--ap-tint)!important}
+html body #ctaSection{background:var(--ap)!important}
+html body #ctaSection::before,html body #ctaSection::after{display:none!important}
+html body #ctaSection h2,html body #ctaSection .lf-price-row span,html body #ctaSection .lf-price p{color:var(--ch)!important}
+html body #ctaSection .lf-price-row b{color:var(--ch)!important}
+html body #ctaSection .lf-price{border-color:rgba(42,37,34,.35)!important}
+html body .cta-orb{display:none!important}
+html body .lf-faq{background:var(--wh)!important}
+html body footer,html body .footer,html body .footer-btm{background:var(--ch)!important}
+html body footer::before{display:none!important}
+html body .footer-brand-kr{color:var(--wh)!important}
+html body .footer-brand-en,html body .footer-col-label{color:var(--ap)!important}
+html body .footer-tagline,html body .footer-addr,html body .footer-links a,html body .footer-links span,html body .footer-copy,html body .footer-reg{color:rgba(252,250,246,.72)!important}
+html body .footer-links a:hover{color:var(--ap)!important}
+
+/* nav 스크롤 후 바탕 */
+.nav.scrolled{background:rgba(252,250,246,.97)!important}
+
+/* 읽기 편하게: 흐린 글씨를 한 단계 진하게 */
+html body{--mute:rgba(42,37,34,.7);--sub:rgba(42,37,34,.7)}
+html body .hero-sub{color:rgba(42,37,34,.72)!important}
+html body .faq-n{color:var(--ap-ink)!important}
+html body .faq-t{color:rgba(42,37,34,.8)!important}
+html body .lf-order-sub,html body .lf-order-foot,html body .lf-order-list small{color:rgba(42,37,34,.7)!important}
+html body .nav-keep{color:rgba(42,37,34,.75)!important}

@@ -18,15 +18,15 @@
   .m-cac .cac-item {
     flex: 0 0 84%; scroll-snap-align: start; box-sizing: border-box;
     padding: 0 1.4rem; cursor: default;
-    border: .5px solid rgba(125,95,42,.22) !important; border-radius: 2px;
-    background: rgba(125,95,42,.035) !important; opacity: 1 !important;
+    border: .5px solid rgba(180,83,31,.22) !important; border-radius: 2px;
+    background: rgba(180,83,31,.035) !important; opacity: 1 !important;
   }
   /* 세 카드 모두 펼친 상태로 */
   .m-cac .cac-header { grid-template-columns: 44px 1fr; padding: 1.8rem 0 1.2rem; }
   .m-cac .cac-item .cac-header:hover { opacity: 1; }
   .m-cac .cac-arrow { display: none; }
-  .m-cac .cac-num { color: #7D5F2A; }
-  .m-cac .cac-en { color: rgba(125,95,42,.65); }
+  .m-cac .cac-num { color: #B4531F; }
+  .m-cac .cac-en { color: rgba(180,83,31,.65); }
   .m-cac .cac-kr { color: #1A1208; }
   .m-cac .cac-body { grid-template-rows: 1fr; }
   .m-cac .cac-body-inner { padding-bottom: 2.6rem; }
@@ -37,9 +37,9 @@
   .m-dots { display: flex; justify-content: center; gap: 7px; margin-top: 18px; }
   .m-dots i {
     width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(125,95,42,.25); transition: background .25s, width .25s;
+    background: rgba(180,83,31,.25); transition: background .25s, width .25s;
   }
-  .m-dots i.on { width: 18px; border-radius: 3px; background: #7D5F2A; }
+  .m-dots i.on { width: 18px; border-radius: 3px; background: #B4531F; }
 
   /* ── 장례식 '비프리히어가 묻습니다' 소개 문장 정렬 ── */
   .svc-intro { text-align: left !important; max-width: none !important; }
