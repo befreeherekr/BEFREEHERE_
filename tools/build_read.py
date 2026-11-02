@@ -13,7 +13,7 @@ def card(p, dark=False):
             f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span><i aria-hidden="true">→</i></a>')
 
 CSS = '''<style>
-.rd{padding:6.5rem 4rem 0;font-family:'Gowun Batang','Noto Serif KR',serif;color:#1B1A17;background:#ECEBE6}
+.rd{padding:6.5rem 4rem 4rem;font-family:'Gowun Batang','Noto Serif KR',serif;color:#1B1A17;background:#ECEBE6}
 .rd-q{max-width:1000px;margin:0 auto 2rem;font-size:13px;letter-spacing:.14em;color:#7D5F2A}
 .rd-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
 .rd-c{display:flex;flex-direction:column;gap:.6rem;padding:1.5rem 1.4rem 1.7rem;border-top:.5px solid rgba(125,95,42,.45);background:rgba(255,255,255,.28);position:relative;transition:background .25s,transform .25s}
@@ -28,7 +28,7 @@ CSS = '''<style>
 .rd-dark .rd-q{color:#c8a96e}.rd-dark .rd-c{border-top-color:rgba(201,185,154,.35);background:rgba(255,255,255,.04)}
 .rd-dark .rd-c:hover{background:rgba(255,255,255,.09)}.rd-dark .rd-t{color:#c8a96e}.rd-dark .rd-d{color:rgba(243,239,230,.62)}
 .rd-dark .rd-c i,.rd-dark .rd-more a{color:#c8a96e;border-color:rgba(200,169,110,.5)}
-@media(max-width:768px){.rd{padding:4.2rem 1.4rem 0}.rd-g{grid-template-columns:1fr;gap:.9rem}}
+@media(max-width:768px){.rd{padding:4.2rem 1.4rem 3rem}.rd-g{grid-template-columns:1fr;gap:.9rem}}
 </style>'''
 
 def teaser(room, dark):
@@ -53,7 +53,7 @@ faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
 
 ROOMCARDS=[('/living/','생전추모식','살아있는 지금 건네는 인사','slideshow.jpg','t-cream'),('/keepsake/','유골 커스텀','그날 이후, 나를 남기는 방식','lp-shelf.jpg','t-sand'),('/funeral/','장례식','그 사람다운 마지막 배웅','toast-garden.jpg','t-brown'),('/','처음으로','비프리히어 첫 화면','night-poster.jpg','t-clear-d')]
-BAND=('<link rel="stylesheet" href="/assets/gate.css?v=3"/>\n<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
+BAND=('<link rel="stylesheet" href="/assets/gate.css?v=4"/>\n<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
  +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
 items = ''.join(
