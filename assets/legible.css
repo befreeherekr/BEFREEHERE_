@@ -3,12 +3,12 @@
   --sub:rgba(232,226,217,.72);
   --mute:rgba(232,226,217,.56);
 }
-html body .stat-eyebrow{color:rgba(201,185,154,.62);}
+html body .stat-eyebrow{color:rgba(242,168,120,.62);}
 html body .stat-l{color:rgba(232,226,217,.56);font-size:11px;}
 
 html body .footer-tagline{color:rgba(232,226,217,.6);font-size:12px;}
 html body .footer-addr{color:rgba(232,226,217,.48);font-size:11.5px;}
-html body .footer-col-label{color:rgba(201,185,154,.6);font-size:10.5px;}
+html body .footer-col-label{color:rgba(242,168,120,.6);font-size:10.5px;}
 html body .footer-links a,
 html body .footer-links span{color:rgba(232,226,217,.62);}
 html body .footer-links a:hover{color:var(--paper);}
