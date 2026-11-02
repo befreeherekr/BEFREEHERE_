@@ -1,0 +1,36 @@
+/* 기존 디자인에 사진만 얹기 — 가장자리가 베이지 바탕으로 번지듯 사라짐 (색·글꼴은 건드리지 않음) */
+.ph-band,.ph-pair figure{margin:0;position:relative}
+.ph-band img,.ph-pair img{display:block;width:100%;height:100%;object-fit:cover}
+.ph-feather{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
+
+/* 넓은 띠 */
+.ph-band{background:#ECEBE6;padding:0}
+.ph-band.wide{width:100%}
+.ph-band.wide .ph-feather{aspect-ratio:21/9;max-height:78vh}
+.ph-band.mid{padding:0 4rem}
+.ph-band.mid .ph-feather{max-width:1040px;margin:0 auto;aspect-ratio:3/2}
+.ph-band img{filter:saturate(.92) contrast(.98)}
+
+/* 두 장 나란히 */
+.ph-pair{background:#ECEBE6;padding:2rem 4rem;display:grid;grid-template-columns:repeat(2,minmax(0,420px));justify-content:center;gap:clamp(1rem,3vw,3rem)}
+.ph-pair figure:nth-child(2){margin-top:3.4rem}
+.ph-pair .ph-feather{aspect-ratio:4/5}
+.ph-pair img{filter:saturate(.92) contrast(.98)}
+
+/* 유골 안내 띠 안의 사진 */
+.kp-band .ph-pair{background:transparent;padding:0 0 3rem}
+.kp-band .ph-pair figure:nth-child(2){margin-top:2.4rem}
+
+@media(max-width:768px){
+  .ph-band.mid{padding:0 1.2rem}
+  .ph-band.wide .ph-feather{aspect-ratio:4/3}
+  .ph-pair{padding:1rem 1.2rem;grid-template-columns:1fr 1fr;gap:.8rem}
+  .ph-pair figure:nth-child(2){margin-top:2rem}
+  .kp-band .ph-pair{padding:0 0 2rem}
+}
+
+/* 순서 섹션 안에서는 좁은 칸을 벗어나 넓게 */
+.lf-in .ph-band.mid{position:relative;left:50%;width:min(1040px,92vw);margin:0 0 3.4rem -520px;margin-left:calc(min(1040px,92vw)/-2)}
+.lf-in .ph-band.mid .ph-feather{aspect-ratio:3/2;max-height:620px}
+.kp-ways .ph-pair,.ph-pair.in-ways{background:transparent!important;padding:0 0 3rem!important}
+.ph-feather{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
