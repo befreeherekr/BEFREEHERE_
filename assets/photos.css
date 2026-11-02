@@ -75,3 +75,28 @@ html body .hero-sub{color:rgba(27,26,23,.78)!important}
 @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
 @media(max-width:768px){.hero-video{object-position:68% 50%}html body .hero::after{background:linear-gradient(180deg,rgba(236,235,230,.78) 0%,rgba(236,235,230,.5) 55%,rgba(236,235,230,.2) 100%),linear-gradient(180deg,rgba(236,235,230,0) 80%,#ECEBE6 100%)}}
 html body .nav:not(.scrolled) .nav-keep{color:rgba(27,26,23,.82)!important;border-bottom-color:rgba(27,26,23,.35)!important}
+
+/* ═══ 11/2 손보기 ═══ */
+/* 1) 첫 화면 영상과 식탁 사진이 한 번에 눈에 들어와 어지러움 → 사이에 베이지 쉼 칸 */
+#home + .ph-band.wide{margin-top:clamp(5rem,11vw,10rem)}
+#home + .ph-band.wide + section{margin-top:clamp(1rem,3vw,3rem)}
+@media(max-width:768px){#home + .ph-band.wide{margin-top:5.5rem}}
+
+/* 2) 폰에서 위 막대가 어설프게 따라오던 문제:
+   body의 overflow-x:hidden 이 html의 clip 과 겹치면서 body가 따로 스크롤 상자가 되어 fixed가 흔들림 → 둘 다 clip 으로 통일 */
+html body{overflow-x:clip!important}
+.nav{top:0;left:0;right:0;transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform}
+@media(max-width:768px){
+  html body .nav,html body .nav.scrolled{padding-top:.8rem;padding-bottom:.8rem;padding-left:1.1rem;padding-right:1.1rem;background:rgba(236,235,230,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:.5px solid rgba(125,95,42,.14);transition:none}
+}
+/* 「나를 남기는 방식」: 글자 링크 → 눈에 띄는 알약 버튼 (색은 기존 금빛) */
+html body .nav .nav-keep{display:inline-flex;align-items:center;font-size:12.5px;font-weight:500;letter-spacing:.02em;color:#5E4520!important;padding:9px 18px;border:.5px solid #7D5F2A!important;border-radius:100px;background:rgba(125,95,42,.12);margin-left:auto;margin-right:.7rem;transition:background .22s,color .22s}
+html body .nav .nav-keep:hover{background:#7D5F2A;color:#ECEBE6!important}
+html body .nav:not(.scrolled) .nav-keep{color:#5E4520!important;border-bottom-color:#7D5F2A!important}
+@media(max-width:768px){html body .nav .nav-keep{font-size:11.5px;padding:8px 13px;margin-right:.45rem;letter-spacing:-.01em}html body .nav .nav-cta{padding:8px 14px}}
+
+/* 3) 「그날의 순서」 라벨과 사진이 겹침 → 사진 아래 간격을 넉넉히 */
+.lf-in .ph-order-top{margin-bottom:3.2rem!important}
+.lf-in .ph-order-top .ph-feather{max-height:480px}
+html body .lf-order{padding-top:2rem!important}
+@media(max-width:768px){.lf-in .ph-order-top{margin-bottom:2.4rem!important}}
