@@ -63,6 +63,8 @@ a{color:inherit;text-decoration:none}
 .logo{display:flex;flex-direction:column;gap:2px;pointer-events:auto}
 .logo-kr{font-size:17px;letter-spacing:.12em}
 .logo-en{font-family:var(--serif);font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.qw{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;pointer-events:auto}
+.rd-link{font-size:12.5px;letter-spacing:.1em;color:var(--gold);border-bottom:.5px solid rgba(233,211,164,.55);padding-bottom:2px}
 .q{font-size:13px;letter-spacing:.16em;color:rgba(243,239,230,.9);padding-top:3px}
 .c{display:flex;min-height:100svh}
 .c a{position:relative;flex:1;display:flex;align-items:flex-end;padding:0 2.4rem 5rem;overflow:hidden;isolation:isolate;transition:flex .7s cubic-bezier(.2,.7,.2,1);-webkit-tap-highlight-color:transparent}
@@ -75,10 +77,10 @@ a{color:inherit;text-decoration:none}
 .c p{font-size:14px;line-height:1.8;color:rgba(243,239,230,.9);margin-bottom:1.3rem;text-shadow:0 1px 14px rgba(0,0,0,.5)}
 .c span{display:inline-block;font-size:12.5px;letter-spacing:.12em;color:var(--gold);border-bottom:.5px solid rgba(233,211,164,.65);padding-bottom:4px;transition:letter-spacing .3s}
 .c a:hover span{letter-spacing:.18em}
-.c .s1 img{object-position:56% 50%}.c .s2 img{object-position:36% 50%}.c .s3 img{object-position:50% 50%}
+.c .s1 img{object-position:56% 50%}.c .s2 img{object-position:36% 50%}.c .s3 img{object-position:50% 40%}
 @media(max-width:768px){
   .top{padding:1.2rem 1.4rem;flex-direction:column;gap:.55rem}
-  .q{font-size:11.5px;letter-spacing:.1em}
+  .qw{align-items:flex-start}.q{font-size:11.5px;letter-spacing:.1em}
   .c{flex-direction:column}
   .c a{flex:1 1 33.34%;min-height:33.34svh;padding:0 1.4rem 1.5rem}
   .c a+a{border-left:0;border-top:.5px solid rgba(243,239,230,.28)}
@@ -93,12 +95,12 @@ a{color:inherit;text-decoration:none}
 <h1 class="sr">비프리히어 — 생전추모식 · 유골 커스텀 · 장례식</h1>
 <header class="top">
   <a class="logo" href="/" aria-label="비프리히어 홈"><span class="logo-kr">비프리히어</span><span class="logo-en">Befreehere</span></a>
-  <p class="q">어떤 이야기를 찾고 오셨나요?</p>
+  <div class="qw"><p class="q">어떤 이야기를 찾고 오셨나요?</p><a class="rd-link" href="/read/">읽을거리 →</a></div>
 </header>
 <main class="c">
   <a class="s1" href="/living/"><img src="/images/ph/slideshow.jpg" alt="어두운 방에서 벽에 비친 옛 사진들을 함께 바라보는 사람들의 뒷모습"><div><h2>생전추모식</h2><p>살아있는 지금 건네는 인사</p><span>들어가기 →</span></div></a>
   <a class="s2" href="/keepsake/"><img src="/images/ph/lp-shelf.jpg" alt="낡은 레코드가 쌓인 책장에 기대어 둔 LP"><div><h2>유골 커스텀</h2><p>그날 이후, 나를 남기는 방식</p><span>들어가기 →</span></div></a>
-  <a class="s3" href="/funeral/"><img src="/images/ph/memorial-room.jpg" alt="햇살이 드는 조용한 추모 공간에 놓인 영정 사진과 하얀 국화"><div><h2>장례식</h2><p>그 사람다운 마지막 배웅</p><span>들어가기 →</span></div></a>
+  <a class="s3" href="/funeral/"><img src="/images/ph/toast-garden.jpg" alt="해질녘 정원에서 서로 어깨를 두르고 잔을 들어 올리는 가족과 친구들의 뒷모습"><div><h2>장례식</h2><p>그 사람다운 마지막 배웅</p><span>들어가기 →</span></div></a>
 </main>
 </body>
 </html>
