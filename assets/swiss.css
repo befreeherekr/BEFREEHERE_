@@ -1,0 +1,164 @@
+/* 비프리히어 — 스위스식 격자 + 사진 + 살구 그라데이션 + 스크롤 3D. 문구는 그대로, 보여 주는 방식만 바꿈 */
+:root{
+  --f:'Pretendard','Noto Sans KR',-apple-system,'Apple SD Gothic Neo',sans-serif;
+  --kr:var(--f);--sans:var(--f);--serif:var(--f);--disp:var(--f);
+  --m:clamp(1.4rem,4.2vw,4.5rem);          /* 좌우 여백 */
+  --g:clamp(14px,1.6vw,26px);              /* 열 사이 */
+  --ap-deep:#E58F5C;
+}
+html body{font-family:var(--f)!important;font-feature-settings:'tnum' 1;letter-spacing:-.012em}
+html body h1,html body h2,html body h3,html body .hero-h1{font-family:var(--f)!important;font-weight:700!important;letter-spacing:-.028em!important}
+html body .logo-kr,html body .footer-brand-kr{font-family:var(--f)!important;font-weight:700!important;letter-spacing:.01em!important}
+html body .logo-en,html body .footer-brand-en{font-family:var(--f)!important;letter-spacing:.2em!important;font-weight:500}
+html body .sec-label{font-family:var(--f)!important;font-weight:600;font-size:13px!important;letter-spacing:.02em!important}
+
+/* 사진 공통 */
+.ph{margin:0;overflow:hidden;position:relative;background:var(--ap-tint);transform-style:preserve-3d;will-change:transform}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+@media(prefers-reduced-motion:reduce){.ph,.ph img{transform:none!important}}
+
+/* ── 파도 경계는 걷어내고 그라데이션 칸으로 ── */
+html body #about::before,html body #order::before,html body #for::before,html body #process::before,html body .kp-band::before,html body #ctaSection::before,html body .lf-faq::before,html body footer::before{display:none!important}
+
+/* ── NAV ── */
+html body .nav{padding-left:var(--m)!important;padding-right:var(--m)!important}
+html body .nav:not(.scrolled) .logo-kr,html body .nav:not(.scrolled) .nav-keep{color:#fff!important}
+html body .nav:not(.scrolled) .logo-en{color:rgba(255,255,255,.82)!important}
+html body .nav:not(.scrolled) .nav-keep{border-bottom-color:rgba(255,255,255,.7)!important}
+html body .nav.scrolled{box-shadow:0 1px 0 rgba(42,37,34,.12)}
+html body .nav-cta{border-radius:999px!important;font-weight:600!important;letter-spacing:0!important}
+
+/* ── 첫 화면: 사진 한 장, 큰 글자 ── */
+html body .hero,html body .living-hero{position:relative;min-height:100svh;display:grid!important;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-content:end;padding:0 var(--m) clamp(3rem,7vh,5rem)!important;background:#2A2522!important;overflow:hidden!important;isolation:isolate}
+html body .hero::before,html body .hero::after{display:none!important}
+html body .hero canvas,html body #heroLights{display:none!important}
+.hero-photo{position:absolute;inset:0;margin:0;z-index:-2}
+.hero-photo img{width:100%;height:112%;object-fit:cover;object-position:50% 40%;will-change:transform}
+html body .hero::after{display:block!important;content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(60,28,12,.34) 0%,rgba(60,28,12,0) 26%,rgba(60,28,12,0) 42%,rgba(60,28,12,.62) 100%);height:auto;animation:none}
+html body .hero-h1{grid-column:1/-1;color:#fff!important;font-size:clamp(46px,8.6vw,138px)!important;line-height:.98!important;letter-spacing:-.03em!important;max-width:none!important;margin:0 0 clamp(1.6rem,3vw,2.8rem)!important;text-wrap:balance}
+html body .hero-h1 em{color:#FFD9BE!important;font-family:var(--f)!important}
+html body .hero-bottom{grid-column:1/8;position:relative;z-index:2}
+html body .hero-sub{color:rgba(255,255,255,.92)!important;font-size:clamp(14px,1.25vw,17px)!important;line-height:1.85!important;max-width:34em!important;font-weight:400!important}
+html body .hero-sub strong{color:#fff!important;font-weight:700!important;box-shadow:inset 0 -.4em 0 rgba(242,168,120,.55)}
+html body .tk-hero{display:none}
+
+/* ── 생전추모식이란: 격자 + 사진, 번갈아 ── */
+html body #about{background:var(--wh)!important;padding:clamp(3rem,6vw,6rem) var(--m)!important}
+html body #about>div[style*="max-width"]{max-width:none!important;padding:0!important}
+html body #about>div[style*="radial-gradient"],html body #about .center-rule{display:none!important}
+html body .about-slides{display:block!important}
+html body .aslide,html body .aslide:hover{display:grid!important;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-items:center;background:transparent!important;border-radius:0!important;min-height:min(86svh,820px);padding:clamp(3rem,7vh,6rem) 0!important;transform:none!important;border-top:1px solid rgba(42,37,34,.16)}
+html body .aslide:first-child{border-top:0}
+html body .aslide::before,html body .aslide::after{display:none!important}
+html body .aslide h3{grid-column:1/7;grid-row:1;align-self:end;color:var(--ch)!important;font-size:clamp(30px,4.5vw,70px)!important;line-height:1.1!important;margin:0 0 1.6rem!important;text-wrap:balance}
+html body .aslide p{grid-column:1/6;grid-row:2;align-self:start;color:rgba(42,37,34,.72)!important;font-size:clamp(14px,1.2vw,17px)!important;line-height:1.85!important;margin:0!important;white-space:normal!important}
+html body .aslide .ph{grid-column:8/13;grid-row:1/3;aspect-ratio:4/5;perspective:1100px}
+html body .aslide:nth-child(even) h3{grid-column:7/13;text-align:left}
+html body .aslide:nth-child(even) p{grid-column:7/12}
+html body .aslide:nth-child(even) .ph{grid-column:1/6}
+html body .slide-bar,html body .slide-num{display:none!important}
+
+/* ── 그날의 순서: 왼쪽 사진은 붙어 있고 오른쪽 목록이 흐름 ── */
+html body .lf-order{background:linear-gradient(180deg,var(--wh) 0%,var(--ap-tint) 100%)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important;text-align:left!important}
+html body .lf-in{max-width:none!important;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-items:start}
+html body .lf-order .ph-order{grid-column:1/6;grid-row:1/6;position:sticky;top:12vh;aspect-ratio:4/5}
+html body .lf-order .sec-label{grid-column:7/13;justify-content:flex-start!important;margin:0 0 .6rem!important}
+html body .lf-order-sub{grid-column:7/13;text-align:left;margin:0 0 2.4rem!important;color:rgba(42,37,34,.7)!important}
+html body .lf-order-list{grid-column:7/13;display:block;counter-reset:o}
+html body .lf-order-list li{counter-increment:o;display:grid!important;grid-template-columns:clamp(46px,5vw,72px) 1fr;column-gap:var(--g);align-items:baseline;padding:1.5rem 0!important;border:0!important;border-top:1px solid rgba(42,37,34,.22)!important;border-radius:0!important;overflow:visible;background:transparent!important;text-align:left}
+html body .lf-order-list li:last-child{border-bottom:1px solid rgba(42,37,34,.22)!important}
+html body .lf-order-list li::before,html body .lf-order-list li+li::before{content:counter(o,decimal-leading-zero)!important;display:block!important;grid-row:1/3;grid-column:1;color:var(--ap-ink)!important;font-size:15px!important;font-weight:600;letter-spacing:0;background:none!important;border:0!important;margin:0!important;width:auto!important;height:auto!important;transform:none!important;padding-top:.7em}
+html body .lf-order-list b{grid-column:2;font-size:clamp(22px,2.6vw,38px)!important;font-weight:700!important;letter-spacing:-.03em;line-height:1.15;padding:0!important;margin:0!important;color:var(--ch)!important;font-family:var(--f)!important}
+html body .lf-order-list small{grid-column:2;font-size:14.5px!important;color:rgba(42,37,34,.7)!important;padding:.45rem 0 0!important}
+html body .lf-order-foot{grid-column:7/13;text-align:left;margin-top:1.8rem!important;color:rgba(42,37,34,.8)!important}
+
+/* ── 이런 분께: 살구 그라데이션 칸 ── */
+html body #for,html body .lf-for{background:linear-gradient(165deg,#F9C9A8 0%,#F2A878 48%,#E58F5C 100%)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important}
+html body .lf-for .lf-in{display:block;max-width:none!important}
+html body .lf-for h2{font-size:clamp(30px,4.6vw,72px)!important;line-height:1.08!important;margin-bottom:0!important;color:var(--ch)!important}
+html body .lf-for h2 em{color:var(--ch)!important;opacity:.62;font-style:normal}
+html body .lf-for .rv[style*="margin-bottom:4rem"]{margin-bottom:clamp(2rem,5vw,4.5rem)!important}
+html body .lf-slides{gap:var(--g)!important}
+html body .lf-slide{flex:0 0 calc((100% - var(--g)*2)/3)!important;min-height:clamp(220px,26vw,360px)!important;background:rgba(255,250,244,.92)!important;border-radius:0!important;padding:clamp(1.4rem,2vw,2.2rem)!important;box-shadow:0 30px 50px -34px rgba(110,50,15,.55)}
+html body .lf-slide-num{font-size:14px!important;font-weight:600!important;color:var(--ap-ink)!important}
+html body .lf-slide p{font-size:clamp(17px,1.7vw,24px)!important;font-weight:600;letter-spacing:-.025em;line-height:1.4!important;color:var(--ch)!important}
+html body .lf-dots i{background:rgba(42,37,34,.3)!important}html body .lf-dots i.on{background:var(--ch)!important}
+
+/* ── 진행 과정: 네 칸 격자, 위쪽 굵은 선 ── */
+html body #process{background:var(--wh)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important}
+html body #process>div{max-width:none!important}
+html body #process h2{font-size:clamp(30px,4.6vw,72px)!important;line-height:1.08!important}
+html body #process h2 em{color:var(--ap-ink)!important}
+html body #process .rv[style*="margin-bottom:5rem"]{margin-bottom:clamp(2.4rem,5vw,5rem)!important}
+html body #process>div>div:last-child{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:var(--g)!important;background:transparent!important}
+html body #process .rv[style*="background"]{background:transparent!important;border:0!important;border-top:3px solid var(--ch)!important;border-radius:0!important;padding:1.4rem 0 0!important}
+html body #process span[style*="clamp(72px"]{all:unset;display:block;font-family:var(--f)!important;font-size:14px;font-weight:600;color:var(--ap-ink)!important;margin-bottom:3.2rem;letter-spacing:.04em}
+html body #process div[style*="font-size:15px"]{font-size:clamp(20px,2vw,28px)!important;font-weight:700!important;letter-spacing:-.03em;margin-bottom:.8rem!important;color:var(--ch)}
+html body #process p{font-size:14.5px!important;line-height:1.8!important;color:rgba(42,37,34,.72)!important}
+
+/* ── 유골 안내 띠: 사진 두 장 + 한 문단 ── */
+html body .kp-band{background:linear-gradient(180deg,var(--wh) 0%,var(--ap-tint) 100%)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important;text-align:left!important;overflow:hidden!important}
+html body .kp-band-in{max-width:none!important;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-items:center;opacity:1}
+html body .kp-band .kp-a{grid-column:1/5;grid-row:1/3;aspect-ratio:4/5;perspective:1000px}
+html body .kp-band .kp-b{grid-column:5/9;grid-row:1/3;aspect-ratio:4/5;margin-top:3rem}
+html body .kp-band-t{grid-column:9/13;grid-row:1;align-self:end;font-size:clamp(17px,1.6vw,22px)!important;line-height:1.7!important;font-weight:600;letter-spacing:-.025em;text-align:left;margin:0 0 1.4rem!important;color:var(--ch)!important}
+html body .kp-band-a{grid-column:9/13;grid-row:2;align-self:start;justify-self:start;color:var(--ap-ink)!important;font-weight:700;font-size:15px!important;border-bottom:2px solid var(--ap-ink)!important}
+
+/* ── 가격·신청: 살구 그라데이션 ── */
+html body #ctaSection{background:linear-gradient(200deg,#F9C9A8 0%,#F2A878 55%,#E58F5C 100%)!important;padding:clamp(5rem,10vw,10rem) var(--m)!important;overflow:hidden!important}
+html body #ctaSection .cta-orb{display:none!important}
+html body #ctaSection h2{font-size:clamp(28px,4.6vw,70px)!important;line-height:1.1!important;color:var(--ch)!important}
+html body #ctaSection .lf-price{max-width:560px!important;border-color:rgba(42,37,34,.55)!important}
+html body #ctaSection .lf-price-row b{font-family:var(--f)!important;font-weight:700!important;letter-spacing:-.05em!important;font-size:clamp(84px,11vw,150px)!important}
+html body #ctaSection .lf-price-row span{font-weight:600}
+html body #ctaSection .btn-cta{background:var(--ch)!important;color:#fff!important;border-radius:999px!important;font-family:var(--f)!important;font-weight:600!important;letter-spacing:0!important;font-size:16px!important;padding:20px 54px!important}
+
+/* ── FAQ: 왼쪽 제목, 오른쪽 목록 ── */
+html body .lf-faq{background:var(--wh)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important}
+html body .lf-faq-in{max-width:none!important;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);align-items:start}
+html body .lf-faq-in>.rv{grid-column:1/5;text-align:left!important;margin:0!important;position:sticky;top:14vh}
+html body .lf-faq h2{font-size:clamp(30px,4.2vw,64px)!important;line-height:1.08!important;color:var(--ch)!important}
+html body .faq-list{grid-column:6/13}
+html body .faq-n{font-family:var(--f)!important;font-weight:600;font-size:14px!important}
+html body .faq-t{font-family:var(--f)!important;font-weight:600!important;font-size:clamp(17px,1.5vw,21px)!important;letter-spacing:-.02em}
+html body .faq-a-in p{font-family:var(--f)!important}
+
+/* ── 푸터 ── */
+html body footer{background:var(--ch)!important}
+html body .footer{padding-left:var(--m)!important;padding-right:var(--m)!important}
+html body .footer-btm{padding-left:var(--m)!important;padding-right:var(--m)!important}
+
+/* ── 휴대폰 ── */
+@media(max-width:900px){
+  html body .hero-bottom{grid-column:1/-1}
+  html body .aslide,html body .aslide:hover{grid-template-columns:1fr;min-height:0;padding:3.2rem 0!important;row-gap:1.4rem}
+  html body .aslide h3,html body .aslide p,html body .aslide:nth-child(even) h3,html body .aslide:nth-child(even) p{grid-column:1;grid-row:auto}
+  html body .aslide .ph,html body .aslide:nth-child(even) .ph{grid-column:1;grid-row:1;aspect-ratio:4/3;margin-bottom:.6rem}
+  html body .lf-in{display:block}
+  html body .lf-order .ph-order{position:relative;top:0;aspect-ratio:4/3;margin-bottom:2.2rem}
+  html body .lf-slide{flex:0 0 82%!important;min-height:220px!important}
+  html body #process>div>div:last-child{grid-template-columns:1fr 1fr!important;row-gap:2.4rem}
+  html body .kp-band-in{display:block}
+  html body .kp-band .kp-a,html body .kp-band .kp-b{display:inline-block;width:calc(50% - 6px);aspect-ratio:4/5;margin:0 0 1.6rem}
+  html body .kp-band .kp-b{margin-left:8px;margin-top:0}
+  html body .lf-faq-in{display:block}
+  html body .lf-faq-in>.rv{position:relative;top:0;margin-bottom:2rem!important}
+}
+
+/* 보정 */
+html body #process span[style*="clamp(72px"]{font-size:14px!important;font-weight:600!important;line-height:1!important;color:var(--ap-ink)!important;letter-spacing:.04em!important;margin:0 0 3.2rem!important;display:block!important;font-family:var(--f)!important;height:auto!important;width:auto!important}
+html body #ctaSection .rv[style*="max-width:560px"]{max-width:920px!important}
+html body #ctaSection h2{text-wrap:balance;word-break:keep-all}
+
+/* ── 유골 커스텀(keepsake): 두 방식을 사진과 함께 ── */
+html body .kp-ways{background:linear-gradient(180deg,var(--wh) 0%,var(--ap-tint) 100%)!important;padding:clamp(4rem,9vw,9rem) var(--m)!important}
+html body .kp-ways .kp-glow{display:none!important}
+html body .kp-in{max-width:none!important}
+html body .kp-slides{display:grid!important;grid-template-columns:repeat(2,1fr);gap:var(--g)!important;margin-top:2rem}
+html body .kp-slide{background:transparent!important;border:0!important;padding:0!important;display:block!important}
+html body .kp-slide .ph{aspect-ratio:4/5;perspective:1100px;margin-bottom:1.6rem}
+html body .kp-slide h3{font-size:clamp(28px,3.6vw,56px)!important;line-height:1.1!important;margin:0 0 1.2rem!important;color:var(--ch)!important}
+html body .kp-slide p{color:rgba(42,37,34,.78)!important;font-size:clamp(14px,1.2vw,16.5px)!important;line-height:1.85!important}
+html body .kp-slide p span{display:block}
+@media(max-width:900px){html body .kp-slides{grid-template-columns:1fr}}
+@media(max-width:900px){html body #process span[style*="clamp(72px"]{margin-bottom:1.2rem!important}}
