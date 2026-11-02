@@ -9,15 +9,35 @@ e = html.escape
 ROOMS = {'living':('생전추모식','/living/'),'keepsake':('유골 커스텀','/keepsake/'),'funeral':('장례식','/funeral/')}
 
 def card(p, dark=False):
-    return (f'<a class="gc {p["theme"]}" href="{p["url"]}"><img src="/images/ph/{p["img"]}" alt="" loading="lazy">'
-            f'<div><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><em>읽어보기 →</em></div></a>')
+    return (f'<a class="rd-c" href="{p["url"]}">'
+            f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span><i aria-hidden="true">→</i></a>')
+
+CSS = '''<style>
+.rd{padding:6.5rem 4rem 0;font-family:'Gowun Batang','Noto Serif KR',serif;color:#1B1A17;background:#ECEBE6}
+.rd-q{max-width:1000px;margin:0 auto 2rem;font-size:13px;letter-spacing:.14em;color:#7D5F2A}
+.rd-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.rd-c{display:flex;flex-direction:column;gap:.6rem;padding:1.5rem 1.4rem 1.7rem;border-top:.5px solid rgba(125,95,42,.45);background:rgba(255,255,255,.28);position:relative;transition:background .25s,transform .25s}
+.rd-c:hover{background:rgba(255,255,255,.55);transform:translateY(-2px)}
+.rd-t{font-size:11.5px;letter-spacing:.12em;color:#B5613A}
+.rd-c b{font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.5;letter-spacing:-.01em;padding-right:1.4rem;word-break:keep-all}
+.rd-d{font-size:13px;line-height:1.85;color:rgba(27,26,23,.62);word-break:keep-all}
+.rd-c i{font-style:normal;position:absolute;right:1.2rem;top:1.5rem;color:#7D5F2A}
+.rd-more{max-width:1000px;margin:1.6rem auto 0;text-align:right;font-size:13px}
+.rd-more a{color:#7D5F2A;border-bottom:.5px solid rgba(125,95,42,.5);padding-bottom:3px}
+.rd-dark{background:#0e0d0b;color:#F3EFE6}
+.rd-dark .rd-q{color:#c8a96e}.rd-dark .rd-c{border-top-color:rgba(201,185,154,.35);background:rgba(255,255,255,.04)}
+.rd-dark .rd-c:hover{background:rgba(255,255,255,.09)}.rd-dark .rd-t{color:#c8a96e}.rd-dark .rd-d{color:rgba(243,239,230,.62)}
+.rd-dark .rd-c i,.rd-dark .rd-more a{color:#c8a96e;border-color:rgba(200,169,110,.5)}
+@media(max-width:768px){.rd{padding:4.2rem 1.4rem 0}.rd-g{grid-template-columns:1fr;gap:.9rem}}
+</style>'''
 
 def teaser(room, dark):
     ps = [p for p in posts if room in p['rooms']][:3]
     if not ps: return ''
-    return (f'<!--READ-START--><link rel="stylesheet" href="/assets/gate.css"/>'
-            f'<section class="gate" aria-label="글"><div class="gate-g" style="--n:{len(ps)}">{"".join(card(p) for p in ps)}</div>'
-            f'<p class="gate-more"><a href="/read/">글 더 보기 →</a></p></section><!--READ-END-->\n')
+    cls = 'rd rd-dark' if dark else 'rd'
+    return (f'<!--READ-START--><section class="{cls}" aria-label="글">'
+            f'<div class="rd-g">{"".join(card(p) for p in ps)}</div>'
+            f'<p class="rd-more"><a href="/read/">글 더 보기 →</a></p></section>{CSS}<!--READ-END-->\n')
 
 for room,(name,url) in ROOMS.items():
     path = ROOT/(url.strip('/')+'/index.html')
@@ -31,7 +51,8 @@ for room,(name,url) in ROOMS.items():
 # 모음 페이지
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
-items = ''.join(card(p) for p in posts)
+items = ''.join(
+    f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts)
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,8 +74,6 @@ hub = f'''<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans+KR:wght@300;400&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
-.gate-2{{row-gap:0}}.gate-2 .gc:nth-child(2n+1){{border-left:0}}
-@media(max-width:768px){{.gate-2 .gc:nth-child(2n+1){{border-left:0}}}}
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
 .posts{{margin-top:0;border-top:.5px solid rgba(201,185,154,.14)}}
 .post{{display:block;padding:2.2rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:padding .3s}}
@@ -69,10 +88,9 @@ hub = f'''<!DOCTYPE html>
   <a href="/" class="logo" aria-label="비프리히어 홈"><span class="logo-kr">비프리히어</span><span class="logo-en">Befreehere</span></a>
   <a class="nav-home" href="/">처음으로</a>
 </nav>
-<main>
+<main class="page" style="padding-top:2rem">
   <h1 class="sr">비프리히어 글 모음</h1>
-  <link rel="stylesheet" href="/assets/gate.css"/>
-  <section class="gate" aria-label="글 모음"><div class="gate-g gate-2" style="--n:2">{items}</div></section>
+  <div class="posts">{items}</div>
 </main>
 {footer}
 </body>
