@@ -114,6 +114,44 @@ a{color:inherit;text-decoration:none}
  .logo{color:#1B1A17;text-shadow:none}.top{text-shadow:none}.logo-en{color:#7D5F2A}
 }
 .logo-en{color:#F1E0B8}@media(max-width:768px){.logo-en{color:#7D5F2A}}
+
+/* ── 경계 있는 카드 시안 ── */
+body{background:#1a1713}
+.top::before{display:none}
+.c{max-width:1180px;margin:0 auto;padding:6.5rem 3rem 3.5rem;gap:1.4rem;align-items:center;min-height:100svh}
+.c a{flex:1 1 0;height:min(66svh,540px);min-height:420px;padding:0 1.9rem 2.2rem;border:.5px solid rgba(233,211,164,.34);border-radius:2px;box-shadow:0 18px 40px -22px rgba(0,0,0,.6)}
+.c a+a{border-left:.5px solid rgba(233,211,164,.34)}
+.c .s3{border-left-color:rgba(233,211,164,.34)}
+.c a:hover,.c a:focus-visible{flex:1 1 0;border-color:rgba(233,211,164,.7);transform:translateY(-4px)}
+.c a{transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s}
+.c h2{font-size:clamp(24px,2.2vw,32px)}
+@media(max-width:768px){
+ .logo{color:#F3EFE6!important}.logo-en{color:#F1E0B8!important}
+ .c{padding:5.4rem 1.1rem 1.6rem;gap:.9rem;align-items:stretch}
+ .c a{flex:none;height:auto;min-height:0;aspect-ratio:16/8.2;padding:0 1.2rem 1.15rem}
+ .c a+a{border-top:.5px solid rgba(233,211,164,.34)}
+ .c a:hover,.c a:focus-visible{flex:none;transform:none}
+ .c h2{font-size:23px}
+}
+
+/* ── v3: 처음 시안(사진이 번지는 모양) + 밝기 정리 ── */
+.c .s1{--k:#CFC8B7;--p:rgba(27,26,23,.8);--l:#5E4520;--lb:rgba(94,69,32,.6)}
+.c .s2{--k:#BDA37A;--p:rgba(27,26,23,.82);--l:#4F3A18;--lb:rgba(79,58,24,.6)}
+.c .s3{--k:#3a281c}
+.c a img{height:68%!important;filter:brightness(.9) saturate(.95);
+ -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,rgba(0,0,0,.8) 62%,rgba(0,0,0,.45) 74%,rgba(0,0,0,.16) 86%,transparent 97%);
+ mask-image:linear-gradient(180deg,#000 0%,#000 52%,rgba(0,0,0,.8) 62%,rgba(0,0,0,.45) 74%,rgba(0,0,0,.16) 86%,transparent 97%)}
+.c a:hover img{filter:brightness(.98) saturate(1)}
+.c a::before{background:none!important}
+@media(max-width:768px){
+ html,body{height:auto}
+ .c{height:100svh;min-height:0;padding:4.4rem 1rem 1rem;gap:.75rem}
+ .c a{flex:1 1 0!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;padding:0 1.2rem 1rem}
+ .c a img{height:100%!important;width:62%!important;inset:0 0 0 auto!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 16%,rgba(0,0,0,.5) 34%,rgba(0,0,0,.85) 54%,#000 72%)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 16%,rgba(0,0,0,.5) 34%,rgba(0,0,0,.85) 54%,#000 72%)!important}
+ .c h2{font-size:22px}.c p{font-size:12.5px}
+}
 </style>
 </head>
 <body>
