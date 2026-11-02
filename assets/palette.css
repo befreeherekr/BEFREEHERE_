@@ -18,24 +18,6 @@ html body .btn-cta:hover{background:var(--ch)!important;color:var(--ap)!importan
 html body .modal-submit{background:var(--ch)!important;color:var(--wh)!important}
 html body .chip.selected{background:var(--ap-tint)!important;border-color:var(--ap)!important;color:var(--ch)!important}
 
-/* 칸 색 배분: 흰 → 살구옅음 → 흰 → 살구 → 흰 → 옅음 → 살구 → 흰 → 먹 */
-html body #about{background:var(--ap-tint)!important}
-html body #order{background:var(--wh)!important}
-html body #for,html body .lf-for{background:var(--ap)!important;border:0!important}
-html body #for h2,html body #for h2 em,html body #for .sec-label{color:var(--ch)!important}
-html body #for .sec-label::before{background:var(--ch)!important}
-html body .lf-slide{background:var(--wh)!important;border-color:transparent!important}
-html body .lf-slide-num{color:var(--ap-ink)!important}
-html body .lf-dots i{background:rgba(42,37,34,.25)!important}html body .lf-dots i.on{background:var(--ch)!important}
-html body #process{background:var(--wh)!important}
-html body .kp-band{background:var(--ap-tint)!important}
-html body #ctaSection{background:var(--ap)!important}
-html body #ctaSection::before,html body #ctaSection::after{display:none!important}
-html body #ctaSection h2,html body #ctaSection .lf-price-row span,html body #ctaSection .lf-price p{color:var(--ch)!important}
-html body #ctaSection .lf-price-row b{color:var(--ch)!important}
-html body #ctaSection .lf-price{border-color:rgba(42,37,34,.35)!important}
-html body .cta-orb{display:none!important}
-html body .lf-faq{background:var(--wh)!important}
 html body footer,html body .footer,html body .footer-btm{background:var(--ch)!important}
 html body footer::before{display:none!important}
 html body .footer-brand-kr{color:var(--wh)!important}
@@ -53,3 +35,46 @@ html body .faq-n{color:var(--ap-ink)!important}
 html body .faq-t{color:rgba(42,37,34,.8)!important}
 html body .lf-order-sub,html body .lf-order-foot,html body .lf-order-list small{color:rgba(42,37,34,.7)!important}
 html body .nav-keep{color:rgba(42,37,34,.75)!important}
+
+
+/* 칸 색 안쪽 요소 */
+html body #for h2,html body #for h2 em,html body #for .sec-label{color:var(--ch)!important}
+html body #for .sec-label::before{background:var(--ch)!important}
+html body .lf-slide{background:var(--wh)!important;border-color:transparent!important}
+html body .lf-slide-num{color:var(--ap-ink)!important}
+html body .lf-dots i{background:rgba(42,37,34,.25)!important}html body .lf-dots i.on{background:var(--ch)!important}
+html body #ctaSection h2,html body #ctaSection .lf-price-row span,html body #ctaSection .lf-price p,html body #ctaSection .lf-price-row b{color:var(--ch)!important}
+html body #ctaSection .lf-price{border-color:rgba(42,37,34,.35)!important}
+
+/* ═══ 물결 배치: 칸이 바뀌는 곳마다 색이 물결 모양으로 밀려 올라옴 ═══ */
+:root{
+  --wave1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 80V42C120 12 240 12 360 40S600 70 720 42 960 8 1080 34 1320 66 1440 38V80Z'/%3E%3C/svg%3E");
+  --wave2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 80V30C150 62 270 62 420 34S690 6 840 36 1110 66 1260 34 1380 14 1440 28V80Z'/%3E%3C/svg%3E");
+}
+html body #about,html body #order,html body #for,html body .lf-for,html body #process,html body .kp-band,html body #ctaSection,html body .lf-faq,html body footer{position:relative;overflow:visible!important;border:0!important}
+html body #about>*,html body #order>*,html body #for>*,html body #process>*,html body .kp-band>*,html body #ctaSection>*,html body .lf-faq>*,html body footer>*{position:relative;z-index:2}
+html body #about>div[style*="radial-gradient"]{z-index:0}
+html body #about{--c:var(--ap-tint);background:var(--ap-tint)!important}
+html body #order{--c:var(--wh);background:var(--wh)!important}
+html body #for,html body .lf-for{--c:var(--ap);background:var(--ap)!important}
+html body #process{--c:var(--wh);background:var(--wh)!important}
+html body .kp-band{--c:var(--ap-tint);background:var(--ap-tint)!important}
+html body #ctaSection{--c:var(--ap);background:var(--ap)!important}
+html body .lf-faq{--c:var(--wh);background:var(--wh)!important}
+html body footer{--c:var(--ch);background:var(--ch)!important}
+html body footer .footer,html body footer .footer-btm{background:transparent!important}
+
+/* 위쪽 경계: 진한 물결 한 겹 + 옅은 물결 한 겹 */
+html body #about::before,html body #order::before,html body #for::before,html body #process::before,html body .kp-band::before,html body #ctaSection::before,html body .lf-faq::before,html body footer::before,
+html body #about::after,html body #order::after,html body #for::after,html body #process::after,html body .kp-band::after,html body #ctaSection::after,html body .lf-faq::after{
+  content:''!important;display:block!important;position:absolute;left:0;right:0;width:auto;pointer-events:none;border:0;margin:0;transform:none;filter:none;opacity:1;bottom:auto;
+  background:var(--c)!important;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+html body #about::before,html body #order::before,html body #for::before,html body #process::before,html body .kp-band::before,html body #ctaSection::before,html body .lf-faq::before,html body footer::before{
+  top:-59px;height:60px;z-index:1;-webkit-mask-image:var(--wave1);mask-image:var(--wave1)}
+html body #about::after,html body #order::after,html body #for::after,html body #process::after,html body .kp-band::after,html body #ctaSection::after,html body .lf-faq::after{
+  top:-84px;height:86px;z-index:0;opacity:.38;-webkit-mask-image:var(--wave2);mask-image:var(--wave2)}
+html body footer::before{top:-39px;height:40px}
+@media(max-width:768px){
+  html body #about::before,html body #order::before,html body #for::before,html body #process::before,html body .kp-band::before,html body #ctaSection::before,html body .lf-faq::before{top:-35px;height:36px}
+  html body #about::after,html body #order::after,html body #for::after,html body #process::after,html body .kp-band::after,html body #ctaSection::after,html body .lf-faq::after{top:-52px;height:54px}
+}
