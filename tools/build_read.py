@@ -51,6 +51,11 @@ for room,(name,url) in ROOMS.items():
 # 모음 페이지
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
+
+ROOMCARDS=[('/living/','생전추모식','살아있는 지금 건네는 인사','slideshow.jpg','t-cream'),('/keepsake/','유골 커스텀','그날 이후, 나를 남기는 방식','lp-shelf.jpg','t-sand'),('/funeral/','장례식','그 사람다운 마지막 배웅','toast-garden.jpg','t-brown'),('/','처음으로','비프리히어 첫 화면','night-poster.jpg','t-ink')]
+BAND=('<link rel="stylesheet" href="/assets/gate.css"/>\n<section class="gate" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
+ +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
+footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
 items = ''.join(
     f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts)
 hub = f'''<!DOCTYPE html>
@@ -86,12 +91,7 @@ hub = f'''<!DOCTYPE html>
 <body>
 <nav class="nav">
   <a href="/" class="logo" aria-label="비프리히어 홈"><span class="logo-kr">비프리히어</span><span class="logo-en">Befreehere</span></a>
-  <ul class="nav-links">
-    <li><a href="/funeral/">장례식</a></li>
-    <li><a href="/living/">생전추모식</a></li>
-    <li class="hide-m"><a href="/keepsake/">유골 커스텀</a></li>
-    <li><a href="/read/" aria-current="page">글</a></li>
-  </ul>
+  <a class="nav-home" href="/">처음으로</a>
 </nav>
 <main class="page" style="padding-top:2rem">
   <h1 class="sr">비프리히어 글 모음</h1>

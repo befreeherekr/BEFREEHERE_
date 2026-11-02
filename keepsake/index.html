@@ -244,6 +244,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 html body .hero#home{background:#ECEBE6 url(/images/ph/lp-hero.jpg) 72% 50%/cover no-repeat!important}
 html body .hero#home::after{background:linear-gradient(90deg,rgba(236,235,230,.72) 0%,rgba(236,235,230,.42) 40%,rgba(236,235,230,0) 68%),linear-gradient(180deg,rgba(236,235,230,.5) 0%,rgba(236,235,230,0) 20%,rgba(236,235,230,0) 78%,#ECEBE6 100%)!important}
 @media(max-width:768px){html body .hero#home{background-position:78% 50%!important}html body .hero#home::after{background:linear-gradient(180deg,rgba(236,235,230,.78) 0%,rgba(236,235,230,.5) 55%,rgba(236,235,230,.12) 100%),linear-gradient(180deg,transparent 80%,#ECEBE6 100%)!important}}
+.hero#home .hero-h1 em{color:#9A4A22}
+html body .hero#home{background:#ECEBE6 url(/images/ph/lp-hero.jpg) 76% 50%/cover no-repeat!important}
+html body .hero#home::after{background:linear-gradient(90deg,rgba(236,235,230,.94) 0%,rgba(236,235,230,.78) 38%,rgba(236,235,230,.34) 62%,rgba(236,235,230,.12) 100%),linear-gradient(180deg,rgba(236,235,230,.5) 0%,rgba(236,235,230,0) 20%,rgba(236,235,230,0) 78%,#ECEBE6 100%)!important}
+@media(max-width:768px){html body .hero#home::after{background:linear-gradient(180deg,rgba(236,235,230,.9) 0%,rgba(236,235,230,.7) 55%,rgba(236,235,230,.35) 100%),linear-gradient(180deg,transparent 80%,#ECEBE6 100%)!important}}
 </style>
 
 <style>
@@ -307,7 +311,6 @@ p{text-wrap:pretty}
     <span class="logo-kr">비프리히어</span>
     <span class="logo-en">Befreehere</span>
   </a>
-  <a class="nav-keep" href="/living/">생전추모식</a>
   <button class="nav-cta" data-modal="open">사전 신청</button>
 </nav>
 
@@ -319,8 +322,8 @@ p{text-wrap:pretty}
   </h1>
   <div class="hero-bottom">
     <p class="hero-sub">
-      <strong>내가 좋아했던 음악이 되어,</strong><br>
-      <strong>우주의 별이 되어.</strong>
+      우주의 별이 되어,<br>
+      <strong>좋아했던 음악이 되어.</strong>
     </p>
   </div>
 </section>
@@ -648,27 +651,9 @@ p{text-wrap:pretty}
 @media(max-width:768px){.rd{padding:4.2rem 1.4rem 0}.rd-g{grid-template-columns:1fr;gap:.9rem}}
 </style><!--READ-END-->
 <!-- 다른 이야기 -->
-<section class="rooms" aria-label="다른 이야기 보기">
-  <p class="rooms-q">다른 이야기도 둘러보세요.</p>
-  <div class="rooms-l"><a href="/living/"><b>생전추모식</b><span>살아있는 지금 건네는 인사</span><i aria-hidden="true">→</i></a><a href="/funeral/"><b>장례식</b><span>그 사람다운 마지막 배웅</span><i aria-hidden="true">→</i></a><a href="/"><b>처음으로</b><span>비프리히어 첫 화면</span><i aria-hidden="true">→</i></a></div>
-</section>
-<style>
-.rooms{padding:6.5rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.14);font-family:'Gowun Batang',serif;color:#1B1A17}
-.rooms-q{max-width:1000px;margin:0 auto 2.2rem;font-size:13px;letter-spacing:.14em;color:#7D5F2A}
-.rooms-l{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.rooms-l a{display:flex;flex-direction:column;gap:.45rem;padding:1.6rem 2.2rem 1.6rem 0;border-top:.5px solid rgba(125,95,42,.4);position:relative;transition:color .2s}
-.rooms-l a+a{padding-left:1.6rem;border-left:.5px solid rgba(125,95,42,.25)}
-.rooms-l b{font-weight:400;font-size:clamp(20px,2vw,26px);letter-spacing:-.01em}
-.rooms-l span{font-size:13px;color:rgba(27,26,23,.6)}
-.rooms-l i{font-style:normal;color:#7D5F2A;position:absolute;right:1.2rem;top:1.7rem;transition:transform .3s}
-.rooms-l a:hover{color:#B5613A}.rooms-l a:hover i{transform:translateX(5px);color:#B5613A}
-.rooms-dark{background:#0e0d0b;border-top:.5px solid rgba(201,185,154,.1);color:#F3EFE6}
-.rooms-dark .rooms-q{color:#c8a96e}
-.rooms-dark .rooms-l a{border-top-color:rgba(201,185,154,.3)}.rooms-dark .rooms-l a+a{border-left-color:rgba(201,185,154,.18)}
-.rooms-dark .rooms-l span{color:rgba(243,239,230,.6)}.rooms-dark .rooms-l i{color:#c8a96e}
-.rooms-dark .rooms-l a:hover{color:#E9D3A4}
-@media(max-width:768px){.rooms{padding:4.2rem 1.4rem}.rooms-l{grid-template-columns:1fr}.rooms-l a,.rooms-l a+a{padding:1.3rem 2rem 1.3rem 0;border-left:0}.rooms-l i{top:1.4rem;right:.2rem}}
-</style>
+<link rel="stylesheet" href="/assets/gate.css"/>
+<section class="gate" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:3"><a class="gc t-cream" href="/living/"><img src="/images/ph/slideshow.jpg" alt="" loading="lazy"><div><b>생전추모식</b><span>살아있는 지금 건네는 인사</span><em>들어가기 →</em></div></a><a class="gc t-brown" href="/funeral/"><img src="/images/ph/toast-garden.jpg" alt="" loading="lazy"><div><b>장례식</b><span>그 사람다운 마지막 배웅</span><em>들어가기 →</em></div></a><a class="gc t-sand" href="/"><div><b>처음으로</b><span>비프리히어 첫 화면</span><em>들어가기 →</em></div></a></div></section>
+
 
 <footer>
   <div class="footer footer-3">

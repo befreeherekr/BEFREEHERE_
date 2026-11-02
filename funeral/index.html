@@ -231,7 +231,7 @@ body:has(a:hover) .cur,body:has(button:hover) .cur{width:18px;height:18px;}
   background:transparent;color:var(--gold);transition:all .22s;
 }
 .nav-cta:hover{background:var(--gold-dim);border-color:var(--gold);}
-.nav-links{margin-left:auto;margin-right:auto}.nav-call{margin-right:10px;text-decoration:none;display:inline-block;background:rgba(200,169,110,.14);border-color:rgba(200,169,110,.7);color:#E9D3A4;letter-spacing:.08em;text-transform:none}
+.nav-links{margin-left:auto;margin-right:auto}.nav-keepL{margin-right:8px;text-decoration:none;display:inline-block;color:#E9D3A4}@media(max-width:768px){.nav-keepL{margin-right:0;padding:9px 13px;letter-spacing:.04em}.nav-keepL+.nav-call{margin-left:6px}.nav .nav-cta,.nav .nav-keepL{white-space:nowrap;font-size:10.5px;padding:8px 11px;letter-spacing:.02em}.nav .nav-call{padding:8px 11px}.nav .logo-kr{font-size:15px}}.nav-call{margin-right:10px;text-decoration:none;display:inline-block;background:rgba(200,169,110,.14);border-color:rgba(200,169,110,.7);color:#E9D3A4;letter-spacing:.08em;text-transform:none}
 .nav-call{display:inline-flex;align-items:center;gap:8px}.nav-call .ph-ic{width:14px;height:14px}
 @media(max-width:768px){.nav-call{margin-right:0;padding:9px 14px}.nav-call .nc-n{display:none}.nav-call .ph-ic{width:17px;height:17px}.nav-call+.nav-cta{margin-left:6px!important}}
 
@@ -1909,7 +1909,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
     position: relative; z-index: 1;
   ">
     <div>
-      <div class="sec-label">비프리히어의 차이 · What Makes Us Different</div>
+      <div class="sec-label">비프리히어의 차이</div>
       <h2 style="
         font-family: var(--kr);
         font-size: clamp(28px, 4vw, 50px);
@@ -2256,7 +2256,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
          onmouseout="this.style.background='rgba(201,185,154,.08)';this.style.borderColor='rgba(201,185,154,.55)'">상담 문의하기</button>
       <!-- 하단 신뢰 문구 -->
       <div style="margin-top:2rem;padding-top:1.6rem;border-top:.5px solid rgba(201,185,154,.06);">
-        <p style="font-size:10.5px;color:rgba(201,185,154,.3);letter-spacing:.06em;font-family:var(--serif);font-style:italic;line-height:1.9;">First consultation · No hidden fees</p>
       </div>
     </div>
 
@@ -2894,7 +2893,6 @@ function fpSwitchTab(idx) {
       <ellipse cx="720" cy="350" rx="360" ry="135" fill="none" stroke="#c9b99a" stroke-opacity=".025" stroke-width=".5"/>
     </svg>
   </div>
-  <div class="cta-label">Begin Here</div>
   <h2 class="cta-title rv">
     지금 이 순간,<br>
     <em style="font-style:normal;color:inherit;">혼자가 아닙니다.</em>
@@ -2937,27 +2935,9 @@ function fpSwitchTab(idx) {
 @media(max-width:768px){.rd{padding:4.2rem 1.4rem 0}.rd-g{grid-template-columns:1fr;gap:.9rem}}
 </style><!--READ-END-->
 <!-- 다른 이야기 -->
-<section class="rooms rooms-dark" aria-label="다른 이야기 보기">
-  <p class="rooms-q">다른 이야기도 둘러보세요.</p>
-  <div class="rooms-l"><a href="/living/"><b>생전추모식</b><span>살아있는 지금 건네는 인사</span><i aria-hidden="true">→</i></a><a href="/keepsake/"><b>유골 커스텀</b><span>그날 이후, 나를 남기는 방식</span><i aria-hidden="true">→</i></a><a href="/"><b>처음으로</b><span>비프리히어 첫 화면</span><i aria-hidden="true">→</i></a></div>
-</section>
-<style>
-.rooms{padding:6.5rem 4rem;background:#ECEBE6;border-top:.5px solid rgba(125,95,42,.14);font-family:'Gowun Batang',serif;color:#1B1A17}
-.rooms-q{max-width:1000px;margin:0 auto 2.2rem;font-size:13px;letter-spacing:.14em;color:#7D5F2A}
-.rooms-l{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.rooms-l a{display:flex;flex-direction:column;gap:.45rem;padding:1.6rem 2.2rem 1.6rem 0;border-top:.5px solid rgba(125,95,42,.4);position:relative;transition:color .2s}
-.rooms-l a+a{padding-left:1.6rem;border-left:.5px solid rgba(125,95,42,.25)}
-.rooms-l b{font-weight:400;font-size:clamp(20px,2vw,26px);letter-spacing:-.01em}
-.rooms-l span{font-size:13px;color:rgba(27,26,23,.6)}
-.rooms-l i{font-style:normal;color:#7D5F2A;position:absolute;right:1.2rem;top:1.7rem;transition:transform .3s}
-.rooms-l a:hover{color:#B5613A}.rooms-l a:hover i{transform:translateX(5px);color:#B5613A}
-.rooms-dark{background:#0e0d0b;border-top:.5px solid rgba(201,185,154,.1);color:#F3EFE6}
-.rooms-dark .rooms-q{color:#c8a96e}
-.rooms-dark .rooms-l a{border-top-color:rgba(201,185,154,.3)}.rooms-dark .rooms-l a+a{border-left-color:rgba(201,185,154,.18)}
-.rooms-dark .rooms-l span{color:rgba(243,239,230,.6)}.rooms-dark .rooms-l i{color:#c8a96e}
-.rooms-dark .rooms-l a:hover{color:#E9D3A4}
-@media(max-width:768px){.rooms{padding:4.2rem 1.4rem}.rooms-l{grid-template-columns:1fr}.rooms-l a,.rooms-l a+a{padding:1.3rem 2rem 1.3rem 0;border-left:0}.rooms-l i{top:1.4rem;right:.2rem}}
-</style>
+<link rel="stylesheet" href="/assets/gate.css"/>
+<section class="gate" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:3"><a class="gc t-cream" href="/living/"><img src="/images/ph/slideshow.jpg" alt="" loading="lazy"><div><b>생전추모식</b><span>살아있는 지금 건네는 인사</span><em>들어가기 →</em></div></a><a class="gc t-sand" href="/keepsake/"><img src="/images/ph/lp-shelf.jpg" alt="" loading="lazy"><div><b>유골 커스텀</b><span>그날 이후, 나를 남기는 방식</span><em>들어가기 →</em></div></a><a class="gc t-brown" href="/"><div><b>처음으로</b><span>비프리히어 첫 화면</span><em>들어가기 →</em></div></a></div></section>
+
 
 <style>
 .callstrip{background:#0e0d0b;border-top:.5px solid rgba(201,185,154,.1);padding:4rem 4rem 3.2rem;text-align:center}
@@ -2974,53 +2954,34 @@ function fpSwitchTab(idx) {
 </section>
 
 <footer>
-  <div class="footer">
+  <div class="footer footer-3">
     <div>
       <div class="footer-brand-kr">비프리히어</div>
       <div class="footer-brand-en">Befreehere</div>
-      <p class="footer-tagline">삶을 기억하는 방식.<br>아름다운 이별을 위한 브랜드.</p>
-      <p class="footer-addr">
-        서울특별시 강남구<br>
-        Sydney NSW, Australia<br><br>
-        <a href="mailto:befreehere.kr@gmail.com" style="color:inherit;">befreehere.kr@gmail.com</a><br>
-      </p>
+      <p class="footer-tagline">죽음을 똑바로 바라보는 것.<br>이제까지 본 적 없던 형태의 장례식.</p>
     </div>
     <div>
-      <div class="footer-col-label">Services</div>
+      <div class="footer-col-label">언론 보도</div>
       <ul class="footer-links">
-        <li><a href="#pricing">맞춤 장례 · 요금</a></li>
-        <li><a href="/living/">생전추모식</a></li>
-        <li><a href="/funeral-guide.html">장례 절차 안내</a></li>
-        <li><a href="/obituary-message.html">부고 문자 예시</a></li>
+        <li><a href="https://www.hani.co.kr/arti/society/labor/1242680.html" target="_blank" rel="noopener noreferrer">한겨레</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-label">Company</div>
+      <div class="footer-col-label">문의</div>
       <ul class="footer-links">
-        <li><a href="https://blog.naver.com/everleeday" target="_blank" rel="noopener noreferrer">브랜드 철학</a></li>
-        <li><a href="https://www.youtube.com/@비프리히어" target="_blank" rel="noopener noreferrer">브랜드 채널</a></li>
-        <li><a href="https://www.hani.co.kr/arti/society/labor/1242680.html" target="_blank" rel="noopener noreferrer">언론 보도</a></li>
-        <li><a href="/living-stories.html">생전추모식 이야기</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-label">Support</div>
-      <ul class="footer-links">
-        <li><a href="/faq.html">자주 묻는 질문</a></li>
-        <li><a href="tel:01089526368">24시간 상담</a></li>
-        <li><a href="mailto:befreehere.kr@gmail.com">이메일 문의</a></li>
-        <li><a href="/privacy.html">개인정보처리방침</a></li>
+        <li><a href="https://www.instagram.com/bfh.kr" target="_blank" rel="noopener noreferrer">bfh.kr</a></li>
+        <li><a href="mailto:befreehere.kr@gmail.com">befreehere.kr@gmail.com</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-btm" style="flex-direction:column;gap:1.8rem;text-align:center;padding:2.5rem 4rem;">
-    <button data-modal="open" data-source="상담 문의하기" style="font-family:'Noto Sans KR',sans-serif;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;padding:14px 44px;background:#e8e2d9;color:#0e0d0b;border:none;border-radius:100px;cursor:pointer;">상담 문의하기</button>
-    <div style="display:flex;justify-content:space-between;width:100%;align-items:center;flex-wrap:wrap;gap:.5rem;">
-      <span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span>
-      <span class="footer-reg">장례지도사 등록</span>
-    </div>
-  </div>
+  <div class="footer-btm"><span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span></div>
 </footer>
+<style>
+.footer-3{grid-template-columns:1.4fr 1.3fr 1fr}
+.footer-3 .footer-links{gap:2px}.footer-3 .footer-links a{display:inline-block;padding:7px 0}
+.footer-btm{display:flex;flex-direction:row!important;justify-content:space-between;align-items:center;gap:0!important;text-align:left!important;padding:1.8rem 4rem!important}
+@media(max-width:768px){.footer-3{grid-template-columns:1fr 1fr;gap:2rem 1.4rem}.footer-3>div:first-child{grid-column:1/-1}.footer-btm{padding:1.4rem!important;flex-direction:column!important;text-align:center!important;gap:.6rem!important}}
+</style>
 
 
 
@@ -3460,7 +3421,6 @@ function fpSwitchTab(idx) {
     <!-- ══ STEP 0: Type Selection ══ -->
     <div id="cStep0">
       <div class="cmodal-inner-pad">
-        <div class="cq-eyebrow">Consultation · 상담 문의</div>
         <h2 class="cq-title" id="cModalTitle">어떤 상담을<br>원하시나요?</h2>
         <p class="cq-sub">해당하는 항목을 선택해주세요.</p>
         <div id="cTypeCards">
@@ -3507,8 +3467,6 @@ function fpSwitchTab(idx) {
 
         <!-- ═══ PRE PANEL ═══ -->
         <div id="cPanelPre">
-
-          <div class="cq-eyebrow">Pre-Planning · 사전 기획 상담</div>
           <h2 class="cq-title" id="cModalTitle">나의 이별을,<br>내가 먼저 설계합니다.</h2>
 
           <!-- Q1 -->
@@ -3595,8 +3553,6 @@ function fpSwitchTab(idx) {
               </svg>
             </span>
           </a>
-
-          <div class="cq-eyebrow">Memorial · 사후 추모 상담</div>
           <h2 class="cq-title">고인의 이야기를<br>들려주세요.</h2>
 
           <!-- Q1 관계 -->
@@ -3714,7 +3670,7 @@ function fpSwitchTab(idx) {
 
     <!-- 폼 -->
     <div class="modal-form" id="preModalForm">
-      <div class="modal-eyebrow">Pre-Planning · 사전 장례 설계</div>
+      <div class="modal-eyebrow">사전 장례 설계</div>
       <h2 class="modal-title" id="preModalTitle">나의 이별을,<br>내가 직접 설계합니다.</h2>
       <p class="modal-sub" style="margin-bottom:2rem;">
         언젠가의 작별을 미리 준비하는 것은 가족을 위한 가장 성숙한 배려입니다.<br>

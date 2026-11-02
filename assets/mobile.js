@@ -57,7 +57,6 @@
     ['living.html', '생전추모식', '살아있는 동안 건네는 인사'],
     ['funeral-guide.html', '장례 절차 안내', ''],
     ['obituary-message.html', '부고 문자 예시', ''],
-    ['living-stories.html', '생전추모식 이야기', ''],
     ['faq.html', '자주 묻는 질문', '']
   ];
   var here = location.pathname.split('/').pop() || 'index.html';
