@@ -34,3 +34,16 @@
 .lf-in .ph-band.mid .ph-feather{aspect-ratio:3/2;max-height:620px}
 .kp-ways .ph-pair,.ph-pair.in-ways{background:transparent!important;padding:0 0 3rem!important}
 .ph-feather{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+
+/* ═══ 「그날 이후…」 칸: 다른 칸과 달리 밤하늘 영상 위에 글 ═══ */
+html body .kp-band{position:relative;isolation:isolate;overflow:hidden;min-height:min(82svh,760px);display:flex;align-items:center;justify-content:center;padding:9rem 4rem!important;text-align:center;border:0!important;
+  background:#0E0D0B url(/images/ph/night-poster.jpg) center/cover no-repeat!important;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%)}
+html body .kp-band::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 60% 50% at 50% 52%,rgba(14,13,11,.62),rgba(14,13,11,.1) 70%)}
+.kp-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+html body .kp-band-in{position:relative;max-width:760px;margin:0 auto}
+html body .kp-band .kp-band-t{color:#F3EFE6!important;font-size:clamp(20px,2.4vw,32px)!important;line-height:1.85!important;letter-spacing:-.01em;margin-bottom:2.4rem!important;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+html body .kp-band .kp-band-a{color:#E9D3A4!important;border-bottom:.5px solid rgba(233,211,164,.7)!important;font-size:13px!important;letter-spacing:.14em;padding-bottom:5px}
+html body .kp-band .kp-band-a:hover{color:#fff!important;border-bottom-color:#fff!important}
+@media(prefers-reduced-motion:reduce){.kp-video{display:none}}
+@media(max-width:768px){html body .kp-band{padding:6rem 1.4rem!important;min-height:70svh}html body .kp-band .kp-band-t{font-size:18px!important}}

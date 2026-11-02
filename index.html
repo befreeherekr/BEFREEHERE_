@@ -440,7 +440,7 @@ p{text-wrap:pretty}
   </div>
 </section>
 
-<figure class="ph-band wide rv"><div class="ph-feather"><img src="/images/ph/hall.jpg" alt="창으로 부드러운 빛이 드는 조용한 홀, 꽃으로 채운 열린 관" loading="lazy"></div></figure>
+<figure class="ph-band wide rv"><div class="ph-feather"><img src="/images/ph/outdoor-table.jpg" alt="큰 나무 아래 놓인 긴 나무 식탁, 빵과 들꽃과 유리잔" loading="lazy"></div></figure>
 
 <!-- 생전추모식이란 -->
 <section id="about" style="padding:14rem 4rem;background:#ECEBE6;border-bottom:.5px solid rgba(125,95,42,.12);position:relative;overflow:hidden;">
@@ -606,7 +606,7 @@ p{text-wrap:pretty}
   </style>
 </section>
 
-<div class="ph-pair rv"><figure><div class="ph-feather"><img src="/images/ph/letter.jpg" alt="손으로 쓴 편지를 읽는 어르신의 두 손" loading="lazy"></div></figure><figure><div class="ph-feather"><img src="/images/ph/hands.jpg" alt="서로의 손을 맞잡은 어르신과 젊은 손" loading="lazy"></div></figure></div>
+<figure class="ph-band mid rv"><div class="ph-feather"><img src="/images/ph/slideshow.jpg" alt="벽에 비친 옛 사진을 함께 바라보는 사람들의 뒷모습" loading="lazy"></div></figure>
 
 <!-- 그날의 순서 -->
 <section id="order" class="lf-order">
@@ -855,12 +855,10 @@ p{text-wrap:pretty}
   .btn-cta.bloom-fade::before { opacity: 0; transition: opacity .9s cubic-bezier(.4,0,.2,1); }
 </style>
 
-<figure class="ph-band mid rv"><div class="ph-feather"><img src="/images/ph/slideshow.jpg" alt="벽에 비친 옛 사진을 함께 바라보는 사람들의 뒷모습" loading="lazy"></div></figure>
-
 <!-- 유골 커스텀 안내 띠 -->
 <section class="kp-band">
+  <video class="kp-video" muted playsinline preload="auto" poster="/images/ph/night-poster.jpg" aria-hidden="true"><source src="/images/ph/night-loop.mp4" type="video/mp4"></video>
   <div class="rv kp-band-in">
-    <div class="ph-pair"><figure><div class="ph-feather"><img src="/images/ph/vinyl.jpg" alt="턴테이블 위의 회색 레코드" loading="lazy"></div></figure><figure><div class="ph-feather"><img src="/images/ph/rocket.jpg" alt="새벽 하늘로 올라가는 로켓" loading="lazy"></div></figure></div>
     <p class="kp-band-t">그날 이후 나를 어떻게 남길지도 함께 정할 수 있어요.<br>유골 LP, 우주장 같은 방식도 사전 신청을 받고 있습니다.</p>
     <a class="kp-band-a" href="/keepsake/">자세히 보기 <span aria-hidden="true">→</span></a>
   </div>
@@ -1330,5 +1328,6 @@ window.addEventListener('load',function(){
 </script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/motion.js" defer></script>
+<script>/*kpVideoPlay*/(function(){var v=document.querySelector(".kp-video");if(!v||!("IntersectionObserver" in window))return;var seen=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;try{v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(_){}}});},{threshold:.35}).observe(v);})();</script>
 </body>
 </html>
