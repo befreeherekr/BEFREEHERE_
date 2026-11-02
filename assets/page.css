@@ -146,3 +146,6 @@ h1,h2,h3,.qa summary,.toc li{text-wrap:balance;}
 .rooms-l a:hover{color:#E9D3A4}.rooms-l a:hover i{transform:translateX(5px)}
 @media(max-width:768px){.footer-3{grid-template-columns:1fr 1fr;gap:2rem 1.4rem}.footer-3>div:first-child{grid-column:1/-1}
  .rooms{padding:3.2rem 1.25rem}.rooms-l,.rooms-4{grid-template-columns:1fr}.rooms-l a,.rooms-l a+a{padding:1.2rem 2rem 1.2rem 0;border-left:0}.rooms-l i{top:1.3rem;right:.2rem}}
+
+.nav-home{font-size:11.5px;letter-spacing:.1em;padding:9px 20px;border:.5px solid rgba(201,185,154,.5);border-radius:100px;color:#E9D3A4;transition:background .22s,border-color .22s}
+.nav-home:hover{background:rgba(201,185,154,.12);border-color:#c8a96e}
