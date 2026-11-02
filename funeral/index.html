@@ -231,6 +231,9 @@ body:has(a:hover) .cur,body:has(button:hover) .cur{width:18px;height:18px;}
   background:transparent;color:var(--gold);transition:all .22s;
 }
 .nav-cta:hover{background:var(--gold-dim);border-color:var(--gold);}
+.nav-links{margin-left:auto;margin-right:auto}.nav-call{margin-right:10px;text-decoration:none;display:inline-block;background:rgba(200,169,110,.14);border-color:rgba(200,169,110,.7);color:#E9D3A4;letter-spacing:.08em;text-transform:none}
+.nav-call{display:inline-flex;align-items:center;gap:8px}.nav-call .ph-ic{width:14px;height:14px}
+@media(max-width:768px){.nav-call{margin-right:0;padding:9px 14px}.nav-call .nc-n{display:none}.nav-call .ph-ic{width:17px;height:17px}.nav-call+.nav-cta{margin-left:6px!important}}
 
 /* ── HERO ───────────────────────────────────────────── */
 .hero{
@@ -1735,6 +1738,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#process">진행 과정</a></li>
   </ul>
+  <a class="nav-cta nav-call" href="tel:01089526368" aria-label="전화 상담"><svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.5h3l1.6 4.2-2 1.4a11.5 11.5 0 0 0 5.1 5.1l1.4-2 4.2 1.6v3a1.9 1.9 0 0 1-2 1.9A15.6 15.6 0 0 1 4.3 5.5a1.9 1.9 0 0 1 1.9-2z"/></svg><span class="nc-n">전화 상담</span></a>
   <button class="nav-cta" data-modal="open" data-source="24시간 상담">상담 문의</button>
 </nav>
 
@@ -2955,6 +2959,20 @@ function fpSwitchTab(idx) {
 @media(max-width:768px){.rooms{padding:4.2rem 1.4rem}.rooms-l{grid-template-columns:1fr}.rooms-l a,.rooms-l a+a{padding:1.3rem 2rem 1.3rem 0;border-left:0}.rooms-l i{top:1.4rem;right:.2rem}}
 </style>
 
+<style>
+.callstrip{background:#0e0d0b;border-top:.5px solid rgba(201,185,154,.1);padding:4rem 4rem 3.2rem;text-align:center}
+.callstrip-t{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.04em;line-height:1.8;color:rgba(243,239,230,.8);margin-bottom:1.4rem}
+.callstrip-t small{display:block;font-family:'Noto Sans KR',sans-serif;font-size:11.5px;letter-spacing:.06em;color:rgba(200,169,110,.8)}
+.callbtn{display:inline-flex;align-items:center;justify-content:center;gap:.9rem;min-width:320px;padding:17px 40px;border-radius:100px;text-decoration:none;background:rgba(200,169,110,.14);border:.5px solid rgba(200,169,110,.7);color:#E9D3A4;font-family:'Noto Serif KR',serif;font-weight:400;font-size:16px;line-height:1;letter-spacing:.08em;transition:background .25s,border-color .25s;-webkit-tap-highlight-color:transparent}
+.callbtn .ph-ic{width:18px;height:18px;flex-shrink:0}
+.callbtn:hover,.callbtn:active{background:rgba(200,169,110,.24);border-color:#c8a96e}
+@media(max-width:768px){.callstrip{padding:3rem 1.4rem 2.4rem}.callbtn{display:flex;min-width:0;width:100%}}
+</style>
+<section class="callstrip" aria-label="전화 상담">
+  <p class="callstrip-t"><small>24시간 상담</small>급하실 때는 바로 전화 주세요</p>
+  <a class="callbtn" href="tel:01089526368" aria-label="전화 상담"><svg class="ph-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.5h3l1.6 4.2-2 1.4a11.5 11.5 0 0 0 5.1 5.1l1.4-2 4.2 1.6v3a1.9 1.9 0 0 1-2 1.9A15.6 15.6 0 0 1 4.3 5.5a1.9 1.9 0 0 1 1.9-2z"/></svg>전화로 상담하기</a>
+</section>
+
 <footer>
   <div class="footer">
     <div>
@@ -3566,10 +3584,10 @@ function fpSwitchTab(idx) {
         <div id="cPanelPost" style="display:none;">
 
           <!-- Phone CTA -->
-          <a class="cq-phone-bar" href="tel:01089526368" aria-label="전화 상담 010-8952-6368">
+          <a class="cq-phone-bar" href="tel:01089526368" aria-label="전화 상담">
             <div>
               <div class="cq-phone-label">지금 바로 전화 상담</div>
-              <div class="cq-phone-num">010<i>·</i>8952<i>·</i>6368</div>
+              <div class="cq-phone-num" style="font-family:'Noto Serif KR',serif;font-size:19px;letter-spacing:.06em">전화로 바로 상담하기</div>
             </div>
             <span class="cq-phone-go" aria-hidden="true">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
@@ -3665,7 +3683,7 @@ function fpSwitchTab(idx) {
           <span id="cSubmitSpinner" style="display:none;">전송 중…</span>
         </button>
         <p style="font-size:11px;line-height:1.7;opacity:.55;text-align:center;margin-top:.9rem;">상담 신청 시 입력하신 정보는 상담 목적으로만 사용됩니다. <a href="/privacy.html" target="_blank" style="text-decoration:underline;">개인정보처리방침</a></p>
-        <p class="cq-notice">1시간 이내 연락드립니다 · 010-8952-6368</p>
+        <p class="cq-notice">1시간 이내 연락드립니다</p>
 
 
       </div>

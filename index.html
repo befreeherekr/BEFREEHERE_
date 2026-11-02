@@ -89,14 +89,37 @@ a{color:inherit;text-decoration:none}
   .c h2{font-size:25px;margin-bottom:.4rem}.c p{font-size:13px;margin-bottom:.7rem;line-height:1.6}
 }
 @media(prefers-reduced-motion:reduce){.c a,.c a img,.c span{transition:none}}
+.c .s1{--k:#40361d}.c .s2{--k:#232320}.c .s3{--k:#3a281c}
+.c a{background:var(--k)}
+.c a img{inset:0 0 auto 0;height:62%;object-position:50% 40%}
+.c a::before{background:linear-gradient(180deg,rgba(20,16,12,.1) 0%,rgba(0,0,0,0) 30%,color-mix(in srgb,var(--k) 70%,transparent) 48%,var(--k) 64%,var(--k) 100%)}
+.c h2,.c p{text-shadow:none}
+@media(max-width:768px){
+ .c a img{inset:0 0 0 auto;width:60%;height:100%}
+ .c a::before{background:linear-gradient(90deg,var(--k) 0%,var(--k) 42%,color-mix(in srgb,var(--k) 55%,transparent) 62%,rgba(0,0,0,0) 100%)}
+}
+.c .s1{--k:#ECEBE6;--h:#1B1A17;--p:rgba(27,26,23,.74);--l:#7D5F2A;--lb:rgba(125,95,42,.6)}
+.c .s2{--k:#D9C6A3;--h:#1B1A17;--p:rgba(27,26,23,.76);--l:#6B4F24;--lb:rgba(107,79,36,.6)}
+.c .s3{--k:#3a281c;--h:#F3EFE6;--p:rgba(243,239,230,.86);--l:#E9D3A4;--lb:rgba(233,211,164,.65)}
+.c h2{color:var(--h)}.c p{color:var(--p)}.c span{color:var(--l);border-bottom-color:var(--lb)}
+.c a+a{border-left-color:rgba(27,26,23,.14)}
+.c .s3{border-left-color:rgba(27,26,23,.14)}
+@media(max-width:768px){.c a+a{border-left:0;border-top:.5px solid rgba(27,26,23,.14)}}
+.c a::before{background:linear-gradient(180deg,rgba(20,16,12,.18) 0%,rgba(20,16,12,0) 22%)!important}
+.c a img{-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.55) 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 38%,rgba(0,0,0,.55) 62%,transparent 100%);height:66%}
+@media(max-width:768px){
+ .c a::before{background:none!important}
+ .c a img{height:100%;width:62%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 62%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 62%)}
+ .top::before{display:none}
+ .logo{color:#1B1A17;text-shadow:none}.top{text-shadow:none}.logo-en{color:#7D5F2A}
+}
+.logo-en{color:#F1E0B8}@media(max-width:768px){.logo-en{color:#7D5F2A}}
 </style>
 </head>
 <body>
 <h1 class="sr">비프리히어 — 생전추모식 · 유골 커스텀 · 장례식</h1>
 <header class="top">
-  <a class="logo" href="/" aria-label="비프리히어 홈"><span class="logo-kr">비프리히어</span><span class="logo-en">Befreehere</span></a>
-  <div class="qw"><p class="q">어떤 이야기를 찾고 오셨나요?</p><a class="rd-link" href="/read/">글 →</a></div>
-</header>
+  <a class="logo" href="/" aria-label="비프리히어 홈"><span class="logo-kr">비프리히어</span><span class="logo-en">Befreehere</span></a></header>
 <main class="c">
   <a class="s1" href="/living/"><img src="/images/ph/slideshow.jpg" alt="어두운 방에서 벽에 비친 옛 사진들을 함께 바라보는 사람들의 뒷모습"><div><h2>생전추모식</h2><p>살아있는 지금 건네는 인사</p><span>들어가기 →</span></div></a>
   <a class="s2" href="/keepsake/"><img src="/images/ph/lp-shelf.jpg" alt="낡은 레코드가 쌓인 책장에 기대어 둔 LP"><div><h2>유골 커스텀</h2><p>그날 이후, 나를 남기는 방식</p><span>들어가기 →</span></div></a>
