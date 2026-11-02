@@ -20,10 +20,10 @@
   var sprite = document.createElement('canvas'); sprite.width = sprite.height = 64;
   var s = sprite.getContext('2d');
   var g = s.createRadialGradient(32, 32, 0, 32, 32, 32);
-  g.addColorStop(0, 'rgba(255,236,200,1)');
-  g.addColorStop(0.18, 'rgba(236,200,140,.85)');
-  g.addColorStop(0.5, 'rgba(200,160,100,.22)');
-  g.addColorStop(1, 'rgba(200,160,100,0)');
+  g.addColorStop(0, 'rgba(255,228,208,1)');
+  g.addColorStop(0.18, 'rgba(247,186,142,.85)');
+  g.addColorStop(0.5, 'rgba(242,168,120,.24)');
+  g.addColorStop(1, 'rgba(242,168,120,0)');
   s.fillStyle = g; s.fillRect(0, 0, 64, 64);
 
   function place(p, anywhere) {
