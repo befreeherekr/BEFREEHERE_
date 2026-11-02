@@ -50,7 +50,7 @@ for room,(name,url) in ROOMS.items():
 
 # 모음 페이지
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
-footer = re.search(r'<footer>.*?</footer>', faq, flags=re.S).group(0)
+footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
 items = ''.join(
     f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts)
 hub = f'''<!DOCTYPE html>

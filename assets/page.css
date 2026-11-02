@@ -131,3 +131,18 @@ h1,h2,h3,.qa summary,.toc li{text-wrap:balance;}
 @media(max-width:768px){
   .page p{margin-bottom:1.35rem;}
 }
+
+/* 푸터 3단 + 다른 이야기 */
+.footer-3{grid-template-columns:1.4fr 1.3fr 1fr}
+.footer-3 .footer-links{gap:2px}.footer-3 .footer-links a{display:inline-block;padding:7px 0}
+.rooms{padding:5rem 4rem;border-top:.5px solid rgba(201,185,154,.1);background:var(--ink)}
+.rooms-l{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+.rooms-4{grid-template-columns:repeat(4,1fr)}
+.rooms-l a{display:flex;flex-direction:column;gap:.45rem;padding:1.5rem 2rem 1.5rem 0;border-top:.5px solid rgba(201,185,154,.3);position:relative;transition:color .2s}
+.rooms-l a+a{padding-left:1.4rem;border-left:.5px solid rgba(201,185,154,.18)}
+.rooms-l b{font-family:var(--kr);font-weight:400;font-size:clamp(18px,1.8vw,22px)}
+.rooms-l span{font-size:12.5px;color:var(--sub)}
+.rooms-l i{font-style:normal;color:var(--gold);position:absolute;right:1rem;top:1.6rem;transition:transform .3s}
+.rooms-l a:hover{color:#E9D3A4}.rooms-l a:hover i{transform:translateX(5px)}
+@media(max-width:768px){.footer-3{grid-template-columns:1fr 1fr;gap:2rem 1.4rem}.footer-3>div:first-child{grid-column:1/-1}
+ .rooms{padding:3.2rem 1.25rem}.rooms-l,.rooms-4{grid-template-columns:1fr}.rooms-l a,.rooms-l a+a{padding:1.2rem 2rem 1.2rem 0;border-left:0}.rooms-l i{top:1.3rem;right:.2rem}}

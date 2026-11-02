@@ -241,6 +241,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 <link rel="stylesheet" href="/assets/rhythm.css">
 <link rel="stylesheet" href="/assets/photos.css?v=1104">
 <style>
+html body .hero#home{background:#ECEBE6 url(/images/ph/lp-hero.jpg) 72% 50%/cover no-repeat!important}
+html body .hero#home::after{background:linear-gradient(90deg,rgba(236,235,230,.72) 0%,rgba(236,235,230,.42) 40%,rgba(236,235,230,0) 68%),linear-gradient(180deg,rgba(236,235,230,.5) 0%,rgba(236,235,230,0) 20%,rgba(236,235,230,0) 78%,#ECEBE6 100%)!important}
+@media(max-width:768px){html body .hero#home{background-position:78% 50%!important}html body .hero#home::after{background:linear-gradient(180deg,rgba(236,235,230,.78) 0%,rgba(236,235,230,.5) 55%,rgba(236,235,230,.12) 100%),linear-gradient(180deg,transparent 80%,#ECEBE6 100%)!important}}
+</style>
+
+<style>
 /* ── 휴대폰 다듬기 (인스타에서 들어오는 사람 대부분이 휴대폰) ── */
 html{-webkit-tap-highlight-color:transparent;}
 @media(max-width:768px){
@@ -678,14 +684,14 @@ p{text-wrap:pretty}
       </ul>
     </div>
     <div>
-      <div class="footer-col-label">Contact</div>
+      <div class="footer-col-label">문의</div>
       <ul class="footer-links">
         <li><a href="https://www.instagram.com/bfh.kr" target="_blank" rel="noopener noreferrer">bfh.kr</a></li>
         <li><a href="mailto:befreehere.kr@gmail.com">befreehere.kr@gmail.com</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-btm"><span class="footer-copy" style="display:block;margin-bottom:.5rem;color:rgba(27,26,23,.7);"><a href="/" style="text-decoration:underline;text-underline-offset:3px;">생전추모식 보러 가기</a></span><span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span></div>
+  <div class="footer-btm"><span class="footer-copy" style="display:block;margin-bottom:.5rem;color:rgba(27,26,23,.7);"><a href="/living/" style="text-decoration:underline;text-underline-offset:3px;">생전추모식 보러 가기</a></span><span class="footer-copy">© 2026 비프리히어 Befreehere. All rights reserved.</span></div>
 </footer>
 
 <!-- 사전 신청 창 -->
