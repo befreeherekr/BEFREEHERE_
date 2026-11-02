@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""읽을거리 모음(/read/)과 각 방(생전추모식·유골 커스텀·장례식) 아래 '읽어보세요' 구역을 read/posts.json 에서 다시 만든다.
+"""글 모음(/read/)과 각 방(생전추모식·유골 커스텀·장례식) 아래 '읽어보세요' 구역을 read/posts.json 에서 다시 만든다.
 새 글을 올릴 때: read/posts.json 맨 위에 한 줄 추가 → python3 tools/build_read.py
 (rooms 에는 어느 방에 보여줄지: living / keepsake / funeral)"""
 import json, re, html, pathlib
@@ -61,7 +61,7 @@ hub = f'''<!DOCTYPE html>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <title>글 모음 · 장례, 추모, 생전추모식 이야기 | 비프리히어</title>
-<meta name="description" content="무빈소 장례 절차, 부고 문자, 생전추모식 이야기까지. 비프리히어가 일주일에 한두 편씩 쓰는 읽을거리를 모았습니다."/>
+<meta name="description" content="무빈소 장례 절차, 부고 문자, 생전추모식 이야기까지. 비프리히어가 일주일에 한두 편씩 쓴 글을 모았습니다."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://befreeherekr.com/read/"/>
 <meta property="og:type" content="website"/>
@@ -90,7 +90,7 @@ hub = f'''<!DOCTYPE html>
     <li><a href="/funeral/">장례식</a></li>
     <li><a href="/living/">생전추모식</a></li>
     <li class="hide-m"><a href="/keepsake/">유골 커스텀</a></li>
-    <li><a href="/read/" aria-current="page">읽을거리</a></li>
+    <li><a href="/read/" aria-current="page">글</a></li>
   </ul>
 </nav>
 <main class="page" style="padding-top:2rem">
