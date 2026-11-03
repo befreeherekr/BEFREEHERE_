@@ -61,7 +61,7 @@ tags = [t for t in TAGS if any(p['tag'] == t for p in posts)] + [t for t in dict
 def dt(d): return d[:4] + '.' + d[5:7] + '.' + d[8:10]
 filters = '<button type="button" class="f on" data-t="">전체</button>' + ''.join(f'<button type="button" class="f" data-t="{e(t)}">{e(t)}</button>' for t in tags)
 items = f'<div class="bar"><div class="fs">{filters}</div><span class="cnt"><b id="cnt">{len(posts)}</b>개의 글</span></div>' + '<div class="rows">' + ''.join(
-    f'<a class="row" data-t="{e(p["tag"])}" href="{p["url"]}"><div class="row-m"><span class="row-t">{e(p["tag"])}</span><span class="row-d">{dt(p["date"])}</span></div><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts) + '</div>'
+    f'<a class="row" data-t="{e(p["tag"])}" href="{p["url"]}"><div class="row-m"><span class="row-t">{e(p["tag"])}</span><span class="row-d">{dt(p["date"])}</span></div><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p><i aria-hidden="true">→</i></a>' for p in posts) + '</div>'
 
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -85,22 +85,27 @@ hub = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-.bar{{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 0 1rem;border-bottom:.5px solid rgba(201,185,154,.3)}}
-.fs{{display:flex;flex-wrap:wrap;gap:.2rem 1.1rem}}
-.f{{background:none;border:0;padding:.35rem 0;font:inherit;font-size:14px;color:rgba(243,239,230,.5);cursor:pointer;border-bottom:.5px solid transparent;transition:color .2s}}
+.posts{{padding-top:.6rem}}
+.bar{{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:0 0 .9rem;border-bottom:.5px solid rgba(201,185,154,.34)}}
+.fs{{display:flex;flex-wrap:wrap;gap:.2rem 1.5rem}}
+.f{{background:none;border:0;padding:.35rem 0;font:inherit;font-size:14px;letter-spacing:.02em;color:rgba(243,239,230,.46);cursor:pointer;border-bottom:.5px solid transparent;transition:color .25s,border-color .25s}}
 .f:hover{{color:#F3EFE6}}
-.f.on{{color:#c8a96e;border-bottom-color:rgba(200,169,110,.6)}}
-.cnt{{font-size:12px;color:rgba(243,239,230,.42);white-space:nowrap}}
+.f.on{{color:#c8a96e;border-bottom-color:rgba(200,169,110,.7)}}
+.cnt{{font-size:12px;letter-spacing:.04em;color:rgba(243,239,230,.4);white-space:nowrap;padding-bottom:.4rem}}
 .cnt b{{font-weight:400;color:#c8a96e;margin-right:.2rem}}
-.rows{{margin-top:0}}
-.row{{display:block;padding:1.3rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:background .2s}}
-.row:hover{{background:rgba(255,255,255,.03)}}
+.row{{position:relative;display:block;padding:1.7rem 2.2rem 1.7rem 0;border-bottom:.5px solid rgba(201,185,154,.14);animation:rowin .45s ease both}}
 .row[hidden]{{display:none}}
-.row-m{{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.06em;color:rgba(243,239,230,.42);margin-bottom:.35rem}}
+@keyframes rowin{{from{{opacity:0;transform:translateY(6px)}}to{{opacity:1;transform:none}}}}
+.row-m{{display:flex;align-items:center;gap:.8rem;font-size:11.5px;letter-spacing:.1em;margin-bottom:.55rem}}
 .row-t{{color:#c8a96e}}
-.row h2{{margin:0 0 .35rem;font-size:clamp(17px,2.2vw,20px);line-height:1.5;font-weight:400}}
+.row-d{{color:rgba(243,239,230,.34);letter-spacing:.06em}}
+.row-d::before{{content:'';display:inline-block;width:14px;height:.5px;background:rgba(201,185,154,.35);vertical-align:middle;margin-right:.8rem}}
+.row h2{{margin:0 0 .5rem;font-size:clamp(18px,2.2vw,21px);line-height:1.55;font-weight:400;letter-spacing:-.01em;word-break:keep-all;transition:color .25s}}
+.row p{{margin:0!important;font-size:13px;line-height:1.85;color:rgba(243,239,230,.54);word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.row i{{position:absolute;right:.2rem;top:50%;transform:translate(-6px,-50%);font-style:normal;font-size:15px;color:#c8a96e;opacity:0;transition:opacity .25s,transform .25s}}
 .row:hover h2{{color:#fff}}
-.row p{{margin:0!important;font-size:13px;line-height:1.7;color:rgba(243,239,230,.58);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.row:hover i{{opacity:1;transform:translate(0,-50%)}}
+@media(hover:none){{.row i{{opacity:.55;transform:translate(0,-50%)}}}}
 </style>
 </head>
 <body>
