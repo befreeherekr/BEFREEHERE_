@@ -10,7 +10,7 @@ ROOMS = {'living':('생전추모식','/living/'),'keepsake':('유골 커스텀',
 
 def card(p, dark=False):
     return (f'<a class="rd-c" href="{p["url"]}">'
-            f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span><i aria-hidden="true">→</i></a>')
+            f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span></a>')
 
 CSS = '''<style>
 .rd{padding:6.5rem 4rem 4rem;font-family:'Gowun Batang','Noto Serif KR',serif;color:#1B1A17;background:#ECEBE6}
@@ -52,13 +52,13 @@ for room,(name,url) in ROOMS.items():
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
 
-BAND='<div class="home"><a href="/">처음으로 <i aria-hidden="true">→</i></a></div>\n'
+BAND='<div class="home"><a href="/">처음으로 </a></div>\n'
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
 TAGS = ['생전추모식', '유골 커스텀', '장례 안내', '자주 묻는 질문']
 tags = [t for t in TAGS if any(p['tag'] == t for p in posts)] + [t for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
 items = ''.join(
     f'<section class="grp"><header><h2>{e(t)}</h2><span>{len([p for p in posts if p["tag"] == t])}</span></header>' +
-    ''.join(f'<a class="row" href="{p["url"]}"><span>{e(p["title"])}</span><i aria-hidden="true">→</i></a>' for p in posts if p['tag'] == t) +
+    ''.join(f'<a class="row" href="{p["url"]}"><span>{e(p["title"])}</span></a>' for p in posts if p['tag'] == t) +
     '</section>' for t in tags)
 
 hub = f'''<!DOCTYPE html>
