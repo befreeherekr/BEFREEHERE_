@@ -727,14 +727,6 @@ p{text-wrap:pretty}
     <div class="modal-sub">신청해도 비용이 생기지 않습니다. 연락드려 상담부터 시작합니다.</div>
     <div id="kpFormBox">
       <div class="mfield">
-        <label>누구의 유골인가요?</label>
-        <div class="chip-group" id="chipWho">
-          <button type="button" class="chip" data-val="사람">사람</button>
-          <button type="button" class="chip" data-val="반려동물">반려동물</button>
-          <button type="button" class="chip" data-val="기타">기타</button>
-        </div>
-      </div>
-      <div class="mfield">
         <label>관심 있는 것 (여러 개 가능)</label>
         <div class="chip-group" id="chipKeep" data-multi="1">
           <button type="button" class="chip" data-val="유골 LP">유골 LP</button>
@@ -791,8 +783,7 @@ kSubmit.addEventListener('click',()=>{
   const keep=[...document.querySelectorAll('#chipKeep .chip.selected')].map(c=>c.dataset.val).join(', ');
   if(!validateFields([['kName',!!name],['kPhone',PHONE_RE.test(phone)],['kEmail',EMAIL_RE.test(email)]]))return;
   kSubmit.disabled=true; kSubmit.textContent='전송 중...';
-  const who=[...document.querySelectorAll('#chipWho .chip.selected')].map(c=>c.dataset.val).join(', ');
-  const message=[who?'유골 대상: '+who:'',keep?'관심 있는 것: '+keep:'',msg?'남기고 싶은 말: '+msg:''].filter(Boolean).join('\n');
+  const message=[keep?'관심 있는 것: '+keep:'',msg?'남기고 싶은 말: '+msg:''].filter(Boolean).join('\n');
   const payload=JSON.stringify({_subject:'[비프리히어] [유골 커스텀 사전 신청] '+name,_replyto:email,name,phone,email,message,source:'유골 커스텀 사전 신청 페이지(/keepsake)'});
   const xhr=new XMLHttpRequest();
   xhr.open('POST','https://formspree.io/f/mbdpqopv',true);
