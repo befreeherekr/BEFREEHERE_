@@ -90,7 +90,6 @@ blockquote{font-family:var(--kr);font-size:17px;line-height:1.9;color:var(--pape
 .related{margin-top:3.4rem;}
 .related a{display:block;padding:1.1rem 0;border-top:.5px solid rgba(201,185,154,.09);font-size:14px;color:var(--sub);transition:color .2s;}
 .related a:hover{color:var(--paper);}
-.related a::after{content:' →';color:var(--gold);}
 
 /* FOOTER */
 .footer{padding:3.5rem 4rem 2.5rem;border-top:.5px solid rgba(201,185,154,.08);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}

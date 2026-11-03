@@ -10,7 +10,7 @@ ROOMS = {'living':('생전추모식','/living/'),'keepsake':('유골 커스텀',
 
 def card(p, dark=False):
     return (f'<a class="rd-c" href="{p["url"]}">'
-            f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span><i aria-hidden="true">→</i></a>')
+            f'<b>{e(p["title"])}</b><span class="rd-d">{e(p["desc"])}</span></a>')
 
 CSS = '''<style>
 .rd{padding:6.5rem 4rem 4rem;font-family:'Gowun Batang','Noto Serif KR',serif;color:#1B1A17;background:#ECEBE6}
@@ -52,12 +52,15 @@ for room,(name,url) in ROOMS.items():
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
 
-ROOMCARDS=[('/living/','생전추모식','살아있는 지금 건네는 인사','slideshow.jpg','t-cream'),('/keepsake/','유골 커스텀','그날 이후, 나를 남기는 방식','lp-shelf.jpg','t-sand'),('/funeral/','장례식','그 사람다운 마지막 배웅','toast-garden.jpg','t-brown'),('/','처음으로','비프리히어 첫 화면','night-poster.jpg','t-clear-d')]
-BAND=('<link rel="stylesheet" href="/assets/gate.css?v=4"/>\n<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
- +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
+BAND='<div class="home"><a href="/">처음으로 </a></div>\n'
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
+TAGS = ['생전추모식', '유골 커스텀', '장례 안내', '자주 묻는 질문']
+tags = [t for t in TAGS if any(p['tag'] == t for p in posts)] + [t for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
 items = ''.join(
-    f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts)
+    f'<section class="grp"><header><h2>{e(t)}</h2><span>{len([p for p in posts if p["tag"] == t])}</span></header>' +
+    ''.join(f'<a class="row" href="{p["url"]}"><span>{e(p["title"])}</span></a>' for p in posts if p['tag'] == t) +
+    '</section>' for t in tags)
+
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -80,12 +83,21 @@ hub = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-.posts{{margin-top:0;border-top:.5px solid rgba(201,185,154,.14)}}
-.post{{display:block;padding:2.2rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:padding .3s}}
-.post:hover{{padding-left:.8rem}}
-.post h2{{margin:0 0 .6rem;font-size:clamp(20px,2.6vw,26px)}}
-.post p{{margin-bottom:0!important}}
-.post:hover h2{{color:#fff}}
+.posts{{padding-top:.4rem}}
+.grp{{padding:2.4rem 0 .6rem}}
+.grp:first-child{{padding-top:1rem}}
+.grp header{{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:.95rem;border-bottom:.5px solid rgba(201,185,154,.34)}}
+.grp h2{{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(24px,6vw,28px);letter-spacing:-.01em;line-height:1.3;color:#c8a96e}}
+.grp header span{{font-size:12px;letter-spacing:.06em;color:rgba(243,239,230,.4)}}
+.row{{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem 0;border-bottom:.5px solid rgba(201,185,154,.1);font-family:'Noto Serif KR',serif;font-weight:400;font-size:clamp(16px,4.2vw,18px);line-height:1.6;color:#F3EFE6;word-break:keep-all;transition:color .25s,padding .3s}}
+.row i{{flex:none;font-style:normal;color:rgba(200,169,110,.7);transition:transform .3s,color .25s}}
+.row:hover{{color:#fff;padding-left:.5rem}}
+.row:hover i{{color:#c8a96e;transform:translateX(4px)}}
+.row:focus-visible{{outline:.5px solid #c8a96e;outline-offset:4px}}
+.home{{text-align:center;padding:4.4rem 0 2.6rem}}
+.home a{{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.06em;color:#c8a96e;border-bottom:.5px solid rgba(200,169,110,.55);padding-bottom:6px;transition:color .25s,border-color .25s}}
+.home a:hover{{color:#e5cd96;border-bottom-color:#e5cd96}}
+.home i{{font-style:normal;margin-left:.3rem}}
 </style>
 </head>
 <body>
