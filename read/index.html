@@ -20,27 +20,21 @@
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.posts{padding-top:.6rem}
-.bar{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:0 0 .9rem;border-bottom:.5px solid rgba(201,185,154,.34)}
-.fs{display:flex;flex-wrap:wrap;gap:.2rem 1.5rem}
-.f{background:none;border:0;padding:.35rem 0;font:inherit;font-size:14px;letter-spacing:.02em;color:rgba(243,239,230,.46);cursor:pointer;border-bottom:.5px solid transparent;transition:color .25s,border-color .25s}
-.f:hover{color:#F3EFE6}
-.f.on{color:#c8a96e;border-bottom-color:rgba(200,169,110,.7)}
-.cnt{font-size:12px;letter-spacing:.04em;color:rgba(243,239,230,.4);white-space:nowrap;padding-bottom:.4rem}
-.cnt b{font-weight:400;color:#c8a96e;margin-right:.2rem}
-.row{position:relative;display:block;padding:1.7rem 2.2rem 1.7rem 0;border-bottom:.5px solid rgba(201,185,154,.14);animation:rowin .45s ease both}
-.row[hidden]{display:none}
-@keyframes rowin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.row-m{display:flex;align-items:center;gap:.8rem;font-size:11.5px;letter-spacing:.1em;margin-bottom:.55rem}
-.row-t{color:#c8a96e}
-.row-d{color:rgba(243,239,230,.34);letter-spacing:.06em}
-.row-d::before{content:'';display:inline-block;width:14px;height:.5px;background:rgba(201,185,154,.35);vertical-align:middle;margin-right:.8rem}
-.row h2{margin:0 0 .5rem;font-size:clamp(18px,2.2vw,21px);line-height:1.55;font-weight:400;letter-spacing:-.01em;word-break:keep-all;transition:color .25s}
-.row p{margin:0!important;font-size:13px;line-height:1.85;color:rgba(243,239,230,.54);word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.row i{position:absolute;right:.2rem;top:50%;transform:translate(-6px,-50%);font-style:normal;font-size:15px;color:#c8a96e;opacity:0;transition:opacity .25s,transform .25s}
-.row:hover h2{color:#fff}
-.row:hover i{opacity:1;transform:translate(0,-50%)}
-@media(hover:none){.row i{opacity:.55;transform:translate(0,-50%)}}
+.posts{padding-top:.4rem}
+.grp{padding:2.4rem 0 .6rem}
+.grp:first-child{padding-top:1rem}
+.grp header{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:.95rem;border-bottom:.5px solid rgba(201,185,154,.34)}
+.grp h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(24px,6vw,28px);letter-spacing:-.01em;line-height:1.3;color:#c8a96e}
+.grp header span{font-size:12px;letter-spacing:.06em;color:rgba(243,239,230,.4)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem 0;border-bottom:.5px solid rgba(201,185,154,.1);font-family:'Noto Serif KR',serif;font-weight:400;font-size:clamp(16px,4.2vw,18px);line-height:1.6;color:#F3EFE6;word-break:keep-all;transition:color .25s,padding .3s}
+.row i{flex:none;font-style:normal;color:rgba(200,169,110,.7);transition:transform .3s,color .25s}
+.row:hover{color:#fff;padding-left:.5rem}
+.row:hover i{color:#c8a96e;transform:translateX(4px)}
+.row:focus-visible{outline:.5px solid #c8a96e;outline-offset:4px}
+.home{text-align:center;padding:4.4rem 0 2.6rem}
+.home a{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.06em;color:#c8a96e;border-bottom:.5px solid rgba(200,169,110,.55);padding-bottom:6px;transition:color .25s,border-color .25s}
+.home a:hover{color:#e5cd96;border-bottom-color:#e5cd96}
+.home i{font-style:normal;margin-left:.3rem}
 </style>
 </head>
 <body>
@@ -50,15 +44,10 @@
 </nav>
 <main class="page" style="padding-top:2rem">
   <h1 class="sr">비프리히어 글 모음</h1>
-  <div class="posts"><div class="bar"><div class="fs"><button type="button" class="f on" data-t="">전체</button><button type="button" class="f" data-t="생전추모식">생전추모식</button><button type="button" class="f" data-t="유골 커스텀">유골 커스텀</button><button type="button" class="f" data-t="장례 안내">장례 안내</button><button type="button" class="f" data-t="자주 묻는 질문">자주 묻는 질문</button></div><span class="cnt"><b id="cnt">9</b>개의 글</span></div><div class="rows"><a class="row" data-t="유골 커스텀" href="/ashes-lp-record.html"><div class="row-m"><span class="row-t">유골 커스텀</span><span class="row-d">2026.11.03</span></div><h2>유골 LP란? 유골로 LP를 만드는 방법</h2><p>유골의 일부로 만드는 LP 음반, 담을 수 있는 노래와 목소리, 신청 방법을 정리했어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="유골 커스텀" href="/space-burial.html"><div class="row-m"><span class="row-t">유골 커스텀</span><span class="row-d">2026.11.03</span></div><h2>우주장이란? 유골을 우주로 보내는 방법</h2><p>유골을 캡슐에 담아 우주로 보내는 우주장의 순서와 발사 뒤 받는 것을 안내해요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="생전추모식" href="/living-funeral-guide.html"><div class="row-m"><span class="row-t">생전추모식</span><span class="row-d">2026.11.03</span></div><h2>생전 장례식이란? 살아있을 때 치르는 장례식</h2><p>생전 장례식의 뜻과 진행 순서를 순서대로 정리했어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="생전추모식" href="/living-funeral-cost.html"><div class="row-m"><span class="row-t">생전추모식</span><span class="row-d">2026.11.03</span></div><h2>생전 장례식 비용, 무엇에 비용이 드나요?</h2><p>비용이 드는 항목과 비교할 때 확인할 것, 생전추모식 200만 원에 포함되는 것을 안내해요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="유골 커스텀" href="/pet-ashes-keepsake.html"><div class="row-m"><span class="row-t">유골 커스텀</span><span class="row-d">2026.11.03</span></div><h2>반려동물 유골, 어떻게 간직할 수 있을까요?</h2><p>유골함 보관부터 스톤·보석, 자연으로 보내는 방법, 유골 LP와 우주장까지 정리했어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="유골 커스텀" href="/ashes-jewelry-lp-space.html"><div class="row-m"><span class="row-t">유골 커스텀</span><span class="row-d">2026.11.03</span></div><h2>유골 보석, 유골 LP, 우주장 비교</h2><p>유골을 남기는 세 가지 방법이 어떻게 다른지, 고르는 기준과 함께 비교해 봤어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="장례 안내" href="/funeral-guide.html"><div class="row-m"><span class="row-t">장례 안내</span><span class="row-d">2026.10.14</span></div><h2>무빈소 장례 절차, 임종부터 화장까지</h2><p>병원·자택 임종 시 첫 연락부터 안치, 부고, 입관, 발인과 화장까지 2일 장례의 순서를 정리했어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="장례 안내" href="/obituary-message.html"><div class="row-m"><span class="row-t">장례 안내</span><span class="row-d">2026.10.14</span></div><h2>무빈소 부고 문자 예시</h2><p>작은 장례를 조용히 알릴 때, 상황별로 바로 고쳐 쓸 수 있는 부고 문자 예시를 모았어요.</p><i aria-hidden="true">→</i></a><a class="row" data-t="자주 묻는 질문" href="/faq.html"><div class="row-m"><span class="row-t">자주 묻는 질문</span><span class="row-d">2026.10.14</span></div><h2>궁금한 것들, 미리 답합니다</h2><p>무빈소 장례 비용, 주변 시선, 건강할 때 생전추모식을 해도 되는지까지 가장 많이 받는 질문에 답했어요.</p><i aria-hidden="true">→</i></a></div></div>
-<script>
-const fb=document.querySelectorAll(".f"),rs=document.querySelectorAll(".row"),ct=document.getElementById("cnt");
-fb.forEach(b=>b.addEventListener("click",()=>{fb.forEach(x=>x.classList.toggle("on",x===b));let n=0;rs.forEach(r=>{const ok=!b.dataset.t||r.dataset.t===b.dataset.t;r.hidden=!ok;if(ok)n++;});ct.textContent=n;}));
-</script>
+  <div class="posts"><section class="grp"><header><h2>생전추모식</h2><span>2</span></header><a class="row" href="/living-funeral-guide.html"><span>생전 장례식이란? 살아있을 때 치르는 장례식</span><i aria-hidden="true">→</i></a><a class="row" href="/living-funeral-cost.html"><span>생전 장례식 비용, 무엇에 비용이 드나요?</span><i aria-hidden="true">→</i></a></section><section class="grp"><header><h2>유골 커스텀</h2><span>4</span></header><a class="row" href="/ashes-lp-record.html"><span>유골 LP란? 유골로 LP를 만드는 방법</span><i aria-hidden="true">→</i></a><a class="row" href="/space-burial.html"><span>우주장이란? 유골을 우주로 보내는 방법</span><i aria-hidden="true">→</i></a><a class="row" href="/pet-ashes-keepsake.html"><span>반려동물 유골, 어떻게 간직할 수 있을까요?</span><i aria-hidden="true">→</i></a><a class="row" href="/ashes-jewelry-lp-space.html"><span>유골 보석, 유골 LP, 우주장 비교</span><i aria-hidden="true">→</i></a></section><section class="grp"><header><h2>장례 안내</h2><span>2</span></header><a class="row" href="/funeral-guide.html"><span>무빈소 장례 절차, 임종부터 화장까지</span><i aria-hidden="true">→</i></a><a class="row" href="/obituary-message.html"><span>무빈소 부고 문자 예시</span><i aria-hidden="true">→</i></a></section><section class="grp"><header><h2>자주 묻는 질문</h2><span>1</span></header><a class="row" href="/faq.html"><span>궁금한 것들, 미리 답합니다</span><i aria-hidden="true">→</i></a></section></div>
 </main>
 <!-- 다른 이야기 -->
-<link rel="stylesheet" href="/assets/gate.css?v=4"/>
-<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4"><a class="gc t-cream" href="/living/"><img src="/images/ph/slideshow.jpg" alt="" loading="lazy"><div><b>생전추모식</b><span>살아있는 지금 건네는 인사</span><em>들어가기 →</em></div></a><a class="gc t-sand" href="/keepsake/"><img src="/images/ph/lp-shelf.jpg" alt="" loading="lazy"><div><b>유골 커스텀</b><span>그날 이후, 나를 남기는 방식</span><em>들어가기 →</em></div></a><a class="gc t-brown" href="/funeral/"><img src="/images/ph/toast-garden.jpg" alt="" loading="lazy"><div><b>장례식</b><span>그 사람다운 마지막 배웅</span><em>들어가기 →</em></div></a><a class="gc t-clear-d" href="/"><div><b>처음으로</b><span>비프리히어 첫 화면</span><em>들어가기 →</em></div></a></div></section>
+<div class="home"><a href="/">처음으로 <i aria-hidden="true">→</i></a></div>
 
 <footer>
   <div class="footer footer-3">

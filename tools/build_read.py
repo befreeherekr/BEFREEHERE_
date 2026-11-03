@@ -52,16 +52,14 @@ for room,(name,url) in ROOMS.items():
 faq = (ROOT/'faq.html').read_text(encoding='utf-8')
 footer = re.search(r'<!-- 다른 이야기 -->.*?</footer>', faq, flags=re.S).group(0)
 
-ROOMCARDS=[('/living/','생전추모식','살아있는 지금 건네는 인사','slideshow.jpg','t-cream'),('/keepsake/','유골 커스텀','그날 이후, 나를 남기는 방식','lp-shelf.jpg','t-sand'),('/funeral/','장례식','그 사람다운 마지막 배웅','toast-garden.jpg','t-brown'),('/','처음으로','비프리히어 첫 화면','night-poster.jpg','t-clear-d')]
-BAND=('<link rel="stylesheet" href="/assets/gate.css?v=4"/>\n<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
- +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
+BAND='<div class="home"><a href="/">처음으로 <i aria-hidden="true">→</i></a></div>\n'
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
 TAGS = ['생전추모식', '유골 커스텀', '장례 안내', '자주 묻는 질문']
 tags = [t for t in TAGS if any(p['tag'] == t for p in posts)] + [t for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
-def dt(d): return d[:4] + '.' + d[5:7] + '.' + d[8:10]
-filters = '<button type="button" class="f on" data-t="">전체</button>' + ''.join(f'<button type="button" class="f" data-t="{e(t)}">{e(t)}</button>' for t in tags)
-items = f'<div class="bar"><div class="fs">{filters}</div><span class="cnt"><b id="cnt">{len(posts)}</b>개의 글</span></div>' + '<div class="rows">' + ''.join(
-    f'<a class="row" data-t="{e(p["tag"])}" href="{p["url"]}"><div class="row-m"><span class="row-t">{e(p["tag"])}</span><span class="row-d">{dt(p["date"])}</span></div><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p><i aria-hidden="true">→</i></a>' for p in posts) + '</div>'
+items = ''.join(
+    f'<section class="grp"><header><h2>{e(t)}</h2><span>{len([p for p in posts if p["tag"] == t])}</span></header>' +
+    ''.join(f'<a class="row" href="{p["url"]}"><span>{e(p["title"])}</span><i aria-hidden="true">→</i></a>' for p in posts if p['tag'] == t) +
+    '</section>' for t in tags)
 
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -85,27 +83,21 @@ hub = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-.posts{{padding-top:.6rem}}
-.bar{{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:0 0 .9rem;border-bottom:.5px solid rgba(201,185,154,.34)}}
-.fs{{display:flex;flex-wrap:wrap;gap:.2rem 1.5rem}}
-.f{{background:none;border:0;padding:.35rem 0;font:inherit;font-size:14px;letter-spacing:.02em;color:rgba(243,239,230,.46);cursor:pointer;border-bottom:.5px solid transparent;transition:color .25s,border-color .25s}}
-.f:hover{{color:#F3EFE6}}
-.f.on{{color:#c8a96e;border-bottom-color:rgba(200,169,110,.7)}}
-.cnt{{font-size:12px;letter-spacing:.04em;color:rgba(243,239,230,.4);white-space:nowrap;padding-bottom:.4rem}}
-.cnt b{{font-weight:400;color:#c8a96e;margin-right:.2rem}}
-.row{{position:relative;display:block;padding:1.7rem 2.2rem 1.7rem 0;border-bottom:.5px solid rgba(201,185,154,.14);animation:rowin .45s ease both}}
-.row[hidden]{{display:none}}
-@keyframes rowin{{from{{opacity:0;transform:translateY(6px)}}to{{opacity:1;transform:none}}}}
-.row-m{{display:flex;align-items:center;gap:.8rem;font-size:11.5px;letter-spacing:.1em;margin-bottom:.55rem}}
-.row-t{{color:#c8a96e}}
-.row-d{{color:rgba(243,239,230,.34);letter-spacing:.06em}}
-.row-d::before{{content:'';display:inline-block;width:14px;height:.5px;background:rgba(201,185,154,.35);vertical-align:middle;margin-right:.8rem}}
-.row h2{{margin:0 0 .5rem;font-size:clamp(18px,2.2vw,21px);line-height:1.55;font-weight:400;letter-spacing:-.01em;word-break:keep-all;transition:color .25s}}
-.row p{{margin:0!important;font-size:13px;line-height:1.85;color:rgba(243,239,230,.54);word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
-.row i{{position:absolute;right:.2rem;top:50%;transform:translate(-6px,-50%);font-style:normal;font-size:15px;color:#c8a96e;opacity:0;transition:opacity .25s,transform .25s}}
-.row:hover h2{{color:#fff}}
-.row:hover i{{opacity:1;transform:translate(0,-50%)}}
-@media(hover:none){{.row i{{opacity:.55;transform:translate(0,-50%)}}}}
+.posts{{padding-top:.4rem}}
+.grp{{padding:2.4rem 0 .6rem}}
+.grp:first-child{{padding-top:1rem}}
+.grp header{{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:.95rem;border-bottom:.5px solid rgba(201,185,154,.34)}}
+.grp h2{{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(24px,6vw,28px);letter-spacing:-.01em;line-height:1.3;color:#c8a96e}}
+.grp header span{{font-size:12px;letter-spacing:.06em;color:rgba(243,239,230,.4)}}
+.row{{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem 0;border-bottom:.5px solid rgba(201,185,154,.1);font-family:'Noto Serif KR',serif;font-weight:400;font-size:clamp(16px,4.2vw,18px);line-height:1.6;color:#F3EFE6;word-break:keep-all;transition:color .25s,padding .3s}}
+.row i{{flex:none;font-style:normal;color:rgba(200,169,110,.7);transition:transform .3s,color .25s}}
+.row:hover{{color:#fff;padding-left:.5rem}}
+.row:hover i{{color:#c8a96e;transform:translateX(4px)}}
+.row:focus-visible{{outline:.5px solid #c8a96e;outline-offset:4px}}
+.home{{text-align:center;padding:4.4rem 0 2.6rem}}
+.home a{{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.06em;color:#c8a96e;border-bottom:.5px solid rgba(200,169,110,.55);padding-bottom:6px;transition:color .25s,border-color .25s}}
+.home a:hover{{color:#e5cd96;border-bottom-color:#e5cd96}}
+.home i{{font-style:normal;margin-left:.3rem}}
 </style>
 </head>
 <body>
@@ -116,10 +108,6 @@ hub = f'''<!DOCTYPE html>
 <main class="page" style="padding-top:2rem">
   <h1 class="sr">비프리히어 글 모음</h1>
   <div class="posts">{items}</div>
-<script>
-const fb=document.querySelectorAll(".f"),rs=document.querySelectorAll(".row"),ct=document.getElementById("cnt");
-fb.forEach(b=>b.addEventListener("click",()=>{{fb.forEach(x=>x.classList.toggle("on",x===b));let n=0;rs.forEach(r=>{{const ok=!b.dataset.t||r.dataset.t===b.dataset.t;r.hidden=!ok;if(ok)n++;}});ct.textContent=n;}}));
-</script>
 </main>
 {footer}
 </body>
