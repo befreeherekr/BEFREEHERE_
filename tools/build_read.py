@@ -56,8 +56,15 @@ ROOMCARDS=[('/living/','생전추모식','살아있는 지금 건네는 인사',
 BAND=('<link rel="stylesheet" href="/assets/gate.css?v=4"/>\n<section class="gate gate-d" aria-label="다른 이야기 보기"><div class="gate-g" style="--n:4">'
  +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
-items = ''.join(
-    f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts)
+TAGS = ['생전추모식', '유골 커스텀', '장례 안내', '자주 묻는 질문']
+groups = [(t, [p for p in posts if p['tag'] == t]) for t in TAGS]
+groups += [(t, [p for p in posts if p['tag'] == t]) for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
+groups = [(t, ps) for t, ps in groups if ps]
+jump = ' · '.join(f'<a href="#g{i}">{e(t)}</a>' for i, (t, ps) in enumerate(groups))
+items = f'<p class="jump">{jump}</p>' + ''.join(
+    f'<section class="grp" id="g{i}"><div class="grp-t">{e(t)}</div>' +
+    ''.join(f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in ps) +
+    '</section>' for i, (t, ps) in enumerate(groups))
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -80,10 +87,18 @@ hub = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-.posts{{margin-top:0;border-top:.5px solid rgba(201,185,154,.14)}}
+.posts{{margin-top:0}}
+.grp .post:first-of-type{{border-top:.5px solid rgba(201,185,154,.14)}}
 .post{{display:block;padding:2.2rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:padding .3s}}
 .post:hover{{padding-left:.8rem}}
-.post h2{{margin:0 0 .6rem;font-size:clamp(20px,2.6vw,26px)}}
+.jump{{margin:0 0 2.6rem;font-size:13.5px;letter-spacing:.04em;color:rgba(243,239,230,.5)}}
+.jump a{{color:#c8a96e;border-bottom:.5px solid rgba(200,169,110,.5);padding-bottom:2px;margin:0 .35rem}}
+.jump a:first-child{{margin-left:0}}
+.grp{{margin-bottom:3.4rem;scroll-margin-top:5rem}}
+.grp-t{{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;color:#c8a96e;margin-bottom:1.2rem}}
+.grp-t::before{{content:'';width:28px;height:.5px;background:#c8a96e}}
+.post{{padding:1.7rem 0}}
+.post h2{{margin:0 0 .6rem;font-size:clamp(20px,2.6vw,24px)}}
 .post p{{margin-bottom:0!important}}
 .post:hover h2{{color:#fff}}
 </style>
