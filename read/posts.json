@@ -1,5 +1,45 @@
 [
  {
+  "url": "/living-funeral-guide.html",
+  "tag": "생전추모식",
+  "date": "2026-11-03",
+  "rooms": [
+   "living"
+  ],
+  "title": "생전 장례식이란? 죽기 전에 치르는 장례식",
+  "desc": "생전 장례식의 뜻과 진행 순서, 준비하는 방법을 순서대로 정리했어요."
+ },
+ {
+  "url": "/living-funeral-cost.html",
+  "tag": "생전추모식",
+  "date": "2026-11-03",
+  "rooms": [
+   "living"
+  ],
+  "title": "생전 장례식 비용, 무엇에 비용이 드나요?",
+  "desc": "비용이 드는 항목과 비교할 때 확인할 것, 생전추모식 200만 원에 포함되는 것을 안내해요."
+ },
+ {
+  "url": "/pet-ashes-keepsake.html",
+  "tag": "유골 커스텀",
+  "date": "2026-11-03",
+  "rooms": [
+   "keepsake"
+  ],
+  "title": "반려동물 유골, 어떻게 간직할 수 있을까요?",
+  "desc": "유골함 보관부터 스톤·보석, 자연으로 보내는 방법, 유골 LP와 우주장까지 정리했어요."
+ },
+ {
+  "url": "/ashes-jewelry-lp-space.html",
+  "tag": "유골 커스텀",
+  "date": "2026-11-03",
+  "rooms": [
+   "keepsake"
+  ],
+  "title": "유골 보석, 유골 LP, 우주장 비교",
+  "desc": "유골을 남기는 세 가지 방법이 어떻게 다른지, 고르는 기준과 함께 비교해 봤어요."
+ },
+ {
   "url": "/funeral-guide.html",
   "tag": "장례 안내",
   "date": "2026-10-14",
