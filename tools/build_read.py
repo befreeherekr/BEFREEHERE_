@@ -57,14 +57,12 @@ BAND=('<link rel="stylesheet" href="/assets/gate.css?v=4"/>\n<section class="gat
  +''.join(f'<a class="gc {t}" href="{u}">{'' if u=='/' else f'<img src="/images/ph/{i}" alt="" loading="lazy">'}<div><b>{n}</b><span>{d}</span><em>들어가기 →</em></div></a>' for u,n,d,i,t in ROOMCARDS)+'</div></section>\n')
 footer = re.sub(r'<section class="rooms".*?</section>', lambda m: BAND, footer, count=1, flags=re.S)
 TAGS = ['생전추모식', '유골 커스텀', '장례 안내', '자주 묻는 질문']
-groups = [(t, [p for p in posts if p['tag'] == t]) for t in TAGS]
-groups += [(t, [p for p in posts if p['tag'] == t]) for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
-groups = [(t, ps) for t, ps in groups if ps]
-jump = ' · '.join(f'<a href="#g{i}">{e(t)}</a>' for i, (t, ps) in enumerate(groups))
-items = f'<p class="jump">{jump}</p>' + ''.join(
-    f'<section class="grp" id="g{i}"><div class="grp-t">{e(t)}</div>' +
-    ''.join(f'<a class="post" href="{p["url"]}"><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in ps) +
-    '</section>' for i, (t, ps) in enumerate(groups))
+tags = [t for t in TAGS if any(p['tag'] == t for p in posts)] + [t for t in dict.fromkeys(p['tag'] for p in posts) if t not in TAGS]
+def dt(d): return d[:4] + '.' + d[5:7] + '.' + d[8:10]
+filters = '<button type="button" class="f on" data-t="">전체</button>' + ''.join(f'<button type="button" class="f" data-t="{e(t)}">{e(t)}</button>' for t in tags)
+items = f'<div class="bar"><div class="fs">{filters}</div><span class="cnt"><b id="cnt">{len(posts)}</b>개의 글</span></div>' + '<div class="rows">' + ''.join(
+    f'<a class="row" data-t="{e(p["tag"])}" href="{p["url"]}"><div class="row-m"><span class="row-t">{e(p["tag"])}</span><span class="row-d">{dt(p["date"])}</span></div><h2>{e(p["title"])}</h2><p>{e(p["desc"])}</p></a>' for p in posts) + '</div>'
+
 hub = f'''<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -87,20 +85,22 @@ hub = f'''<!DOCTYPE html>
 <link rel="stylesheet" href="/assets/page.css"/>
 <style>
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
-.posts{{margin-top:0}}
-.grp .post:first-of-type{{border-top:.5px solid rgba(201,185,154,.14)}}
-.post{{display:block;padding:2.2rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:padding .3s}}
-.post:hover{{padding-left:.8rem}}
-.jump{{margin:0 0 2.6rem;font-size:13.5px;letter-spacing:.04em;color:rgba(243,239,230,.5)}}
-.jump a{{color:#c8a96e;border-bottom:.5px solid rgba(200,169,110,.5);padding-bottom:2px;margin:0 .35rem}}
-.jump a:first-child{{margin-left:0}}
-.grp{{margin-bottom:3.4rem;scroll-margin-top:5rem}}
-.grp-t{{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;color:#c8a96e;margin-bottom:1.2rem}}
-.grp-t::before{{content:'';width:28px;height:.5px;background:#c8a96e}}
-.post{{padding:1.7rem 0}}
-.post h2{{margin:0 0 .6rem;font-size:clamp(20px,2.6vw,24px)}}
-.post p{{margin-bottom:0!important}}
-.post:hover h2{{color:#fff}}
+.bar{{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 0 1rem;border-bottom:.5px solid rgba(201,185,154,.3)}}
+.fs{{display:flex;flex-wrap:wrap;gap:.2rem 1.1rem}}
+.f{{background:none;border:0;padding:.35rem 0;font:inherit;font-size:14px;color:rgba(243,239,230,.5);cursor:pointer;border-bottom:.5px solid transparent;transition:color .2s}}
+.f:hover{{color:#F3EFE6}}
+.f.on{{color:#c8a96e;border-bottom-color:rgba(200,169,110,.6)}}
+.cnt{{font-size:12px;color:rgba(243,239,230,.42);white-space:nowrap}}
+.cnt b{{font-weight:400;color:#c8a96e;margin-right:.2rem}}
+.rows{{margin-top:0}}
+.row{{display:block;padding:1.3rem 0;border-bottom:.5px solid rgba(201,185,154,.14);transition:background .2s}}
+.row:hover{{background:rgba(255,255,255,.03)}}
+.row[hidden]{{display:none}}
+.row-m{{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.06em;color:rgba(243,239,230,.42);margin-bottom:.35rem}}
+.row-t{{color:#c8a96e}}
+.row h2{{margin:0 0 .35rem;font-size:clamp(17px,2.2vw,20px);line-height:1.5;font-weight:400}}
+.row:hover h2{{color:#fff}}
+.row p{{margin:0!important;font-size:13px;line-height:1.7;color:rgba(243,239,230,.58);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
 </style>
 </head>
 <body>
@@ -111,6 +111,10 @@ hub = f'''<!DOCTYPE html>
 <main class="page" style="padding-top:2rem">
   <h1 class="sr">비프리히어 글 모음</h1>
   <div class="posts">{items}</div>
+<script>
+const fb=document.querySelectorAll(".f"),rs=document.querySelectorAll(".row"),ct=document.getElementById("cnt");
+fb.forEach(b=>b.addEventListener("click",()=>{{fb.forEach(x=>x.classList.toggle("on",x===b));let n=0;rs.forEach(r=>{{const ok=!b.dataset.t||r.dataset.t===b.dataset.t;r.hidden=!ok;if(ok)n++;}});ct.textContent=n;}}));
+</script>
 </main>
 {footer}
 </body>
